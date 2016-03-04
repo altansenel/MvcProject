@@ -42,7 +42,7 @@ public class UlkeController extends BaseController<Ulke> implements Serializable
 	}
 	
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(ulkeService.getEntityById(eid));
 		this.eid = eid; 
 	}

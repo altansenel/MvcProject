@@ -1,0 +1,7 @@
+package  com.dao;
+
+import com.entity.${entity.name};
+
+
+public interface I${entity.name}Dao extends IBaseDao<${entity.name}>{
+}

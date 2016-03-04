@@ -41,7 +41,7 @@ public class AdamController extends BaseController<Adam> implements Serializable
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(adamService.getEntityById(eid));
 		this.eid = eid;
 	}

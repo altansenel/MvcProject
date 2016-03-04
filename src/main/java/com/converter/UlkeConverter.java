@@ -41,7 +41,7 @@ public class UlkeConverter implements Converter, Serializable {
 			return null;
 
 		try {
-			Ulke temp = ulkeService.getEntityById(new Long(value));
+			Ulke temp = ulkeService.getEntityById(new Integer(value));
 			if (temp == null) {
 				// ((FacesMessages)
 				// Component.getInstance(FacesMessages.class)).add("#{messages['tahsilat.mesaj.bankaBulunamadi']}");

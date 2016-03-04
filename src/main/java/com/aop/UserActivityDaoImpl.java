@@ -16,7 +16,7 @@ public class UserActivityDaoImpl extends BaseDaoImpl<UserActivity> implements IU
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	public Long addUserActivity(UserActivity p) {
+	public Integer addUserActivity(UserActivity p) {
 		Session session = this.getSessionFactory().getCurrentSession();
 		session.persist(p);
 		getLogger().info("Entity saved successfully, Details=" + p);

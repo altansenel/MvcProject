@@ -42,8 +42,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, IUserDao> implements 
 	@Transactional
 	public Person getPerson(String username) throws Exception{
 		//return this.getEntityDAO().getUserByUsername(username);
-		User user = this.getEntityDAO().getEntityById(Long.valueOf(username));
-		User user2 = this.getEntityDAO().getEntityById(Long.valueOf("20"));
+		User user = this.getEntityDAO().getEntityById(Integer.valueOf(username));
+		User user2 = this.getEntityDAO().getEntityById(Integer.valueOf("20"));
 		user2.setEnabled(false);
 		this.getEntityDAO().update(user2);
 		if (user ==null) {

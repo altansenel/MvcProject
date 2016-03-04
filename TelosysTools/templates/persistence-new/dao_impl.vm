@@ -1,0 +1,13 @@
+package  com.dao;
+
+
+import org.springframework.stereotype.Repository;
+
+import com.entity.${entity.name};
+
+
+@Repository
+public class ${entity.name}DaoImpl extends BaseDaoImpl<${entity.name}> implements I${entity.name}Dao {
+	private static final long serialVersionUID = 1L;
+}
+

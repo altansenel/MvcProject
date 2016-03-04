@@ -1,15 +1,16 @@
 package com.controller;import java.io.Serializable;
 import java.util.ArrayList;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+
 import org.apache.log4j.Logger;
+
 import com.dao.IBankTransSourceService;
 import com.entity.BankTransSource;
-import com.enums.ProjectEnum.RelationType;
-import com.enums.ProjectEnum.AddSelect;
 
 @ViewScoped
 @ManagedBean(name = "bankTransSourceController")
@@ -38,7 +39,7 @@ setDataBean(null);
 }
 
 @Override
-public void setEid(Long eid) {
+public void setEid(Integer eid) {
 setEntity(bankTransSourceService.getEntityById(eid));
 this.eid = eid;
 }

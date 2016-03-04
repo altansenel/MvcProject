@@ -45,7 +45,7 @@ public class UserController extends BaseController<User> implements
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(userService.getEntityById(eid));
 		this.eid = eid;
 	}

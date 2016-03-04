@@ -1,0 +1,171 @@
+#set( $uncapitalizedEntityName = $fn.uncapitalize($entity.name) )
+
+## Link fields = fields not in Primary Key and used as FK in selected Links    
+#set( $linkFields = $entity.selectedLinks )
+
+## to make add methods unique
+#set($uniquePosts = [])
+#foreach($post in $linkFields) 
+    #set($exists = false)
+    #foreach($uniquePost in $uniquePosts)
+        #if($uniquePost.formattedFieldType(0) == $post.formattedFieldType(0))
+            #set($exists = true)
+            #break
+        #end
+    #end
+
+    #if(!$exists)
+        #set($added = $uniquePosts.add($post))
+    #end
+
+    #set($linkFields = $uniquePosts)
+#end
+
+
+package com.controller;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
+import org.apache.log4j.Logger;
+
+import org.demo.service.yeni.I${entity.name}Service;
+import org.demo.bean.yeni.${entity.name};
+import org.demo.enums.ProjectEnum.AddSelect;
+import org.demo.enums.ProjectEnum.RelationType;
+
+
+
+@ViewScoped
+@ManagedBean(name = "${uncapitalizedEntityName}Controller")
+public class ${entity.name}Controller extends BaseController<${entity.name}>
+		implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger
+			.getLogger(${entity.name}Controller.class);
+	@ManagedProperty(value = "#{${uncapitalizedEntityName}Service}")
+	private I${entity.name}Service ${uncapitalizedEntityName}Service;
+
+	@Override
+	public void createEntity() {
+		${entity.name} ${uncapitalizedEntityName} = new ${entity.name}();
+		setEntity(${uncapitalizedEntityName});
+	}
+
+	@Override
+	public void createEntityList() {
+		setEntityList(new ArrayList<${entity.name}>());
+	}
+
+	@Override
+	public void clean() {
+		setEntity(new ${entity.name}());
+		getEntityList().clear();
+	}
+
+	@Override
+	public void setEid(Integer eid) {
+		setEntity(${uncapitalizedEntityName}Service.getEntityById(eid));
+		this.eid = eid;
+	}
+
+	@PostConstruct
+	public void init() {
+		initBase();
+	}
+
+	public void search() {
+		setMessage(null);
+		setEntityList(this.${uncapitalizedEntityName}Service.list(getEntity()));
+	}
+
+	public void save(Integer id) {
+		try {
+			if (id != null) {
+				this.${uncapitalizedEntityName}Service.update(getEntity());
+				setMessage("${entity.name} is successfully updated");
+				clean();
+			} else {
+				this.${uncapitalizedEntityName}Service.add(getEntity());
+				setMessage("${entity.name} is successfully created");
+				clean();
+			}
+		} catch (Exception e) {
+			logger.error(e);
+			setMessage(e.getMessage());
+		}
+	}
+
+	public void remove(int row) {
+		try {
+			this.${uncapitalizedEntityName}Service.remove(getEntityList().get(row).getId());
+			setMessage("${entity.name} with id: "
+					+ getEntityList().get(row).getId()
+					+ " is succesfully deleted");
+			getEntityList().remove(row);
+		} catch (Exception e) {
+			setMessage(e.getMessage());
+		}
+	}
+
+	public String edit(int row) {
+		setEntity(this.${uncapitalizedEntityName}Service.getEntityById(getEntityList()
+				.get(row).getId()));
+		return "${uncapitalizedEntityName}?faces-redirect=true&entityId="
+				+ getEntityList().get(row).getId();
+	}
+
+	public String newEntity() {
+		setMessage(null);
+		setEntity(new ${entity.name}());
+		return "${uncapitalizedEntityName}?faces-redirect=true";
+	}
+
+	public I${entity.name}Service get${entity.name}Service() {
+		return ${uncapitalizedEntityName}Service;
+	}
+
+	public void set${entity.name}Service(I${entity.name}Service ${uncapitalizedEntityName}Service) {
+		this.${uncapitalizedEntityName}Service = ${uncapitalizedEntityName}Service;
+	}
+
+
+#foreach( $link in $linkFields )
+#if ( $link.isCardinalityManyToMany() || $link.isCardinalityOneToMany() )
+##şimdilik yok
+#else
+
+#set( $uncapitalizedLinkName = $fn.uncapitalize(${link.formattedFieldType(0)}) )
+
+	public String add${link.formattedFieldType(0)}(String pageName) {
+		DataBean dataBean = new DataBean();
+		if(FacesContext.getCurrentInstance()
+		.getExternalContext().getFlash().get("obj")!=null){
+			dataBean = (DataBean) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("obj");
+		}
+		dataBean.setObj(getEntity());
+		dataBean.setName(getEntity().getClass().getName());
+		dataBean.setFrom(pageName);
+		dataBean.setRelationType(RelationType.manyToOne);
+		
+		DataBean childDataBean = new DataBean();
+		childDataBean.setFrom("${uncapitalizedLinkName}List");
+		childDataBean.setName("org.demo.bean.yeni.${link.formattedFieldType(0)}");
+		childDataBean.setParentDataBean(dataBean);
+
+		FacesContext.getCurrentInstance().getExternalContext().getFlash()
+				.put("obj", childDataBean);
+		return "${uncapitalizedLinkName}List?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+	}
+
+#end
+#end
+
+
+}

@@ -52,7 +52,7 @@ public class RoleController extends BaseController<Role> implements Serializable
 	}
 	
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(roleService.getEntityById(eid));
 		this.eid = eid; 
 	}
@@ -125,7 +125,7 @@ public class RoleController extends BaseController<Role> implements Serializable
 		}
 	}
 
-	public void removeRoleUserList(Long id) {
+	public void removeRoleUserList(Integer id) {
 		this.roleUserService.remove(id);
 	}
 

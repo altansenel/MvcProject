@@ -26,7 +26,7 @@ public class HerHangiBirServiceImpl implements IHerHangiBirService, Serializable
 	@Override
 	@Transactional
 	public void HerHangiBirIslem() {
-		User user2 = userDao.getEntityById(Long.valueOf("20"));
+		User user2 = userDao.getEntityById(Integer.valueOf("20"));
 		personDao.getEntityById(user2.getId());
 		return;
 	}

@@ -23,7 +23,7 @@ public abstract class BaseServiceImpl<E,IDao extends IBaseDao<E>> implements IBa
  
     @Override
     @Transactional
-    public Long add(E entity) {
+    public Integer add(E entity) {
         return this.entityDAO.add(entity);
     }
  
@@ -47,13 +47,13 @@ public abstract class BaseServiceImpl<E,IDao extends IBaseDao<E>> implements IBa
  
     @Override
     @Transactional
-    public E getEntityById(Long id) {
+    public E getEntityById(Integer id) {
         return this.entityDAO.getEntityById(id);
     }
     
     @Override
     @Transactional
-    public void remove(Long id) {
+    public void remove(Integer id) {
         this.entityDAO.remove(id);
     }
 

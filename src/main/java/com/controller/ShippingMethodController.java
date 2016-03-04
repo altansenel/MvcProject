@@ -1,14 +1,15 @@
 package com.controller;import java.io.Serializable;
 import java.util.ArrayList;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
+
 import org.apache.log4j.Logger;
+
 import com.dao.IShippingMethodService;
 import com.entity.ShippingMethod;
-import com.enums.ProjectEnum.RelationType;
 
 @ViewScoped
 @ManagedBean(name = "shippingMethodController")
@@ -36,7 +37,7 @@ getEntityList().clear();
 }
 
 @Override
-public void setEid(Long eid) {
+public void setEid(Integer eid) {
 setEntity(shippingMethodService.getEntityById(eid));
 this.eid = eid;
 }

@@ -41,7 +41,7 @@ public class ProductController extends BaseController<Product> implements
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(productService.getEntityById(eid));
 		this.eid = eid;
 	}

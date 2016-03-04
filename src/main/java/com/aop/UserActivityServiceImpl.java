@@ -24,7 +24,7 @@ public class UserActivityServiceImpl  extends BaseServiceImpl<UserActivity, IUse
 	
     @Override
     @Transactional
-    public Long addUserActivity(UserActivity userActivity) {
+    public Integer addUserActivity(UserActivity userActivity) {
         return this.getEntityDAO().addUserActivity(userActivity);
     }
  

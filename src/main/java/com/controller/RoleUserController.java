@@ -41,7 +41,7 @@ public class RoleUserController extends BaseController<RoleUser> implements Seri
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(roleUserService.getEntityById(eid));
 		this.eid = eid;
 	}

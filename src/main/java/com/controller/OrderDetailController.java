@@ -44,7 +44,7 @@ public class OrderDetailController extends BaseController<OrderDetail>
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(orderDetailService.getEntityById(eid));
 		this.eid = eid;
 	}

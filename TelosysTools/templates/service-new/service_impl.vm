@@ -1,0 +1,14 @@
+package  com.dao;
+
+import org.springframework.stereotype.Service;
+
+import com.entity.${entity.name};
+import com.dao.I${entity.name}Dao;
+
+@Service
+public class ${entity.name}ServiceImpl extends BaseServiceImpl<${entity.name}, I${entity.name}Dao> implements
+		I${entity.name}Service {
+	private static final long serialVersionUID = 1L;
+}
+
+

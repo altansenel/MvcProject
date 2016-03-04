@@ -43,7 +43,7 @@ public class KitapController extends BaseController<Kitap> implements Serializab
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(kitapService.getEntityById(eid));
 		this.eid = eid;
 	}

@@ -45,7 +45,7 @@ public class OrderController extends BaseController<Order> implements
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(orderService.getEntityById(eid));
 		this.eid = eid;
 	}

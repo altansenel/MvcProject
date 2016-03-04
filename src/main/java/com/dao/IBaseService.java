@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract interface IBaseService<E>{
 	
-	public Long add(E entity);
+	public Integer add(E entity);
 
 	public void update(E entity);
 
@@ -12,9 +12,9 @@ public abstract interface IBaseService<E>{
 	
 	public List<E> list(E entity);
 
-	public E getEntityById(Long id);
+	public E getEntityById(Integer id);
 
-	public void remove(Long id);
+	public void remove(Integer id);
 	
 
 }

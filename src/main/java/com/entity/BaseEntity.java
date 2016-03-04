@@ -17,25 +17,27 @@ public abstract class BaseEntity implements Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	//private Long id;
+	protected Integer id;
 
 	@Version
 	@Column(name = "VERSION", columnDefinition = "NUMBER(19,0) default (0)")
-	private Long version;
+//	private Long version;
+	protected Integer version;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public Long getVersion() {
+	public Integer getVersion() {
 		return version;
 	}
 
-	public void setVersion(Long version) {
+	public void setVersion(Integer version) {
 		this.version = version;
 	}
 	

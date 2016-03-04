@@ -41,7 +41,7 @@ public class IlController extends BaseController<Il> implements Serializable {
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(ilService.getEntityById(eid));
 		this.eid = eid;
 	}

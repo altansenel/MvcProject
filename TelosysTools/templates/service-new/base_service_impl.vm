@@ -1,0 +1,58 @@
+package com.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.dao.IBaseDao;
+
+@Service
+public abstract class BaseServiceImpl<E,IDao extends IBaseDao<E>> implements IBaseService<E> , Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+    private IDao entityDAO;
+   
+    public IDao getEntityDAO() {
+		return entityDAO;
+	}
+
+	public void setEntityDAO(IDao entityDAO) {
+        this.entityDAO = entityDAO;
+    }
+ 
+
+    @Transactional
+    public Integer add(E entity) {
+        return this.entityDAO.add(entity);
+    }
+
+    @Transactional
+    public void update(E entity) {
+        this.entityDAO.update(entity);
+    }
+ 
+    @Transactional
+    public List<E> list() {
+        return this.entityDAO.list();
+    }
+
+    @Transactional
+    public List<E> list(E entity) {
+        return this.entityDAO.list(entity);
+    }
+ 
+    @Transactional
+    public E getEntityById(Integer id) {
+        return this.entityDAO.getEntityById(id);
+    }
+
+    @Transactional
+    public void remove(Integer id) {
+        this.entityDAO.remove(id);
+    }
+
+
+}
+

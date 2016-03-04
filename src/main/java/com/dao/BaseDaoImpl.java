@@ -70,7 +70,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity> implements IBaseDao<E>,
 
 
 	@Override
-	public Long add(E p) {
+	public Integer add(E p) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(p);
 		logger.info("Entity saved successfully, Details=" + p);
@@ -160,7 +160,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity> implements IBaseDao<E>,
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public E getEntityById(Long id) {
+	public E getEntityById(Integer id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		List<E> entityList = session
 				.createQuery(
@@ -178,7 +178,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity> implements IBaseDao<E>,
 	}
 
 	@Override
-	public void remove(Long id) {
+	public void remove(Integer id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		E entity = (E) session.load(getEntityClass(), new Long(id));
 		if (null != entity) {

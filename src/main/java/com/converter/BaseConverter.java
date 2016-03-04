@@ -35,7 +35,7 @@ public abstract class BaseConverter<E> implements Serializable, Converter {
 			return null;
 
 		try {
-			E temp = entityService.getEntityById(new Long(value));
+			E temp = entityService.getEntityById(new Integer(value));
 			if (temp == null) {
 				FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Component "
 						+ entityService.getClass().getInterfaces()[0].getName().toString().split(DOT)[2].split("Service")[0].substring(1) + " with id: "

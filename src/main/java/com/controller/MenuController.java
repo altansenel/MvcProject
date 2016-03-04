@@ -42,7 +42,7 @@ public class MenuController extends BaseController<Menu> implements
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(menuService.getEntityById(eid));
 		this.eid = eid;
 	}

@@ -1,15 +1,16 @@
 package com.controller;import java.io.Serializable;
 import java.util.ArrayList;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+
 import org.apache.log4j.Logger;
+
 import com.dao.ISinifService;
 import com.entity.Sinif;
-import com.enums.ProjectEnum.RelationType;
-import com.enums.ProjectEnum.AddSelect;
 
 @ViewScoped
 @ManagedBean(name = "sinifController")
@@ -38,7 +39,7 @@ setDataBean(null);
 }
 
 @Override
-public void setEid(Long eid) {
+public void setEid(Integer eid) {
 setEntity(sinifService.getEntityById(eid));
 this.eid = eid;
 }

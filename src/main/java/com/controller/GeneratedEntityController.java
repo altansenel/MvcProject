@@ -74,7 +74,7 @@ public class GeneratedEntityController extends BaseController<GeneratedEntity> i
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(generatedEntityService.getEntityById(eid));
 		this.eid = eid;
 	}
@@ -109,7 +109,7 @@ public class GeneratedEntityController extends BaseController<GeneratedEntity> i
 		}
 	}
 
-	public void removeGeneratedEntityFieldList(Long id) {
+	public void removeGeneratedEntityFieldList(Integer id) {
 		this.generatedEntityService.remove(id);
 	}
 

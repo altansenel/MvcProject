@@ -44,7 +44,7 @@ public class SehirController extends BaseController<Sehir> implements Serializab
 	}
 	
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(sehirService.getEntityById(eid));
 		this.eid = eid; 
 	}

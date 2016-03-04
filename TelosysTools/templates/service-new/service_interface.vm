@@ -1,0 +1,6 @@
+package  com.dao;
+
+import com.entity.${entity.name};
+
+public interface I${entity.name}Service extends IBaseService<${entity.name}>{
+}

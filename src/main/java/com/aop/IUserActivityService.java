@@ -5,6 +5,6 @@ import com.entity.UserActivity;
 
 public interface IUserActivityService extends IBaseService<UserActivity> {
 	
-	public Long addUserActivity(UserActivity userActivity);
+	public Integer addUserActivity(UserActivity userActivity);
 	
 }

@@ -1,15 +1,18 @@
 package com.controller;import java.io.Serializable;
 import java.util.ArrayList;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+
 import org.apache.log4j.Logger;
+
 import com.dao.IAlisverisService;
 import com.entity.Alisveris;
-import com.enums.ProjectEnum.RelationType;
 import com.enums.ProjectEnum.AddSelect;
+import com.enums.ProjectEnum.RelationType;
 
 @ViewScoped
 @ManagedBean(name = "alisverisController")
@@ -38,7 +41,7 @@ setDataBean(null);
 }
 
 @Override
-public void setEid(Long eid) {
+public void setEid(Integer eid) {
 setEntity(alisverisService.getEntityById(eid));
 this.eid = eid;
 }

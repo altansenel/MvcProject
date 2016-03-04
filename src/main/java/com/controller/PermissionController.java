@@ -44,7 +44,7 @@ public class PermissionController extends BaseController<Permission> implements
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(permissionService.getEntityById(eid));
 		this.eid = eid;
 	}

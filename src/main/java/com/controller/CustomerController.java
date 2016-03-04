@@ -56,7 +56,7 @@ public class CustomerController extends BaseController<Customer> implements Seri
 	}
 
 	@Override
-	public void setEid(Long eid) {
+	public void setEid(Integer eid) {
 		setEntity(customerService.getEntityById(eid));
 		this.eid = eid;
 	}
