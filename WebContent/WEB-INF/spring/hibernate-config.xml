@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url"
+			value="jdbc:mysql://localhost:3306/deneme" />
+		<beans:property name="username" value="deneme" />
+		<beans:property name="password" value="asd123" />
+
+
+	</beans:bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="packagesToScan" value="com.entity"/>
+		<!-- <beans:property name="annotatedClasses">
+			<beans:list>
+				<beans:value>com.entity.Menu</beans:value>
+				<beans:value>com.entity.Ulke</beans:value>
+				<beans:value>com.entity.Sehir</beans:value>
+				<beans:value>com.entity.Person</beans:value>
+				<beans:value>com.entity.Adres</beans:value>
+				<beans:value>com.entity.PersonAdres</beans:value>
+				<beans:value>com.entity.RoleUser</beans:value>
+				<beans:value>com.entity.RolePermission</beans:value>
+				<beans:value>com.entity.User</beans:value>
+				<beans:value>com.entity.Permission</beans:value>
+				<beans:value>com.entity.Role</beans:value>
+				<beans:value>com.entity.UserActivity</beans:value>
+				<beans:value>com.entity.GeneratedEntity</beans:value>
+				<beans:value>com.entity.GeneratedEntityField</beans:value>
+				<beans:value>com.entity.Adam</beans:value>
+			</beans:list>
+		</beans:property> -->
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory
+				</beans:prop>
+				<beans:prop key="hibernate.cache.use_second_level_cache">true</beans:prop>
+				<beans:prop key="hibernate.cache.use_query_cache">true</beans:prop>
+
+				<!-- audited için gerekli -->
+				<beans:prop key="org.hibernate.envers.revisionTypeFieldName">REVTYP</beans:prop> <!-- REVISION_TYPE -->
+				<beans:prop key="org.hibernate.envers.revisionFieldName">REV</beans:prop>  <!-- REVISION_ID -->
+				<beans:prop key="org.hibernate.envers.audit_table_suffix">_V</beans:prop>
+				<beans:prop key="org.hibernate.envers.revisionOnCollectionChange">false</beans:prop>
+
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+</beans:beans>

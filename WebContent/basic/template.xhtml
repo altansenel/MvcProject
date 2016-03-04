@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:c="http://java.sun.com/jstl/core" xmlns:gns="customtaglib">
+<h:head>
+	<!--     <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>MVC Project</title>
+
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	<h:outputStylesheet name="/css/styles.css" />
+	<link rel="stylesheet"
+		href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" />
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" />
+	<script
+		src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js" />
+
+	<!-- Custom styles for this template -->
+	<!-- 	<link href="navbar-static-top.css" rel="stylesheet" /> -->
+
+	<h:outputScript
+		src="resource:///org/richfaces/renderkit/html/scripts/jquery/jquery.js" />
+	<h:outputScript
+		src="resource:///org/richfaces/renderkit/html/scripts/jquery.hotkeys.js" />
+
+	<style type="text/css">
+body {
+	min-height: 2000px;
+}
+
+
+.navbar-static-top {
+	margin-bottom: 19px;
+}
+
+}
+</style>
+	<h:outputScript name="/js/mvcproject.js" target="head" />
+</h:head>
+
+
+<h:body>
+	<!-- 	<div class="container"> -->
+	<div id="header">
+		<ui:include src="/basic/info.xhtml" />
+	</div>
+	<div class="content">
+		<ui:insert name="content" />
+	</div>
+
+	<ui:include src="/basic/footer.xhtml" />
+	<!-- 	</div> -->
+</h:body>
+</html>

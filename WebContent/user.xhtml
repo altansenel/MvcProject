@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<sec:authorize
+			access="hasAnyRole('ROLE_ADMIN','ROLE_USER_ADD','ROLE_USER_UPDATE')">
+			<h:form id="main" class="form-horizontal" role="form">
+				<h:outputText value="#{userController.message}"
+					rendered="#{not empty userController.message}" />
+				<div class="panel-group">
+					<ui:decorate template="/basic/panel.xhtml">
+						<ui:param name="panelHeading" value="User" />
+						<ui:param name="inputHidden" value="#{userController.entity.id}" />
+						<ui:param name="left" value="true" />
+						<ui:param name="right" value="true" />
+						<ui:define name="leftPanel">
+							<c:if test="${!empty userController.entity.id}">
+								<ui:decorate template="/basic/row.xhtml">
+									<ui:param name="label" value="Id" />
+									<ui:param name="id" value="id" />
+									<ui:param name="inputText" value="#{userController.entity.id}" />
+									<ui:param name="errorPath" value="id" />
+								</ui:decorate>
+							</c:if>
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Username" />
+								<ui:param name="id" value="username" />
+								<ui:param name="inputText"
+									value="#{userController.entity.username}" />
+								<ui:param name="errorPath" value="username" />
+								<ui:param name="validatorMessage"
+									value="Bu alanı doldurmak zorundasınız!" />
+							</ui:decorate>
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Password" />
+								<ui:param name="id" value="password" />
+								<ui:param name="inputText"
+									value="#{userController.entity.password}" />
+								<ui:param name="errorPath" value="password" />
+								<ui:param name="validatorMessage"
+									value="Bu alanı doldurmak zorundasınız!" />
+							</ui:decorate>
+							<ui:decorate template="/basic/rowBoolean.xhtml">
+								<ui:param name="label" value="Enabled" />
+								<ui:param name="id" value="enabled" />
+								<ui:param name="inputText"
+									value="#{userController.entity.enabled}" />
+							</ui:decorate>
+						</ui:define>
+						<ui:define name="rightPanel">
+							<ui:decorate template="/basic/rowComplex.xhtml">
+								<ui:param name="label" value="Add roleUser" />
+								<ui:param name="controller" value="#{userController}" />
+								<ui:param name="controllerMethod" value="roleUserEkle" />
+								<ui:param name="controllerMethodArgument" value="user" />
+								<ui:define name="table">
+									<a:outputPanel ajaxRendered="true">
+										<r:accordion
+											rendered="#{userController.entity.roleUserList.size() > 0}">
+											<r:accordionItem header="RoleUser List">
+												<h:panelGrid columns="1">
+													<r:dataTable id="roleUserList" var="entity" class="tg"
+														rendered="#{userController.entity.roleUserList.size() > 0}"
+														value="#{userController.entity.roleUserList}" width="100%"
+														rows="3" rowKeyVar="rkv">
+														<r:column sortable="true">
+															<f:facet name="header">
+																<h:outputText value="Id" />
+															</f:facet>
+															<h:outputText value="#{entity.id}" />
+														</r:column>
+														<r:column sortable="true">
+															<f:facet name="header">
+																<h:outputText value="Role" />
+															</f:facet>
+															<h:outputText value="#{entity.role}" />
+														</r:column>
+														<r:column sortable="true">
+															<f:facet name="header">
+																<h:outputText value="User" />
+															</f:facet>
+															<h:outputText value="#{entity.user}" />
+														</r:column>
+														<sec:authorize access="hasRole('ROLE_ADMIN')">
+															<r:column>
+																<f:facet name="header">
+																	<h:outputText value="Delete" />
+																</f:facet>
+																<a:commandLink status="commonAjaxStatus"
+																	action="#{userController.removeRoleUser(rkv)}">
+																	<h:graphicImage alt="sil" title="sil"
+																		name="/images/form_delete.png" />
+																</a:commandLink>
+															</r:column>
+														</sec:authorize>
+														<f:facet name="footer">
+															<r:dataScroller renderIfSinglePage="false"
+																ajaxSingle="true" />
+														</f:facet>
+													</r:dataTable>
+												</h:panelGrid>
+											</r:accordionItem>
+										</r:accordion>
+									</a:outputPanel>
+								</ui:define>
+							</ui:decorate>
+						</ui:define>
+						<ui:define name="buttonPanel">
+							<div class="row">
+								<div class="col-sm-2">
+									<div class="panel panel-default">
+										<div class="row">
+											<div class="col-xs-6">
+												<h:commandButton styleClass="button" value="Save"
+													id="doSave" class="form-control"
+													action="#{userController.save(userController.entity.id)}" />
+											</div>
+											<div class="col-xs-6">
+												<h:link value="User List" class="form-control"
+													outcome="userList?faces-redirect=true" styleClass="button" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</ui:define>
+					</ui:decorate>
+				</div>
+				<br />
+				<br />
+			</h:form>
+		</sec:authorize>
+	</ui:define>
+</ui:composition>

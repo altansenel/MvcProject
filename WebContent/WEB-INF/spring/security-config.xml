@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+
+	<!-- <beans:import resource="hibernate-config.xml" /> -->
+	<beans:import resource="application-context.xml" />
+
+
+	<!-- buradaki alias applicaiton-context te logincontroller bean deki referans 
+		için -->
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider
+			user-service-ref="jdbcUserService">
+			<sec:password-encoder ref="encoder" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+	<!-- password encoder şifreleme için -->
+	<beans:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<beans:constructor-arg name="strength" value="11" />
+	</beans:bean>
+
+	<beans:bean id="jdbcUserService" class="com.spring.security.SpringSecurityDaoImpl">
+		<beans:property name="dataSource" ref="dataSource" />
+
+		<!-- <beans:property name="authoritiesByUsernameQuery"> <beans:value> SELECT 
+			U.username, P.NAME FROM ROLES R JOIN ROLE_MEMBERS RM on R.id = RM.roles_id 
+			JOIN USERS U on U.id = RM.members_id JOIN ROLE_PERMISSIONS RP ON RP.roles_id 
+			= R.id JOIN PERMISSIONS P ON P.id = RP.permissions_id WHERE U.username=? 
+			</beans:value> </beans:property> -->
+
+		<beans:property name="usersByUsernameQuery">
+			<beans:value>select username,password, enabled from users where
+				username=?
+			</beans:value>
+		</beans:property>
+
+
+		<!-- aşağıdaki enable etme olayı groupAuthoritiesByUsernameQuery için gerekli -->
+		<beans:property name="enableGroups" value="true" />
+		<beans:property name="enableAuthorities" value="false" />
+
+		<beans:property name="groupAuthoritiesByUsernameQuery">
+			<beans:value>SELECT R.ID, R.NAME, P.NAME
+				FROM ROLES R
+				JOIN ROLE_MEMBERS
+				RM on
+				R.id = RM.roles_id
+				JOIN USERS U on U.id = RM.members_id
+				JOIN
+				ROLE_PERMISSIONS RP ON RP.roles_id = R.id
+				JOIN PERMISSIONS P ON P.id
+				= RP.permissions_id
+				WHERE U.username=?
+			</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<!-- bu kodda metod bazında kontrol için -->
+	<sec:global-method-security
+		secured-annotations="enabled" />
+
+	<sec:http use-expressions="true" auto-config="true">
+		<sec:csrf disabled="true" />
+		<sec:intercept-url pattern="/login" access='isAnonymous()'
+			requires-channel='http' />
+		<sec:intercept-url pattern="/login.xhtml" access='isAnonymous()'
+			requires-channel='http' />
+		<!-- sıralamada en specificten balmaya çalış -->
+		<!-- hosRole hepsi ROLE_ ile başlar sonrasında hepsi büyük harf ve arada 
+			boşluk yok 2 * diğerleri demek -->
+		<!-- <sec:intercept-url pattern="/persons/add/**" access="hasAnyRole('ROLE_PERSON_ADD','ROLE_ADMIN')" 
+			/> <sec:intercept-url pattern="/person/edit/**" access="hasAnyRole('ROLE_PERSON_EDIT','ROLE_ADMIN')" 
+			/> <sec:intercept-url pattern="/person/remove/**" access="hasAnyRole('ROLE_PERSON_REMOVE','ROLE_ADMIN')" 
+			/> -->
+
+		<sec:intercept-url pattern="/personList**"
+			access="hasAnyRole('ROLE_PERSON_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/person**"
+			access="hasAnyRole('ROLE_PERSON_ADD','ROLE_PERSON_UPDATE','ROLE_ADMIN')" />
+
+		<sec:intercept-url pattern="/userList**"
+			access="hasAnyRole('ROLE_USER_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/user**"
+			access="hasAnyRole('ROLE_USER_ADD','ROLE_USER_UPDATE','ROLE_ADMIN')" />
+
+		<sec:intercept-url pattern="/roleList**"
+			access="hasAnyRole('ROLE_ROLE_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/role**"
+			access="hasAnyRole('ROLE_ROLE_ADD','ROLE_ROLE_UPDATE','ROLE_ADMIN')" />
+
+		<sec:intercept-url pattern="/sehirList**"
+			access="hasAnyRole('ROLE_SEHIR_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/sehir**"
+			access="hasAnyRole('ROLE_SEHIR_ADD','ROLE_SEHIR_UPDATE','ROLE_ADMIN')" />
+
+		<sec:intercept-url pattern="/customerList**"
+			access="hasAnyRole('ROLE_CUSTOMER_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/customer**"
+			access="hasAnyRole('ROLE_CUSTOMER_ADD','ROLE_CUSTOMER_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/employeeList**"
+			access="hasAnyRole('ROLE_EMPLOYEE_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/employee**"
+			access="hasAnyRole('ROLE_EMPLOYEE_ADD','ROLE_EMPLOYEE_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/shippingMethodList**"
+			access="hasAnyRole('ROLE_SHIPPINGMETHOD_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/shippingMethod**"
+			access="hasAnyRole('ROLE_SHIPPINGMETHOD_ADD','ROLE_SHIPPINGMETHOD_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/productList**"
+			access="hasAnyRole('ROLE_PRODUCT_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/product**"
+			access="hasAnyRole('ROLE_PRODUCT_ADD','ROLE_PRODUCT_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/paymentMethodList**"
+			access="hasAnyRole('ROLE_PAYMENTMETHOD_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/paymentMethod**"
+			access="hasAnyRole('ROLE_PAYMENTMETHOD_ADD','ROLE_PAYMENTMETHOD_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/orderList**"
+			access="hasAnyRole('ROLE_ORDER_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/order**"
+			access="hasAnyRole('ROLE_ORDER_ADD','ROLE_ORDER_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/orderDetailList**"
+			access="hasAnyRole('ROLE_ORDERDETAIL_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/orderDetail**"
+			access="hasAnyRole('ROLE_ORDERDETAIL_ADD','ROLE_ORDERDETAIL_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/paymentList**"
+			access="hasAnyRole('ROLE_PAYMENT_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/payment**"
+			access="hasAnyRole('ROLE_PAYMENT_ADD','ROLE_PAYMENT_UPDATE','ROLE_ADMIN')" />
+
+		<sec:intercept-url pattern="/sinifList**"
+			access="hasAnyRole('ROLE_SINIF_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/sinif**"
+			access="hasAnyRole('ROLE_SINIF_ADD','ROLE_SINIF_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/dolapList**"
+			access="hasAnyRole('ROLE_DOLAP_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/dolap**"
+			access="hasAnyRole('ROLE_DOLAP_ADD','ROLE_DOLAP_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/ogrenciList**"
+			access="hasAnyRole('ROLE_OGRENCI_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/ogrenci**"
+			access="hasAnyRole('ROLE_OGRENCI_ADD','ROLE_OGRENCI_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/kitapList**"
+			access="hasAnyRole('ROLE_KITAP_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/kitap**"
+			access="hasAnyRole('ROLE_KITAP_ADD','ROLE_KITAP_UPDATE','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/alisverisList**"
+			access="hasAnyRole('ROLE_ALISVERIS_VIEW','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/alisveris**"
+			access="hasAnyRole('ROLE_ALISVERIS_ADD','ROLE_ALISVERIS_UPDATE','ROLE_ADMIN')" />
+
+
+		<sec:intercept-url pattern='/**' access='isAuthenticated()'
+			requires-channel='http' />
+
+		<sec:access-denied-handler ref="accessDeniedHandler" />
+		<!-- <sec:form-login login-page="/login" authentication-failure-url="/login" 
+			default-target-url="/" /> -->
+		<!-- <sec:logout logout-url="/logout" logout-success-url="/login" /> -->
+		<sec:form-login login-page="/login.xhtml"
+			authentication-failure-url="/login.xhtml" default-target-url="/" />
+		<sec:logout logout-url="/logout" logout-success-url="/login.xhtml" />
+		<!-- <security:form-login login-page="/faces/login.xhtml" authentication-failure-url="/faces/login.xhtml?error=1" 
+			default-target-url="/faces/index.xhtml" authentication-details-source-ref="myAuthenticationDetailsSource" 
+			username-parameter="username" password-parameter="password" /> -->
+
+	</sec:http>
+
+	<beans:bean id="accessDeniedHandler"
+		class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<beans:property name="errorPage" value="/error.xhtml" />
+	</beans:bean>
+
+
+
+</beans:beans>
+
+
+
+	

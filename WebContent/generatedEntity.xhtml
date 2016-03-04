@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{generatedEntityController.message}"
+				rendered="#{not empty generatedEntityController.message}" />
+			<div class="panel-group" id="generatedEntityDiv">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="Generated Entity" />
+					<ui:param name="inputHidden"
+						value="#{generatedEntityController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty generatedEntityController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{generatedEntityController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Table" />
+							<ui:param name="id" value="table" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.entity.table}" />
+							<ui:param name="errorPath" value="table" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Entity" />
+							<ui:param name="id" value="entity" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.entity.entity}" />
+							<ui:param name="errorPath" value="entity" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Column Name" />
+							<ui:param name="id" value="columnName" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.columnName}" />
+							<ui:param name="errorPath" value="columnName" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="Column Type" />
+							<ui:param name="id" value="columnType" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.columnType}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getAltanKolonColumnType()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Data Type" />
+							<ui:param name="id" value="dataType" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.dataType}" />
+							<ui:param name="errorPath" value="dataType" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Data Name" />
+							<ui:param name="id" value="dataName" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.dataName}" />
+							<ui:param name="errorPath" value="dataName" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Foreign Key" />
+							<ui:param name="id" value="foreignKey" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.foreignKey}" />
+							<ui:param name="errorPath" value="foreignKey" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="Fetch Mode" />
+							<ui:param name="id" value="fetchMode" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.fetchMode}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getAltanKolonFetchMode()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="Enumerated" />
+							<ui:param name="id" value="enumerated" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.enumerated}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getAltanKolonEnumerated()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Enum Name" />
+							<ui:param name="id" value="enumName" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.enumName}" />
+							<ui:param name="errorPath" value="enumName" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="One To Many Data List Name" />
+							<ui:param name="id" value="oneToManyDataListName" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.oneToManyDataListName}" />
+							<ui:param name="errorPath" value="oneToManyDataListName" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="One To One" />
+							<ui:param name="id" value="oneToOne" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.oneToOne}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getCevap()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="Min" />
+							<ui:param name="id" value="min" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.min}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getCevap()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="Not Null" />
+							<ui:param name="id" value="notNull" />
+							<ui:param name="selectOneMenu"
+								value="#{generatedEntityController.generatedEntityField.notNull}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getCevap()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Pattern" />
+							<ui:param name="id" value="pattern" />
+							<ui:param name="inputText"
+								value="#{generatedEntityController.generatedEntityField.pattern}" />
+							<ui:param name="errorPath" value="pattern" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowComplex.xhtml">
+							<ui:param name="label" value="Add Generated Field" />
+							<ui:param name="controller" value="#{generatedEntityController}" />
+							<ui:param name="controllerMethod"
+								value="generatedEntityFieldEkle" />
+							<ui:param name="controllerMethodArgument"
+								value="#{generatedEntityController.generatedEntityField}" />
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{generatedEntityController.entity.generatedEntityFieldList.size() > 0}">
+										<r:accordionItem header="Generated Field List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="roleList" var="entity"
+													rendered="#{generatedEntityController.entity.generatedEntityFieldList.size() > 0}"
+													value="#{generatedEntityController.entity.generatedEntityFieldList}"
+													width="100%" rows="3" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Column Name" />
+														</f:facet>
+														<h:outputText value="#{entity.columnName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Column Type" />
+														</f:facet>
+														<h:outputText value="#{entity.columnType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Data Type" />
+														</f:facet>
+														<h:outputText value="#{entity.dataType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Data Name" />
+														</f:facet>
+														<h:outputText value="#{entity.dataName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Foreign Key" />
+														</f:facet>
+														<h:outputText value="#{entity.foreignKey}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Index Name" />
+														</f:facet>
+														<h:outputText value="#{entity.indexName}" />
+													</r:column>
+													<!-- 													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Fetch Mode" />
+														</f:facet>
+														<h:outputText value="#{entity.fetchMode}" />
+													</r:column> -->
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Enumerated" />
+														</f:facet>
+														<h:outputText value="#{entity.enumerated}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Enum Name" />
+														</f:facet>
+														<h:outputText value="#{entity.enumName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="OneToManyDataListName" />
+														</f:facet>
+														<h:outputText value="#{entity.oneToManyDataListName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="One To One" />
+														</f:facet>
+														<h:outputText value="#{entity.oneToOne}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Min" />
+														</f:facet>
+														<h:outputText value="#{entity.min}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Not Null" />
+														</f:facet>
+														<h:outputText value="#{entity.notNull}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Pattern" />
+														</f:facet>
+														<h:outputText value="#{entity.pattern}" />
+													</r:column>
+													<r:column>
+														<f:facet name="header">
+															<h:outputText value="Delete" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{generatedEntityController.removeGeneratedEntityField(rkv)}">
+															<h:graphicImage alt="sil" title="sil"
+																name="/images/form_delete.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{generatedEntityController.save(generatedEntityController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="Generated Entity List" class="form-control"
+												outcome="generatedEntityList?faces-redirect=true"
+												styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

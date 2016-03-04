@@ -1,0 +1,262 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	xmlns:b="http://bootsfaces.net/ui">
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Sehir Page</title>
+		<style type="text/css">
+.tg {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-color: #ccc;
+}
+
+.tg td {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #fff;
+}
+
+.tg th {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px;
+	overflow: hidden;
+	word-break: normal;
+	border-color: #ccc;
+	color: #333;
+	background-color: #f0f0f0;
+}
+
+.tg .tg-4eph {
+	background-color: #f9f9f9
+}
+</style>
+
+	</h:head>
+	<h:body>
+		<h:form> -->
+
+<!-- 		
+		
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main">
+			<h:outputText value="#{sehirController.message}"
+				rendered="#{not empty sehirController.message}" />
+			<r:panel>
+				<f:facet name="header">
+					<h:outputLabel value="Sehir" />
+				</f:facet>
+				<h:inputHidden value="#{sehirController.entity.id}" />
+				<h:panelGrid columns="4">
+					<c:if test="${!empty sehirController.entity.id}">
+						<h:outputText value="id" />
+						<h:inputText id="id" required="true" readonly="true"
+							value="#{sehirController.entity.id}"
+							converterMessage="Please enter digits only."
+							validatorMessage="String is not valid (only characters 0-9)">
+						</h:inputText>
+						<h:message for="id" />
+						<h:outputText value="" />
+					</c:if>
+					<h:outputText value="name" />
+					<h:inputText id="name" value="#{sehirController.entity.name}"
+						validatorMessage="String is not valid (only characters a-z A-Z)">
+						<form:errors path="name" />
+					</h:inputText>
+					<h:message for="name" />
+					<h:outputText value="" />
+					<h:outputText value="Add Ulke" />
+					<h:inputText id="sehir" value="#{sehirController.entity.ulke}"
+						converter="#{ulkeConverter}"
+						validatorMessage="Bu alan dolu olmalı!"
+						requiredMessage="Bu alanı doldurmak zorundasınız!">
+						<form:errors path="sehir" />
+					</h:inputText>
+					<h:message for="ulke" />
+					<a:commandLink action="#{sehirController.addUlke()}"
+						immediate="true">
+						<h:graphicImage alt="ara" title="ara"
+							name="/images/form_search.png" />
+					</a:commandLink>
+				</h:panelGrid>
+				<br />
+				<h:commandButton styleClass="button" value="Save"
+					action="#{sehirController.save(sehirController.entity.id)}" />
+				<h:link value="Sehir List" outcome="sehirList?faces-redirect=true"
+					styleClass="button" />
+			</r:panel>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition> -->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{sehirController.message}"
+				rendered="#{not empty sehirController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/panel.xhtml">
+					<ui:param name="panelHeading" value="Sehir" />
+					<ui:param name="inputHidden" value="#{sehirController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty sehirController.entity.id}">
+							<ui:decorate template="/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{sehirController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+						<ui:decorate template="/row.xhtml">
+							<ui:param name="label" value="Name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText" value="#{sehirController.entity.name}" />
+							<ui:param name="errorPath" value="name" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/rowManyToOne.xhtml">
+							<ui:param name="label" value="Ulke" />
+							<ui:param name="id" value="ulke" />
+							<ui:param name="inputText" value="#{sehirController.entity.ulke}" />
+							<ui:param name="errorPath" value="ulke" />
+							<ui:param name="converter" value="#{ulkeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controller" value="#{sehirController}" />
+							<ui:param name="controllerMethod" value="addUlke" />
+							<ui:param name="controllerMethodArgument" value="sehir" />
+						</ui:decorate>
+
+					</ui:define>
+<!-- 					<ui:define name="rightPanel">
+						<ui:decorate template="/rowComplex.xhtml">
+							<ui:param name="label" value="Add Person" />
+							<ui:param name="controller" value="#{sehirController}" />
+							<ui:param name="controllerMethod" value="personEkle" />
+							<ui:param name="controllerMethodArgument" value="sehir" />
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{sehirController.entity.personList.size() > 0}">
+										<r:accordionItem header="Person List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="personList" var="entity" class="tg"
+													rendered="#{sehirController.entity.personList.size() > 0}"
+													value="#{sehirController.entity.personList}" width="100%"
+													rows="3" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Name" />
+														</f:facet>
+														<h:outputText value="#{entity.name}" />
+													</r:column>
+													<sec:authorize access="hasRole('ROLE_ADMIN')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{sehirController.removePerson(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define> -->
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{sehirController.save(sehirController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="Sehir List" class="form-control"
+												outcome="sehirList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+

@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:a="http://richfaces.org/a4j">
+	<div class="row">
+		<h:outputText value="#{label}" class="control-label col-xs-2"
+			for="reference" />
+		<div class="col-xs-5">
+			<h:inputText id="#{id}" value="#{inputText}" converter="#{converter}"
+				validatorMessage="#{validatorMessage}"
+				requiredMessage="Bu alanı doldurmak zorundasınız!">
+				<!-- <form:errors path="#{errorPath}" /> -->
+			</h:inputText>
+		</div>
+		<div class="col-xs-4">
+			<h:message for="#{id}" />
+		</div>
+		<div class="col-xs-1">
+			<a:commandLink
+				action="#{controller[controllerMethod](controllerMethodArgument)}"
+				type="reference" reRender="generatedEntityDiv">
+				<h:graphicImage alt="ara" title="ara" name="/images/form_search.png" />
+			</a:commandLink>
+		</div>
+	</div>
+</ui:composition>

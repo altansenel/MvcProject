@@ -1,0 +1,305 @@
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sec="http://www.springframework.org/schema/security" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+	<!-- <beans:import resource="security-config.xml" /> -->
+	<beans:import resource="hibernate-config.xml" />
+
+	<!-- bu batch scheduled joblar için -->
+	<beans:import resource="scheduled-batch-job.xml" />
+
+	<!-- mail atmak için -->
+	<beans:import resource="spring-mail.xml" />
+
+	<!-- <context:component-scan base-package="com.controller" /> -->
+	<context:component-scan base-package="com" />
+
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/" />
+		<beans:property name="suffix" value=".xhtml" />
+	</beans:bean>
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<beans:bean id="personDAO" class="com.dao.PersonDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="personService" class="com.dao.PersonServiceImpl">
+		<beans:property name="entityDAO" ref="personDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="adamDAO" class="com.dao.AdamDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="adamService" class="com.dao.AdamServiceImpl">
+		<beans:property name="entityDAO" ref="adamDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="ilDAO" class="com.dao.IlDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="ilService" class="com.dao.IlServiceImpl">
+		<beans:property name="entityDAO" ref="ilDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="sehirDAO" class="com.dao.SehirDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="sehirService" class="com.dao.SehirServiceImpl">
+		<beans:property name="entityDAO" ref="sehirDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="ulkeDAO" class="com.dao.UlkeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="ulkeService" class="com.dao.UlkeServiceImpl">
+		<beans:property name="entityDAO" ref="ulkeDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="userActivityDAO" class="com.aop.UserActivityDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="userActivityService" class="com.aop.UserActivityServiceImpl">
+		<beans:property name="entityDAO" ref="userActivityDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="userDAO" class="com.dao.UserDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="userService" class="com.dao.UserServiceImpl">
+		<beans:property name="entityDAO" ref="userDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="permissionDAO" class="com.dao.PermissionDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="permissionService" class="com.dao.PermissionServiceImpl">
+		<beans:property name="entityDAO" ref="permissionDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="roleDAO" class="com.dao.RoleDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="roleService" class="com.dao.RoleServiceImpl">
+		<beans:property name="entityDAO" ref="roleDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="generatedEntityDAO" class="com.dao.GeneratedEntityDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="generatedEntityService" class="com.dao.GeneratedEntityServiceImpl">
+		<beans:property name="entityDAO" ref="generatedEntityDAO"></beans:property>
+	</beans:bean>
+
+
+	<beans:bean id="menuDAO" class="com.dao.MenuDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="menuService" class="com.dao.MenuServiceImpl">
+		<beans:property name="entityDAO" ref="menuDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="roleUserDAO" class="com.dao.RoleUserDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="roleUserService" class="com.dao.RoleUserServiceImpl">
+		<beans:property name="entityDAO" ref="roleUserDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="cacheClean" class="com.dao.CacheCleanImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="cacheCleanService" class="com.dao.CacheCleanService">
+		<beans:property name="cacheClean" ref="cacheClean"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="altanDAO" class="com.dao.AltanDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="altanService" class="com.dao.AltanServiceImpl">
+		<beans:property name="entityDAO" ref="altanDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="customerDAO" class="com.dao.CustomerDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="customerService" class="com.dao.CustomerServiceImpl">
+		<beans:property name="entityDAO" ref="customerDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="employeeDAO" class="com.dao.EmployeeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="employeeService" class="com.dao.EmployeeServiceImpl">
+		<beans:property name="entityDAO" ref="employeeDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="shippingMethodDAO" class="com.dao.ShippingMethodDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="shippingMethodService" class="com.dao.ShippingMethodServiceImpl">
+		<beans:property name="entityDAO" ref="shippingMethodDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="productDAO" class="com.dao.ProductDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="productService" class="com.dao.ProductServiceImpl">
+		<beans:property name="entityDAO" ref="productDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="paymentMethodDAO" class="com.dao.PaymentMethodDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="paymentMethodService" class="com.dao.PaymentMethodServiceImpl">
+		<beans:property name="entityDAO" ref="paymentMethodDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="orderDAO" class="com.dao.OrderDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="orderService" class="com.dao.OrderServiceImpl">
+		<beans:property name="entityDAO" ref="orderDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="orderDetailDAO" class="com.dao.OrderDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="orderDetailService" class="com.dao.OrderDetailServiceImpl">
+		<beans:property name="entityDAO" ref="orderDetailDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="paymentDAO" class="com.dao.PaymentDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="paymentService" class="com.dao.PaymentServiceImpl">
+		<beans:property name="entityDAO" ref="paymentDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="bankDAO" class="com.dao.BankDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="bankService" class="com.dao.BankServiceImpl">
+		<beans:property name="entityDAO" ref="bankDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="bankExpenseDAO" class="com.dao.BankExpenseDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="bankExpenseService" class="com.dao.BankExpenseServiceImpl">
+		<beans:property name="entityDAO" ref="bankExpenseDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="bankTransSourceDAO" class="com.dao.BankTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="bankTransSourceService" class="com.dao.BankTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="bankTransSourceDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="sinifDAO" class="com.dao.SinifDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="sinifService" class="com.dao.SinifServiceImpl">
+		<beans:property name="entityDAO" ref="sinifDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="dolapDAO" class="com.dao.DolapDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="dolapService" class="com.dao.DolapServiceImpl">
+		<beans:property name="entityDAO" ref="dolapDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="ogrenciDAO" class="com.dao.OgrenciDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="ogrenciService" class="com.dao.OgrenciServiceImpl">
+		<beans:property name="entityDAO" ref="ogrenciDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="kitapDAO" class="com.dao.KitapDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="kitapService" class="com.dao.KitapServiceImpl">
+		<beans:property name="entityDAO" ref="kitapDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="alisverisDAO" class="com.dao.AlisverisDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="alisverisService" class="com.dao.AlisverisServiceImpl">
+		<beans:property name="entityDAO" ref="alisverisDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="herHangiBirService" class="com.dao.HerHangiBirServiceImpl">
+	</beans:bean>
+
+
+
+	<beans:bean scope="session" id="loginBean" class="com.controller.LoginBean">
+		<aop:scoped-proxy />
+	</beans:bean>
+	<beans:bean scope="singleton" id="loginController"
+		class="com.controller.LoginController">
+		<beans:property name="loginBean" ref="loginBean" />
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+	</beans:bean>
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<!-- <beans:property name="basename" value="/WEB-INF/messages" /> -->
+		<beans:property name="basename" value="/messages/messages-validation" />
+	</beans:bean>
+
+	<!-- aop for example for user actitviy -->
+	<beans:bean
+		class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></beans:bean>
+
+
+	<!-- bu userların hareketlerini loglamak için -->
+	<beans:bean id="trackDao" class="com.aop.UserActivityLogging"></beans:bean>
+
+</beans:beans>

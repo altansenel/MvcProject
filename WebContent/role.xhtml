@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{roleController.message}"
+				rendered="#{not empty roleController.message}" />
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">Role</div>
+					<div class="panel-body">
+						<h:inputHidden value="#{roleController.entity.id}" />
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="panel panel-default">
+									<div class="row">
+										<c:if test="${!empty roleController.entity.id}">
+											<h:outputText value="id" class="control-label col-xs-4"
+												for="second" />
+											<div class="col-xs-6">
+												<h:inputText id="id" required="true" readonly="true"
+													value="#{roleController.entity.id}" type="second"
+													class="form-control"
+													converterMessage="Please enter digits only."
+													validatorMessage="String is not valid (only characters 0-9)">
+												</h:inputText>
+											</div>
+											<div class="col-xs-2">
+												<h:message for="id" class="form-control" />
+											</div>
+											<div class="col-xs-6"></div>
+										</c:if>
+									</div>
+									<div class="row">
+										<h:outputText value="name" class="control-label col-xs-4"
+											for="second" />
+										<div class="col-xs-6">
+											<h:inputText id="name" value="#{roleController.entity.name}"
+												class="form-control" type="second"
+												validatorMessage="String is not valid (only characters a-z A-Z)">
+												<form:errors path="name" />
+											</h:inputText>
+										</div>
+										<div class="col-xs-2">
+											<h:message for="name" class="form-control" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="panel panel-default">
+									<div class="row">
+										<h:outputText value="Add User" class="control-label col-xs-4"
+											for="second" />
+										<div class="col-xs-1">
+											<a:commandLink action="#{roleController.userEkle('role')}"
+												type="second">
+												<h:graphicImage alt="ara" title="ara"
+													name="/images/form_search.png" />
+											</a:commandLink>
+										</div>
+										<div class="col-xs-7">
+											<a:outputPanel ajaxRendered="true">
+												<r:accordion
+													rendered="#{!empty roleController.entity.roleUserList}">
+													<r:accordionItem header="User List">
+														<h:panelGrid columns="1">
+															<r:dataTable id="userList" var="entity" class="tg"
+																rendered="#{!empty roleController.entity.roleUserList}"
+																value="#{roleController.entity.roleUserList}"
+																width="100%" rows="10" rowKeyVar="rkv">
+																<r:column sortable="true">
+																	<f:facet name="header">
+																		<h:outputText value="Id" />
+																	</f:facet>
+																	<h:outputText value="#{entity.user.id}" />
+																</r:column>
+																<r:column sortable="true">
+																	<f:facet name="header">
+																		<h:outputText value="Name" />
+																	</f:facet>
+																	<h:outputText value="#{entity.user.username}" />
+																</r:column>
+																<sec:authorize access="hasRole('ROLE_ADMIN')">
+																	<r:column>
+																		<f:facet name="header">
+																			<h:outputText value="Delete" />
+																		</f:facet>
+																		<a:commandLink status="commonAjaxStatus"
+																			action="#{roleController.removeRoleUser(rkv)}">
+																			<h:graphicImage alt="sil" title="sil"
+																				name="/images/form_delete.png" />
+																		</a:commandLink>
+																	</r:column>
+																</sec:authorize>
+																<f:facet name="footer">
+																	<r:dataScroller renderIfSinglePage="false"
+																		ajaxSingle="true" />
+																</f:facet>
+															</r:dataTable>
+														</h:panelGrid>
+													</r:accordionItem>
+												</r:accordion>
+											</a:outputPanel>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br />
+						<h:commandButton styleClass="button" value="Save" id="doSave"
+							action="#{roleController.saveRole(roleController.entity.id)}" />
+						<h:link value="Role List" outcome="roleList?faces-redirect=true"
+							styleClass="button" />
+					</div>
+				</div>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+
+

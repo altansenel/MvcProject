@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{roleUserController.message}"
+				rendered="#{not empty roleUserController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/panel.xhtml">
+					<ui:param name="panelHeading" value="RoleUser" />
+					<ui:param name="inputHidden"
+						value="#{roleUserController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty userController.entity.id}">
+							<ui:decorate template="/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{roleUserController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+						<ui:decorate template="/rowManyToOne.xhtml">
+							<ui:param name="label" value="Role" />
+							<ui:param name="id" value="role" />
+							<ui:param name="inputText" value="#{userController.entity.role}" />
+							<ui:param name="errorPath" value="role" />
+							<ui:param name="converter" value="roleConverter" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:param name="controllerMethod" value="addrole" />
+						<ui:decorate template="/rowManyToOne.xhtml">
+							<ui:param name="label" value="User" />
+							<ui:param name="id" value="user" />
+							<ui:param name="inputText" value="#{userController.entity.user}" />
+							<ui:param name="errorPath" value="user" />
+							<ui:param name="converter" value="userConverter" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:param name="controllerMethod" value="adduser" />
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{userController.save(roleUserController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="RoleUser List" class="form-control"
+												outcome="userList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

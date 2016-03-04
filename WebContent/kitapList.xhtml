@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{kitapController.message}"
+				rendered="#{not empty kitapController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="Kitap List" />
+					<ui:param name="inputHidden" value="#{kitapController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty kitapController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{kitapController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Ad" />
+							<ui:param name="id" value="ad" />
+							<ui:param name="inputText" value="#{kitapController.entity.ad}" />
+							<ui:param name="errorPath" value="ad" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Yazar" />
+							<ui:param name="id" value="yazar" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.yazar}" />
+							<ui:param name="errorPath" value="yazar" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="Yayinevi" />
+							<ui:param name="id" value="yayinevi" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.yayinevi}" />
+							<ui:param name="errorPath" value="yayinevi" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="KitapTuru" />
+							<ui:param name="id" value="kitapTuru" />
+							<ui:param name="selectOneMenu"
+								value="#{kitapController.entity.kitapTuru}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getKitapTuru()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="UygunlukDurumu" />
+							<ui:param name="id" value="uygunlukDurumu" />
+							<ui:param name="selectOneMenu"
+								value="#{kitapController.entity.uygunlukDurumu}" />
+							<ui:param name="selectItems"
+								value="#{projectEnumAction.getUygunlukDurumu()}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="BasimTarihi" />
+							<ui:param name="id" value="basimTarihi" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.basimTarihi}" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="ilk BasimTarihi" />
+							<ui:param name="id" value="ilkBasimTarihi" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.ilkBasimTarihi}" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="son BasimTarihi" />
+							<ui:param name="id" value="sonBasimTarihi" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.sonBasimTarihi}" />
+						</ui:decorate>
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="Dolap" />
+							<ui:param name="id" value="dolap" />
+							<ui:param name="inputText"
+								value="#{kitapController.entity.dolap}" />
+							<ui:param name="errorPath" value="dolap" />
+							<ui:param name="converter" value="#{dolapConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addDolapManyToOne" />
+							<ui:param name="controller" value="#{kitapController}" />
+							<ui:param name="controllerMethodArgument" value="kitapList" />
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{kitapController.entityList.size() > 0}">
+										<r:accordionItem header="Kitap List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="kitapList" var="entity" class="tg"
+													rendered="#{kitapController.entityList.size() > 0}"
+													value="#{kitapController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Ad" />
+														</f:facet>
+														<h:outputText value="#{entity.ad}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Yazar" />
+														</f:facet>
+														<h:outputText value="#{entity.yazar}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Yayinevi" />
+														</f:facet>
+														<h:outputText value="#{entity.yayinevi}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="KitapTuru" />
+														</f:facet>
+														<h:outputText value="#{entity.kitapTuru}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="UygunlukDurumu" />
+														</f:facet>
+														<h:outputText value="#{entity.uygunlukDurumu}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="BasimTarihi" />
+														</f:facet>
+														<h:outputText value="#{entity.basimTarihi}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Dolap" />
+														</f:facet>
+														<h:outputText value="#{entity.dolap}" />
+													</r:column>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_KITAP_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="kitap?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_KITAP_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{kitapController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column
+														rendered="#{!empty kitapController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{kitapController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control" action="#{kitapController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_KITAP_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{kitapController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

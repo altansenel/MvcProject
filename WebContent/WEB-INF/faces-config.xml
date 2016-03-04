@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+
+	<!-- Enable Spring -->
+	<application>
+		<message-bundle>resources.application</message-bundle>
+		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
+		<!-- <message-bundle>messages</message-bundle> <locale-config> <default-locale>tr</default-locale> 
+			<supported-locale>tr</supported-locale> <default-time-zone-id>Turkey/Istanbul</default-time-zone-id> 
+			</locale-config> -->
+	</application>
+
+	<validator>
+		<validator-id>javax.faces.Bean</validator-id>
+		<validator-class>com.validator.SkipBeanValidator</validator-class>
+	</validator>
+	<validator>
+		<validator-id>javax.faces.Required</validator-id>
+		<validator-class>com.validator.SkipRequiredValidator</validator-class>
+	</validator>
+
+	<!-- <managed-bean> <managed-bean-name>userController</managed-bean-name> 
+		<managed-bean-class>com.controller.UserController</managed-bean-class> <managed-bean-scope>session</managed-bean-scope> 
+		<managed-property> <property-name>userService</property-name> <value>#{userService}</value> 
+		</managed-property> </managed-bean> -->
+
+</faces-config>
+
+
+
