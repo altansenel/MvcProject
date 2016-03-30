@@ -95,8 +95,9 @@ public class ${entity.name} extends BaseEntity implements Serializable {
 ##     // "$field.name" (column "$field.databaseName") is not mapped as an attribute because it is used in a link   
 ##     
 ## #end
+#if($field.formattedName(0).toLowerCase().equals("version"))#else
 $jpa.fieldAnnotations(4, $field)
-    private $field.formattedType(10) $field.formattedName(12) #if($field.hasInitialValue())= ${field.initialValue}#end;
+    private $field.formattedType(10) $field.formattedName(12) #if($field.hasInitialValue())= ${field.initialValue}#end;#end
 #end
 
 #foreach( $field in $linkFields )
@@ -169,6 +170,10 @@ $jpa.linkAnnotations(4, $link, $allMappedFields)
     //----------------------------------------------------------------------
 #foreach( $field in $dataFields )
 ## #if ( $field.isUsedInLinkJoinColumn( $entity.selectedLinks ) != true )
+
+
+
+#if($field.formattedName(0).toLowerCase().equals("version"))#else
 #if ( $field.databaseName )    //--- DATABASE MAPPING : $field.databaseName ( $field.databaseType ) 
 #end
 #if ( $field.setter )    public void ${field.setter}( $field.type $field.name ) {
@@ -181,7 +186,7 @@ $jpa.linkAnnotations(4, $link, $allMappedFields)
 #end
 
 ## #end  
-#end  
+#end#end  
 
     //----------------------------------------------------------------------
     // GETTERS & SETTERS FOR LINKS

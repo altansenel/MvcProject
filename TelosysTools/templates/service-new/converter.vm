@@ -20,14 +20,14 @@ public class ${entity.name}Converter extends BaseConverter implements Converter,
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(${entity.name}Converter.class);
 
-	@ManagedProperty(value = "#{${uncapitalizedEntityName}Service}")
-	private I${entity.name}Service ${uncapitalizedEntityName}Service;
+//	@ManagedProperty(value = "#{${uncapitalizedEntityName}Service}")
+//	private I${entity.name}Service ${uncapitalizedEntityName}Service;
 
-	public void set${entity.name}Service(I${entity.name}Service ${uncapitalizedEntityName}Service) {
-		this.${uncapitalizedEntityName}Service = ${uncapitalizedEntityName}Service;
-	}
+//	public void set${entity.name}Service(I${entity.name}Service ${uncapitalizedEntityName}Service) {
+//		this.${uncapitalizedEntityName}Service = ${uncapitalizedEntityName}Service;
+//	}
 
-	public I${entity.name}Service get${entity.name}Service() {
-		return ${uncapitalizedEntityName}Service;
-	}
+//	public I${entity.name}Service get${entity.name}Service() {
+//		return ${uncapitalizedEntityName}Service;
+//	}
 }

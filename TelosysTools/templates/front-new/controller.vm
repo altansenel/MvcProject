@@ -35,10 +35,10 @@ import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
-import org.demo.service.yeni.I${entity.name}Service;
-import org.demo.bean.yeni.${entity.name};
-import org.demo.enums.ProjectEnum.AddSelect;
-import org.demo.enums.ProjectEnum.RelationType;
+import com.dao.I${entity.name}Service;
+import com.entity.${entity.name};
+import com.enums.ProjectEnum.AddSelect;
+import com.enums.ProjectEnum.RelationType;
 
 
 
@@ -124,7 +124,7 @@ public class ${entity.name}Controller extends BaseController<${entity.name}>
 	public String newEntity() {
 		setMessage(null);
 		setEntity(new ${entity.name}());
-		return "${uncapitalizedEntityName}?faces-redirect=true";
+		return "${entity.name}?faces-redirect=true";
 	}
 
 	public I${entity.name}Service get${entity.name}Service() {
