@@ -35,6 +35,9 @@
 
 	<resources mapping="/resources/**" location="/resources/" />
 
+
+
+
 	<beans:bean id="personDAO" class="com.dao.PersonDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -50,7 +53,6 @@
 	<beans:bean id="adamService" class="com.dao.AdamServiceImpl">
 		<beans:property name="entityDAO" ref="adamDAO"></beans:property>
 	</beans:bean>
-
 	<beans:bean id="ilDAO" class="com.dao.IlDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -58,7 +60,6 @@
 	<beans:bean id="ilService" class="com.dao.IlServiceImpl">
 		<beans:property name="entityDAO" ref="ilDAO"></beans:property>
 	</beans:bean>
-
 	<beans:bean id="sehirDAO" class="com.dao.SehirDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -66,7 +67,6 @@
 	<beans:bean id="sehirService" class="com.dao.SehirServiceImpl">
 		<beans:property name="entityDAO" ref="sehirDAO"></beans:property>
 	</beans:bean>
-
 	<beans:bean id="ulkeDAO" class="com.dao.UlkeDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -147,7 +147,6 @@
 	<beans:bean id="altanService" class="com.dao.AltanServiceImpl">
 		<beans:property name="entityDAO" ref="altanDAO"></beans:property>
 	</beans:bean>
-
 	<beans:bean id="customerDAO" class="com.dao.CustomerDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -204,31 +203,6 @@
 	<beans:bean id="paymentService" class="com.dao.PaymentServiceImpl">
 		<beans:property name="entityDAO" ref="paymentDAO"></beans:property>
 	</beans:bean>
-
-	<beans:bean id="bankDAO" class="com.dao.BankDaoImpl">
-		<beans:property name="sessionFactory"
-			ref="hibernate4AnnotatedSessionFactory" />
-	</beans:bean>
-	<beans:bean id="bankService" class="com.dao.BankServiceImpl">
-		<beans:property name="entityDAO" ref="bankDAO"></beans:property>
-	</beans:bean>
-
-	<beans:bean id="bankExpenseDAO" class="com.dao.BankExpenseDaoImpl">
-		<beans:property name="sessionFactory"
-			ref="hibernate4AnnotatedSessionFactory" />
-	</beans:bean>
-	<beans:bean id="bankExpenseService" class="com.dao.BankExpenseServiceImpl">
-		<beans:property name="entityDAO" ref="bankExpenseDAO"></beans:property>
-	</beans:bean>
-
-	<beans:bean id="bankTransSourceDAO" class="com.dao.BankTransSourceDaoImpl">
-		<beans:property name="sessionFactory"
-			ref="hibernate4AnnotatedSessionFactory" />
-	</beans:bean>
-	<beans:bean id="bankTransSourceService" class="com.dao.BankTransSourceServiceImpl">
-		<beans:property name="entityDAO" ref="bankTransSourceDAO"></beans:property>
-	</beans:bean>
-
 	<beans:bean id="sinifDAO" class="com.dao.SinifDaoImpl">
 		<beans:property name="sessionFactory"
 			ref="hibernate4AnnotatedSessionFactory" />
@@ -265,8 +239,614 @@
 		<beans:property name="entityDAO" ref="alisverisDAO"></beans:property>
 	</beans:bean>
 
+
 	<beans:bean id="herHangiBirService" class="com.dao.HerHangiBirServiceImpl">
 	</beans:bean>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- generate edilenler -->
+	<beans:bean id="adminDocumentDAO" class="com.dao.AdminDocumentDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminDocumentService" class="com.dao.AdminDocumentServiceImpl">
+		<beans:property name="entityDAO" ref="adminDocumentDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminDocumentFieldDAO" class="com.dao.AdminDocumentFieldDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminDocumentFieldService" class="com.dao.AdminDocumentFieldServiceImpl">
+		<beans:property name="entityDAO" ref="adminDocumentFieldDAO"></beans:property>
+	</beans:bean> 
+ 	<beans:bean id="adminDocumentTargetDAO" class="com.dao.AdminDocumentTargetDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminDocumentTargetService" class="com.dao.AdminDocumentTargetServiceImpl">
+		<beans:property name="entityDAO" ref="adminDocumentTargetDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminExtraFieldsDAO" class="com.dao.AdminExtraFieldsDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminExtraFieldsService" class="com.dao.AdminExtraFieldsServiceImpl">
+		<beans:property name="entityDAO" ref="adminExtraFieldsDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminSettingDAO" class="com.dao.AdminSettingDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminSettingService" class="com.dao.AdminSettingServiceImpl">
+		<beans:property name="entityDAO" ref="adminSettingDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserDAO" class="com.dao.AdminUserDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserService" class="com.dao.AdminUserServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserAuditDAO" class="com.dao.AdminUserAuditDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserAuditService" class="com.dao.AdminUserAuditServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserAuditDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserGivenRoleDAO" class="com.dao.AdminUserGivenRoleDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserGivenRoleService" class="com.dao.AdminUserGivenRoleServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserGivenRoleDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserGroupDAO" class="com.dao.AdminUserGroupDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserGroupService" class="com.dao.AdminUserGroupServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserGroupDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserRightDAO" class="com.dao.AdminUserRightDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserRightService" class="com.dao.AdminUserRightServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserRightDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminUserRoleDAO" class="com.dao.AdminUserRoleDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminUserRoleService" class="com.dao.AdminUserRoleServiceImpl">
+		<beans:property name="entityDAO" ref="adminUserRoleDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="adminWorkspaceDAO" class="com.dao.AdminWorkspaceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="adminWorkspaceService" class="com.dao.AdminWorkspaceServiceImpl">
+		<beans:property name="entityDAO" ref="adminWorkspaceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="bankDAO" class="com.dao.BankDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="bankService" class="com.dao.BankServiceImpl">
+		<beans:property name="entityDAO" ref="bankDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="bankExpenseDAO" class="com.dao.BankExpenseDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="bankExpenseService" class="com.dao.BankExpenseServiceImpl">
+		<beans:property name="entityDAO" ref="bankExpenseDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="bankTransDAO" class="com.dao.BankTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="bankTransService" class="com.dao.BankTransServiceImpl">
+		<beans:property name="entityDAO" ref="bankTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="bankTransSourceDAO" class="com.dao.BankTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="bankTransSourceService" class="com.dao.BankTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="bankTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllDetailHistoryDAO" class="com.dao.ChqbllDetailHistoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllDetailHistoryService" class="com.dao.ChqbllDetailHistoryServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllDetailHistoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllDetailPartialDAO" class="com.dao.ChqbllDetailPartialDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllDetailPartialService" class="com.dao.ChqbllDetailPartialServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllDetailPartialDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllPayrollDAO" class="com.dao.ChqbllPayrollDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllPayrollService" class="com.dao.ChqbllPayrollServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllPayrollDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllPayrollDetailDAO" class="com.dao.ChqbllPayrollDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllPayrollDetailService" class="com.dao.ChqbllPayrollDetailServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllPayrollDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllPayrollSourceDAO" class="com.dao.ChqbllPayrollSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllPayrollSourceService" class="com.dao.ChqbllPayrollSourceServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllPayrollSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllTransDAO" class="com.dao.ChqbllTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllTransService" class="com.dao.ChqbllTransServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllTransDetailDAO" class="com.dao.ChqbllTransDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllTransDetailService" class="com.dao.ChqbllTransDetailServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllTransDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="chqbllTypeDAO" class="com.dao.ChqbllTypeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="chqbllTypeService" class="com.dao.ChqbllTypeServiceImpl">
+		<beans:property name="entityDAO" ref="chqbllTypeDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="contactDAO" class="com.dao.ContactDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="contactService" class="com.dao.ContactServiceImpl">
+		<beans:property name="entityDAO" ref="contactDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="contactCategoryDAO" class="com.dao.ContactCategoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="contactCategoryService" class="com.dao.ContactCategoryServiceImpl">
+		<beans:property name="entityDAO" ref="contactCategoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="contactExtraFieldsDAO" class="com.dao.ContactExtraFieldsDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="contactExtraFieldsService" class="com.dao.ContactExtraFieldsServiceImpl">
+		<beans:property name="entityDAO" ref="contactExtraFieldsDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="contactTransDAO" class="com.dao.ContactTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="contactTransService" class="com.dao.ContactTransServiceImpl">
+		<beans:property name="entityDAO" ref="contactTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="contactTransSourceDAO" class="com.dao.ContactTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="contactTransSourceService" class="com.dao.ContactTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="contactTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalCurrencyDAO" class="com.dao.GlobalCurrencyDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalCurrencyService" class="com.dao.GlobalCurrencyServiceImpl">
+		<beans:property name="entityDAO" ref="globalCurrencyDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalCurrencyRateDAO" class="com.dao.GlobalCurrencyRateDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalCurrencyRateService" class="com.dao.GlobalCurrencyRateServiceImpl">
+		<beans:property name="entityDAO" ref="globalCurrencyRateDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalCurrencyRateDetailDAO" class="com.dao.GlobalCurrencyRateDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalCurrencyRateDetailService" class="com.dao.GlobalCurrencyRateDetailServiceImpl">
+		<beans:property name="entityDAO" ref="globalCurrencyRateDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalPrivateCodeDAO" class="com.dao.GlobalPrivateCodeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalPrivateCodeService" class="com.dao.GlobalPrivateCodeServiceImpl">
+		<beans:property name="entityDAO" ref="globalPrivateCodeDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalProfileDAO" class="com.dao.GlobalProfileDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalProfileService" class="com.dao.GlobalProfileServiceImpl">
+		<beans:property name="entityDAO" ref="globalProfileDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="globalTransPointDAO" class="com.dao.GlobalTransPointDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="globalTransPointService" class="com.dao.GlobalTransPointServiceImpl">
+		<beans:property name="entityDAO" ref="globalTransPointDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransDAO" class="com.dao.InvoiceTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransService" class="com.dao.InvoiceTransServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransCurrencyDAO" class="com.dao.InvoiceTransCurrencyDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransCurrencyService" class="com.dao.InvoiceTransCurrencyServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransCurrencyDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransDetailDAO" class="com.dao.InvoiceTransDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransDetailService" class="com.dao.InvoiceTransDetailServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransFactorDAO" class="com.dao.InvoiceTransFactorDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransFactorService" class="com.dao.InvoiceTransFactorServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransFactorDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransRelationDAO" class="com.dao.InvoiceTransRelationDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransRelationService" class="com.dao.InvoiceTransRelationServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransRelationDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransSourceDAO" class="com.dao.InvoiceTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransSourceService" class="com.dao.InvoiceTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransStatusDAO" class="com.dao.InvoiceTransStatusDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransStatusService" class="com.dao.InvoiceTransStatusServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransStatusDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransStatusHistoryDAO" class="com.dao.InvoiceTransStatusHistoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransStatusHistoryService" class="com.dao.InvoiceTransStatusHistoryServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransStatusHistoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="invoiceTransTaxDAO" class="com.dao.InvoiceTransTaxDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="invoiceTransTaxService" class="com.dao.InvoiceTransTaxServiceImpl">
+		<beans:property name="entityDAO" ref="invoiceTransTaxDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransDAO" class="com.dao.OrderTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransService" class="com.dao.OrderTransServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransDetailDAO" class="com.dao.OrderTransDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransDetailService" class="com.dao.OrderTransDetailServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransFactorDAO" class="com.dao.OrderTransFactorDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransFactorService" class="com.dao.OrderTransFactorServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransFactorDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransSourceDAO" class="com.dao.OrderTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransSourceService" class="com.dao.OrderTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransStatusDAO" class="com.dao.OrderTransStatusDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransStatusService" class="com.dao.OrderTransStatusServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransStatusDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="orderTransStatusHistoryDAO" class="com.dao.OrderTransStatusHistoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="orderTransStatusHistoryService" class="com.dao.OrderTransStatusHistoryServiceImpl">
+		<beans:property name="entityDAO" ref="orderTransStatusHistoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="safeDAO" class="com.dao.SafeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="safeService" class="com.dao.SafeServiceImpl">
+		<beans:property name="entityDAO" ref="safeDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="safeExpenseDAO" class="com.dao.SafeExpenseDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="safeExpenseService" class="com.dao.SafeExpenseServiceImpl">
+		<beans:property name="entityDAO" ref="safeExpenseDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="safeTransDAO" class="com.dao.SafeTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="safeTransService" class="com.dao.SafeTransServiceImpl">
+		<beans:property name="entityDAO" ref="safeTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="safeTransSourceDAO" class="com.dao.SafeTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="safeTransSourceService" class="com.dao.SafeTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="safeTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="saleCampaignDAO" class="com.dao.SaleCampaignDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="saleCampaignService" class="com.dao.SaleCampaignServiceImpl">
+		<beans:property name="entityDAO" ref="saleCampaignDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="saleSellerDAO" class="com.dao.SaleSellerDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="saleSellerService" class="com.dao.SaleSellerServiceImpl">
+		<beans:property name="entityDAO" ref="saleSellerDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockDAO" class="com.dao.StockDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockService" class="com.dao.StockServiceImpl">
+		<beans:property name="entityDAO" ref="stockDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockBarcodeDAO" class="com.dao.StockBarcodeDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockBarcodeService" class="com.dao.StockBarcodeServiceImpl">
+		<beans:property name="entityDAO" ref="stockBarcodeDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockCategoryDAO" class="com.dao.StockCategoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockCategoryService" class="com.dao.StockCategoryServiceImpl">
+		<beans:property name="entityDAO" ref="stockCategoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockCostFactorDAO" class="com.dao.StockCostFactorDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockCostFactorService" class="com.dao.StockCostFactorServiceImpl">
+		<beans:property name="entityDAO" ref="stockCostFactorDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockCostingDAO" class="com.dao.StockCostingDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockCostingService" class="com.dao.StockCostingServiceImpl">
+		<beans:property name="entityDAO" ref="stockCostingDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockCostingDetailDAO" class="com.dao.StockCostingDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockCostingDetailService" class="com.dao.StockCostingDetailServiceImpl">
+		<beans:property name="entityDAO" ref="stockCostingDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockCostingInventoryDAO" class="com.dao.StockCostingInventoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockCostingInventoryService" class="com.dao.StockCostingInventoryServiceImpl">
+		<beans:property name="entityDAO" ref="stockCostingInventoryDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockDepotDAO" class="com.dao.StockDepotDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockDepotService" class="com.dao.StockDepotServiceImpl">
+		<beans:property name="entityDAO" ref="stockDepotDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockExtraFieldsDAO" class="com.dao.StockExtraFieldsDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockExtraFieldsService" class="com.dao.StockExtraFieldsServiceImpl">
+		<beans:property name="entityDAO" ref="stockExtraFieldsDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockPriceListDAO" class="com.dao.StockPriceListDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockPriceListService" class="com.dao.StockPriceListServiceImpl">
+		<beans:property name="entityDAO" ref="stockPriceListDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockPriceUpdateDAO" class="com.dao.StockPriceUpdateDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockPriceUpdateService" class="com.dao.StockPriceUpdateServiceImpl">
+		<beans:property name="entityDAO" ref="stockPriceUpdateDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockPriceUpdateDetailDAO" class="com.dao.StockPriceUpdateDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockPriceUpdateDetailService" class="com.dao.StockPriceUpdateDetailServiceImpl">
+		<beans:property name="entityDAO" ref="stockPriceUpdateDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransDAO" class="com.dao.StockTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransService" class="com.dao.StockTransServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransCurrencyDAO" class="com.dao.StockTransCurrencyDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransCurrencyService" class="com.dao.StockTransCurrencyServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransCurrencyDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransDetailDAO" class="com.dao.StockTransDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransDetailService" class="com.dao.StockTransDetailServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransFactorDAO" class="com.dao.StockTransFactorDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransFactorService" class="com.dao.StockTransFactorServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransFactorDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransSourceDAO" class="com.dao.StockTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransSourceService" class="com.dao.StockTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockTransTaxDAO" class="com.dao.StockTransTaxDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockTransTaxService" class="com.dao.StockTransTaxServiceImpl">
+		<beans:property name="entityDAO" ref="stockTransTaxDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="stockUnitDAO" class="com.dao.StockUnitDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="stockUnitService" class="com.dao.StockUnitServiceImpl">
+		<beans:property name="entityDAO" ref="stockUnitDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="tempContactAgingDAO" class="com.dao.TempContactAgingDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="tempContactAgingService" class="com.dao.TempContactAgingServiceImpl">
+		<beans:property name="entityDAO" ref="tempContactAgingDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransDAO" class="com.dao.WaybillTransDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransService" class="com.dao.WaybillTransServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransDetailDAO" class="com.dao.WaybillTransDetailDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransDetailService" class="com.dao.WaybillTransDetailServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransDetailDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransFactorDAO" class="com.dao.WaybillTransFactorDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransFactorService" class="com.dao.WaybillTransFactorServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransFactorDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransRelationDAO" class="com.dao.WaybillTransRelationDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransRelationService" class="com.dao.WaybillTransRelationServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransRelationDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransSourceDAO" class="com.dao.WaybillTransSourceDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransSourceService" class="com.dao.WaybillTransSourceServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransSourceDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransStatusDAO" class="com.dao.WaybillTransStatusDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransStatusService" class="com.dao.WaybillTransStatusServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransStatusDAO"></beans:property>
+	</beans:bean> 
+	<beans:bean id="waybillTransStatusHistoryDAO" class="com.dao.WaybillTransStatusHistoryDaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="waybillTransStatusHistoryService" class="com.dao.WaybillTransStatusHistoryServiceImpl">
+		<beans:property name="entityDAO" ref="waybillTransStatusHistoryDAO"></beans:property>
+	</beans:bean>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
