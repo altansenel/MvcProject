@@ -44,7 +44,7 @@ public class UserActivity extends BaseEntity implements Serializable{
 	private String className;
 	
 	@Column(name = "objectid")
-	private Long objectid;
+	private Integer objectid; //bunu da integer yaptım!!
 
 	
 	
@@ -97,11 +97,11 @@ public class UserActivity extends BaseEntity implements Serializable{
 		this.className = className;
 	}
 
-	public Long getObjectid() {
+	public Integer getObjectid() {
 		return objectid;
 	}
 
-	public void setObjectid(Long objectid) {
+	public void setObjectid(Integer objectid) {
 		this.objectid = objectid;
 	}
 	
