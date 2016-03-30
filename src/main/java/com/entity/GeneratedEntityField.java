@@ -556,4 +556,6 @@ public class GeneratedEntityField extends BaseEntity implements Serializable {
 		return result;
 	}
 
+	
+
 }

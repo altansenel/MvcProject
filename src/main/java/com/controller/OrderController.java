@@ -60,7 +60,7 @@ public class OrderController extends BaseController<Order> implements
 		setEntityList(this.orderService.list(getEntity()));
 	}
 
-	public void save(Long id) {
+	public void save(Integer id) {
 		if (FacesContext.getCurrentInstance().getMessageList().size()==0) {
 			try {
 				if (id != null) {

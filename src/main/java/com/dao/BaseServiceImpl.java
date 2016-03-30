@@ -21,7 +21,7 @@ public abstract class BaseServiceImpl<E,IDao extends IBaseDao<E>> implements IBa
         this.entityDAO = entityDAO;
     }
  
-    @Override
+	@Override
     @Transactional
     public Integer add(E entity) {
         return this.entityDAO.add(entity);

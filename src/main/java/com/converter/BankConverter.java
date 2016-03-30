@@ -1,28 +1,32 @@
-package com.converter;import java.io.Serializable;
+
+package com.converter;
+
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+
 import org.apache.log4j.Logger;
-import com.dao.IBankService;
-import com.entity.Bank;
+
+
 
 @ManagedBean(name = "bankConverter")
 @RequestScoped
-public class BankConverter extends BaseConverter<Bank> implements Converter, Serializable {
+public class BankConverter extends BaseConverter implements Converter, Serializable {
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(BankConverter.class);
 
-@ManagedProperty(value = "#{bankService}")
-private IBankService bankService;
+//	@ManagedProperty(value = "#{bankService}")
+//	private IBankService bankService;
 
-public void setBankService(IBankService bankService) {
-this.bankService =bankService;setEntityService(bankService); 
-}
+//	public void setBankService(IBankService bankService) {
+//		this.bankService = bankService;
+//	}
 
-public IBankService getBankService() {
-return bankService;
-}
+//	public IBankService getBankService() {
+//		return bankService;
+//	}
 }
