@@ -1,0 +1,7 @@
+#foreach($entity in $selectedEntities)
+alter table $entity.databaseTable add version int(11);
+#end
+
+
+
+
