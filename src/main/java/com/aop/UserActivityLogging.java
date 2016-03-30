@@ -69,7 +69,7 @@ public class UserActivityLogging implements Serializable{
     		userActivity.setDetail(obj.toString());
     		userActivity.setTarih(new Date());
     		userActivity.setClassName(obj.getClass().toString());
-    		userActivity.setObjectid((Long)obj);
+    		userActivity.setObjectid((Integer)obj);
     		userActivity.setUser(this.userService.getUserByUsername(currentUserName));
     		this.userActivityService.addUserActivity(userActivity);
     	}
@@ -95,7 +95,7 @@ public class UserActivityLogging implements Serializable{
     		userActivity.setClassName(obj.getClass().toString());
     		Field field = obj.getClass().getSuperclass().getDeclaredField("id"); 
     		field.setAccessible(true);
-    		userActivity.setObjectid((Long)field.get(obj));
+    		userActivity.setObjectid((Integer)field.get(obj));
     		field.setAccessible(false);
     		userActivity.setUser(this.userService.getUserByUsername(currentUserName));
     		this.userActivityService.addUserActivity(userActivity);
@@ -122,7 +122,7 @@ public class UserActivityLogging implements Serializable{
     		userActivity.setClassName(obj.getClass().toString());
     		Field field = obj.getClass().getSuperclass().getDeclaredField("id"); 
     		field.setAccessible(true);
-    		userActivity.setObjectid((Long)field.get(obj));
+    		userActivity.setObjectid((Integer)field.get(obj));
     		field.setAccessible(false);
     		userActivity.setUser(this.userService.getUserByUsername(currentUserName));
     		this.userActivityService.addUserActivity(userActivity);
