@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{contactTransController.message}"
+				rendered="#{not empty contactTransController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="ContactTrans List" />
+					<ui:param name="inputHidden"
+						value="#{contactTransController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty contactTransController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{contactTransController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactTransSource" />
+							<ui:param name="id" value="contactTransSource" />
+							<ui:param name="inputText"
+								value="#{contactTransController.entity.contactTransSource}" />
+							<ui:param name="errorPath" value="contactTransSource" />
+							<ui:param name="converter" value="#{contactTransSourceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactTransSource" />
+							<ui:param name="controller" value="#{contactTransController}" />
+							<ui:param name="controllerMethodArgument" value="contactTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalPrivateCode" />
+							<ui:param name="id" value="globalPrivateCode" />
+							<ui:param name="inputText"
+								value="#{contactTransController.entity.globalPrivateCode}" />
+							<ui:param name="errorPath" value="globalPrivateCode" />
+							<ui:param name="converter" value="#{globalPrivateCodeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
+							<ui:param name="controller" value="#{contactTransController}" />
+							<ui:param name="controllerMethodArgument" value="contactTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{contactTransController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{contactTransController}" />
+							<ui:param name="controllerMethodArgument" value="contactTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalTransPoint" />
+							<ui:param name="id" value="globalTransPoint" />
+							<ui:param name="inputText"
+								value="#{contactTransController.entity.globalTransPoint}" />
+							<ui:param name="errorPath" value="globalTransPoint" />
+							<ui:param name="converter" value="#{globalTransPointConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
+							<ui:param name="controller" value="#{contactTransController}" />
+							<ui:param name="controllerMethodArgument" value="contactTrans" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="receiptNo" />
+							<ui:param name="id" value="receiptNo" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.receiptNo}" />
+					    	<ui:param name="errorPath" value="receiptNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="transDate" />
+							<ui:param name="id" value="transDate" />
+							<ui:param name="inputText" 
+								value="#{contactTransController.entity.transDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="maturity" />
+							<ui:param name="id" value="maturity" />
+							<ui:param name="inputText" 
+								value="#{contactTransController.entity.maturity}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transNo" />
+							<ui:param name="id" value="transNo" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.transNo}" />
+					    	<ui:param name="errorPath" value="transNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transType" />
+							<ui:param name="id" value="transType" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.transType}" />
+					    	<ui:param name="errorPath" value="transType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="amount" />
+							<ui:param name="id" value="amount" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.amount}" />
+					    	<ui:param name="errorPath" value="amount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="debt" />
+							<ui:param name="id" value="debt" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.debt}" />
+					    	<ui:param name="errorPath" value="debt" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="credit" />
+							<ui:param name="id" value="credit" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.credit}" />
+					    	<ui:param name="errorPath" value="credit" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transYear" />
+							<ui:param name="id" value="transYear" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.transYear}" />
+					    	<ui:param name="errorPath" value="transYear" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transMonth" />
+							<ui:param name="id" value="transMonth" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.transMonth}" />
+					    	<ui:param name="errorPath" value="transMonth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excRate" />
+							<ui:param name="id" value="excRate" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.excRate}" />
+					    	<ui:param name="errorPath" value="excRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excEquivalent" />
+							<ui:param name="id" value="excEquivalent" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.excEquivalent}" />
+					    	<ui:param name="errorPath" value="excEquivalent" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{contactTransController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{contactTransController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refModule" />
+							<ui:param name="id" value="refModule" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.refModule}" />
+					    	<ui:param name="errorPath" value="refModule" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refId" />
+							<ui:param name="id" value="refId" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.refId}" />
+					    	<ui:param name="errorPath" value="refId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{contactTransController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{contactTransController.entityList.size() > 0}">
+										<r:accordionItem header="ContactTrans List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="contactTransList" var="entity" class="tg"
+													rendered="#{contactTransController.entityList.size() > 0}"
+													value="#{contactTransController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="receiptNo" />
+														</f:facet>
+														<h:outputText value="#{entity.receiptNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="right" />
+														</f:facet>
+														<h:outputText value="#{entity.right}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transDate" />
+														</f:facet>
+														<h:outputText value="#{entity.transDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="maturity" />
+														</f:facet>
+														<h:outputText value="#{entity.maturity}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transNo" />
+														</f:facet>
+														<h:outputText value="#{entity.transNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transType" />
+														</f:facet>
+														<h:outputText value="#{entity.transType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="amount" />
+														</f:facet>
+														<h:outputText value="#{entity.amount}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="debt" />
+														</f:facet>
+														<h:outputText value="#{entity.debt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="credit" />
+														</f:facet>
+														<h:outputText value="#{entity.credit}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="description" />
+														</f:facet>
+														<h:outputText value="#{entity.description}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transYear" />
+														</f:facet>
+														<h:outputText value="#{entity.transYear}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transMonth" />
+														</f:facet>
+														<h:outputText value="#{entity.transMonth}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excCode" />
+														</f:facet>
+														<h:outputText value="#{entity.excCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excRate" />
+														</f:facet>
+														<h:outputText value="#{entity.excRate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excEquivalent" />
+														</f:facet>
+														<h:outputText value="#{entity.excEquivalent}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertBy" />
+														</f:facet>
+														<h:outputText value="#{entity.insertBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertAt" />
+														</f:facet>
+														<h:outputText value="#{entity.insertAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateBy" />
+														</f:facet>
+														<h:outputText value="#{entity.updateBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateAt" />
+														</f:facet>
+														<h:outputText value="#{entity.updateAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="refModule" />
+														</f:facet>
+														<h:outputText value="#{entity.refModule}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="refId" />
+														</f:facet>
+														<h:outputText value="#{entity.refId}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="workspace" />
+														</f:facet>
+														<h:outputText value="#{entity.workspace}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="version" />
+														</f:facet>
+														<h:outputText value="#{entity.version}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactTransSource" />
+														</f:facet>
+														<h:outputText value="#{entity.contactTransSource}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalPrivateCode" />
+														</f:facet>
+														<h:outputText value="#{entity.globalPrivateCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contact" />
+														</f:facet>
+														<h:outputText value="#{entity.contact}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalTransPoint" />
+														</f:facet>
+														<h:outputText value="#{entity.globalTransPoint}" />
+													</r:column>
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_CONTACTTRANS_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="contactTrans?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_CONTACTTRANS_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{contactTransController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty contactTransController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{contactTransController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{contactTransController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_CONTACTTRANS_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{contactTransController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

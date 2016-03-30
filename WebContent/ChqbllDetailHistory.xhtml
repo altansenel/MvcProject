@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{chqbllDetailHistoryController.message}"
+				rendered="#{not empty chqbllDetailHistoryController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="ChqbllDetailHistory" />
+					<ui:param name="inputHidden" value="#{chqbllDetailHistoryController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty chqbllDetailHistoryController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{chqbllDetailHistoryController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{chqbllDetailHistoryController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{chqbllDetailHistoryController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllDetailHistory" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="safe" />
+							<ui:param name="id" value="safe" />
+							<ui:param name="inputText"
+								value="#{chqbllDetailHistoryController.entity.safe}" />
+							<ui:param name="errorPath" value="safe" />
+							<ui:param name="converter" value="#{safeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addSafe" />
+							<ui:param name="controller" value="#{chqbllDetailHistoryController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllDetailHistory" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="bank" />
+							<ui:param name="id" value="bank" />
+							<ui:param name="inputText"
+								value="#{chqbllDetailHistoryController.entity.bank}" />
+							<ui:param name="errorPath" value="bank" />
+							<ui:param name="converter" value="#{bankConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addBank" />
+							<ui:param name="controller" value="#{chqbllDetailHistoryController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllDetailHistory" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="chqbllPayrollDetail" />
+							<ui:param name="id" value="chqbllPayrollDetail" />
+							<ui:param name="inputText"
+								value="#{chqbllDetailHistoryController.entity.chqbllPayrollDetail}" />
+							<ui:param name="errorPath" value="chqbllPayrollDetail" />
+							<ui:param name="converter" value="#{chqbllPayrollDetailConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addChqbllPayrollDetail" />
+							<ui:param name="controller" value="#{chqbllDetailHistoryController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllDetailHistory" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="sort" />
+							<ui:param name="id" value="sort" />
+							<ui:param name="inputText"	
+								value="#{chqbllDetailHistoryController.entity.sort}" />
+					    	<ui:param name="errorPath" value="sort" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="stepDate" />
+							<ui:param name="id" value="stepDate" />
+							<ui:param name="inputText" 
+								value="#{chqbllDetailHistoryController.entity.stepDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="step" />
+							<ui:param name="id" value="step" />
+							<ui:param name="inputText"	
+								value="#{chqbllDetailHistoryController.entity.step}" />
+					    	<ui:param name="errorPath" value="step" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{chqbllDetailHistoryController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{chqbllDetailHistoryController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{chqbllDetailHistoryController.save(chqbllDetailHistoryController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="ChqbllDetailHistory List" class="form-control"
+												outcome="ChqbllDetailHistoryList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

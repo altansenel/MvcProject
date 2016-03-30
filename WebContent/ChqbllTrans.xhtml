@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{chqbllTransController.message}"
+				rendered="#{not empty chqbllTransController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="ChqbllTrans" />
+					<ui:param name="inputHidden" value="#{chqbllTransController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty chqbllTransController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{chqbllTransController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="bank" />
+							<ui:param name="id" value="bank" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.bank}" />
+							<ui:param name="errorPath" value="bank" />
+							<ui:param name="converter" value="#{bankConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addBank" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="chqbllPayrollSource" />
+							<ui:param name="id" value="chqbllPayrollSource" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.chqbllPayrollSource}" />
+							<ui:param name="errorPath" value="chqbllPayrollSource" />
+							<ui:param name="converter" value="#{chqbllPayrollSourceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addChqbllPayrollSource" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalPrivateCode" />
+							<ui:param name="id" value="globalPrivateCode" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.globalPrivateCode}" />
+							<ui:param name="errorPath" value="globalPrivateCode" />
+							<ui:param name="converter" value="#{globalPrivateCodeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="safe" />
+							<ui:param name="id" value="safe" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.safe}" />
+							<ui:param name="errorPath" value="safe" />
+							<ui:param name="converter" value="#{safeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addSafe" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalTransPoint" />
+							<ui:param name="id" value="globalTransPoint" />
+							<ui:param name="inputText"
+								value="#{chqbllTransController.entity.globalTransPoint}" />
+							<ui:param name="errorPath" value="globalTransPoint" />
+							<ui:param name="converter" value="#{globalTransPointConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
+							<ui:param name="controller" value="#{chqbllTransController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllTrans" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="sort" />
+							<ui:param name="id" value="sort" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.sort}" />
+					    	<ui:param name="errorPath" value="sort" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="receiptNo" />
+							<ui:param name="id" value="receiptNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.receiptNo}" />
+					    	<ui:param name="errorPath" value="receiptNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="fromStep" />
+							<ui:param name="id" value="fromStep" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.fromStep}" />
+					    	<ui:param name="errorPath" value="fromStep" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="toStep" />
+							<ui:param name="id" value="toStep" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.toStep}" />
+					    	<ui:param name="errorPath" value="toStep" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="transDate" />
+							<ui:param name="id" value="transDate" />
+							<ui:param name="inputText" 
+								value="#{chqbllTransController.entity.transDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transNo" />
+							<ui:param name="id" value="transNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.transNo}" />
+					    	<ui:param name="errorPath" value="transNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transType" />
+							<ui:param name="id" value="transType" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.transType}" />
+					    	<ui:param name="errorPath" value="transType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="total" />
+							<ui:param name="id" value="total" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.total}" />
+					    	<ui:param name="errorPath" value="total" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="rowCount" />
+							<ui:param name="id" value="rowCount" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.rowCount}" />
+					    	<ui:param name="errorPath" value="rowCount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="adat" />
+							<ui:param name="id" value="adat" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.adat}" />
+					    	<ui:param name="errorPath" value="adat" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="avarageDate" />
+							<ui:param name="id" value="avarageDate" />
+							<ui:param name="inputText" 
+								value="#{chqbllTransController.entity.avarageDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transYear" />
+							<ui:param name="id" value="transYear" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.transYear}" />
+					    	<ui:param name="errorPath" value="transYear" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transMonth" />
+							<ui:param name="id" value="transMonth" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.transMonth}" />
+					    	<ui:param name="errorPath" value="transMonth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excRate" />
+							<ui:param name="id" value="excRate" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.excRate}" />
+					    	<ui:param name="errorPath" value="excRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excEquivalent" />
+							<ui:param name="id" value="excEquivalent" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.excEquivalent}" />
+					    	<ui:param name="errorPath" value="excEquivalent" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{chqbllTransController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{chqbllTransController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refModule" />
+							<ui:param name="id" value="refModule" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.refModule}" />
+					    	<ui:param name="errorPath" value="refModule" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refId" />
+							<ui:param name="id" value="refId" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.refId}" />
+					    	<ui:param name="errorPath" value="refId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{chqbllTransController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{chqbllTransController.save(chqbllTransController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="ChqbllTrans List" class="form-control"
+												outcome="ChqbllTransList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

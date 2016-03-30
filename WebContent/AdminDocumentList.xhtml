@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{adminDocumentController.message}"
+				rendered="#{not empty adminDocumentController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="AdminDocument List" />
+					<ui:param name="inputHidden"
+						value="#{adminDocumentController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty adminDocumentController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{adminDocumentController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="module" />
+							<ui:param name="id" value="module" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.module}" />
+					    	<ui:param name="errorPath" value="module" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="header" />
+							<ui:param name="id" value="header" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.header}" />
+					    	<ui:param name="errorPath" value="header" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageRows" />
+							<ui:param name="id" value="pageRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageRows}" />
+					    	<ui:param name="errorPath" value="pageRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="reportTitleRows" />
+							<ui:param name="id" value="reportTitleRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.reportTitleRows}" />
+					    	<ui:param name="errorPath" value="reportTitleRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageTitleRows" />
+							<ui:param name="id" value="pageTitleRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageTitleRows}" />
+					    	<ui:param name="errorPath" value="pageTitleRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="detailRows" />
+							<ui:param name="id" value="detailRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.detailRows}" />
+					    	<ui:param name="errorPath" value="detailRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageFooterRows" />
+							<ui:param name="id" value="pageFooterRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageFooterRows}" />
+					    	<ui:param name="errorPath" value="pageFooterRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="reportFooterRows" />
+							<ui:param name="id" value="reportFooterRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.reportFooterRows}" />
+					    	<ui:param name="errorPath" value="reportFooterRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="reportTitleLabels" />
+							<ui:param name="id" value="reportTitleLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.reportTitleLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="pageTitleLabels" />
+							<ui:param name="id" value="pageTitleLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.pageTitleLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="detailLabels" />
+							<ui:param name="id" value="detailLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.detailLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="pageFooterLabels" />
+							<ui:param name="id" value="pageFooterLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.pageFooterLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="reportFooterLabels" />
+							<ui:param name="id" value="reportFooterLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.reportFooterLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="leftMargin" />
+							<ui:param name="id" value="leftMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.leftMargin}" />
+					    	<ui:param name="errorPath" value="leftMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="topMargin" />
+							<ui:param name="id" value="topMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.topMargin}" />
+					    	<ui:param name="errorPath" value="topMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bottomMargin" />
+							<ui:param name="id" value="bottomMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.bottomMargin}" />
+					    	<ui:param name="errorPath" value="bottomMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isSinglePage" />
+							<ui:param name="id" value="isSinglePage" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.isSinglePage}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="hasPaging" />
+							<ui:param name="id" value="hasPaging" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.hasPaging}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="columnTitleType" />
+							<ui:param name="id" value="columnTitleType" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.columnTitleType}" />
+					    	<ui:param name="errorPath" value="columnTitleType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="carryingOverName" />
+							<ui:param name="id" value="carryingOverName" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.carryingOverName}" />
+					    	<ui:param name="errorPath" value="carryingOverName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="templateRows" />
+							<ui:param name="id" value="templateRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.templateRows}" />
+					    	<ui:param name="errorPath" value="templateRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isActive" />
+							<ui:param name="id" value="isActive" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.isActive}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{adminDocumentController.entityList.size() > 0}">
+										<r:accordionItem header="AdminDocument List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="adminDocumentList" var="entity" class="tg"
+													rendered="#{adminDocumentController.entityList.size() > 0}"
+													value="#{adminDocumentController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="module" />
+														</f:facet>
+														<h:outputText value="#{entity.module}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="header" />
+														</f:facet>
+														<h:outputText value="#{entity.header}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="right" />
+														</f:facet>
+														<h:outputText value="#{entity.right}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="name" />
+														</f:facet>
+														<h:outputText value="#{entity.name}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="pageRows" />
+														</f:facet>
+														<h:outputText value="#{entity.pageRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="reportTitleRows" />
+														</f:facet>
+														<h:outputText value="#{entity.reportTitleRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="pageTitleRows" />
+														</f:facet>
+														<h:outputText value="#{entity.pageTitleRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="detailRows" />
+														</f:facet>
+														<h:outputText value="#{entity.detailRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="pageFooterRows" />
+														</f:facet>
+														<h:outputText value="#{entity.pageFooterRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="reportFooterRows" />
+														</f:facet>
+														<h:outputText value="#{entity.reportFooterRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="reportTitleLabels" />
+														</f:facet>
+														<h:outputText value="#{entity.reportTitleLabels}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="pageTitleLabels" />
+														</f:facet>
+														<h:outputText value="#{entity.pageTitleLabels}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="detailLabels" />
+														</f:facet>
+														<h:outputText value="#{entity.detailLabels}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="pageFooterLabels" />
+														</f:facet>
+														<h:outputText value="#{entity.pageFooterLabels}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="reportFooterLabels" />
+														</f:facet>
+														<h:outputText value="#{entity.reportFooterLabels}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="leftMargin" />
+														</f:facet>
+														<h:outputText value="#{entity.leftMargin}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="topMargin" />
+														</f:facet>
+														<h:outputText value="#{entity.topMargin}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="bottomMargin" />
+														</f:facet>
+														<h:outputText value="#{entity.bottomMargin}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isSinglePage" />
+														</f:facet>
+														<h:outputText value="#{entity.isSinglePage}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="hasPaging" />
+														</f:facet>
+														<h:outputText value="#{entity.hasPaging}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="columnTitleType" />
+														</f:facet>
+														<h:outputText value="#{entity.columnTitleType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="carryingOverName" />
+														</f:facet>
+														<h:outputText value="#{entity.carryingOverName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="description" />
+														</f:facet>
+														<h:outputText value="#{entity.description}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="templateRows" />
+														</f:facet>
+														<h:outputText value="#{entity.templateRows}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isActive" />
+														</f:facet>
+														<h:outputText value="#{entity.isActive}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="version" />
+														</f:facet>
+														<h:outputText value="#{entity.version}" />
+													</r:column>
+
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENT_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="adminDocument?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENT_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{adminDocumentController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty adminDocumentController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{adminDocumentController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{adminDocumentController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENT_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{adminDocumentController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

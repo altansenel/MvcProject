@@ -1,0 +1,510 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{contactController.message}"
+				rendered="#{not empty contactController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="Contact" />
+					<ui:param name="inputHidden" value="#{contactController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty contactController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{contactController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactCategory" />
+							<ui:param name="id" value="contactCategory" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactCategory}" />
+							<ui:param name="errorPath" value="contactCategory" />
+							<ui:param name="converter" value="#{contactCategoryConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactCategory" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields3" />
+							<ui:param name="id" value="contactExtraFields3" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields3}" />
+							<ui:param name="errorPath" value="contactExtraFields3" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="saleSeller" />
+							<ui:param name="id" value="saleSeller" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.saleSeller}" />
+							<ui:param name="errorPath" value="saleSeller" />
+							<ui:param name="converter" value="#{saleSellerConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addSaleSeller" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields6" />
+							<ui:param name="id" value="contactExtraFields6" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields6}" />
+							<ui:param name="errorPath" value="contactExtraFields6" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields8" />
+							<ui:param name="id" value="contactExtraFields8" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields8}" />
+							<ui:param name="errorPath" value="contactExtraFields8" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields10" />
+							<ui:param name="id" value="contactExtraFields10" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields10}" />
+							<ui:param name="errorPath" value="contactExtraFields10" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields2" />
+							<ui:param name="id" value="contactExtraFields2" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields2}" />
+							<ui:param name="errorPath" value="contactExtraFields2" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockPriceList" />
+							<ui:param name="id" value="stockPriceList" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.stockPriceList}" />
+							<ui:param name="errorPath" value="stockPriceList" />
+							<ui:param name="converter" value="#{stockPriceListConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockPriceList" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields4" />
+							<ui:param name="id" value="contactExtraFields4" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields4}" />
+							<ui:param name="errorPath" value="contactExtraFields4" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields5" />
+							<ui:param name="id" value="contactExtraFields5" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields5}" />
+							<ui:param name="errorPath" value="contactExtraFields5" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields7" />
+							<ui:param name="id" value="contactExtraFields7" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields7}" />
+							<ui:param name="errorPath" value="contactExtraFields7" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields9" />
+							<ui:param name="id" value="contactExtraFields9" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields9}" />
+							<ui:param name="errorPath" value="contactExtraFields9" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contactExtraFields" />
+							<ui:param name="id" value="contactExtraFields" />
+							<ui:param name="inputText"
+								value="#{contactController.entity.contactExtraFields}" />
+							<ui:param name="errorPath" value="contactExtraFields" />
+							<ui:param name="converter" value="#{contactExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContactExtraFields" />
+							<ui:param name="controller" value="#{contactController}" />
+							<ui:param name="controllerMethodArgument" value="contact" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="code" />
+							<ui:param name="id" value="code" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.code}" />
+					    	<ui:param name="errorPath" value="code" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="taxOffice" />
+							<ui:param name="id" value="taxOffice" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.taxOffice}" />
+					    	<ui:param name="errorPath" value="taxOffice" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="taxNumber" />
+							<ui:param name="id" value="taxNumber" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.taxNumber}" />
+					    	<ui:param name="errorPath" value="taxNumber" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="tcKimlik" />
+							<ui:param name="id" value="tcKimlik" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.tcKimlik}" />
+					    	<ui:param name="errorPath" value="tcKimlik" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="relevant" />
+							<ui:param name="id" value="relevant" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.relevant}" />
+					    	<ui:param name="errorPath" value="relevant" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="phone" />
+							<ui:param name="id" value="phone" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.phone}" />
+					    	<ui:param name="errorPath" value="phone" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="fax" />
+							<ui:param name="id" value="fax" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.fax}" />
+					    	<ui:param name="errorPath" value="fax" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="mobilePhone" />
+							<ui:param name="id" value="mobilePhone" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.mobilePhone}" />
+					    	<ui:param name="errorPath" value="mobilePhone" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="address1" />
+							<ui:param name="id" value="address1" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.address1}" />
+					    	<ui:param name="errorPath" value="address1" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="address2" />
+							<ui:param name="id" value="address2" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.address2}" />
+					    	<ui:param name="errorPath" value="address2" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="city" />
+							<ui:param name="id" value="city" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.city}" />
+					    	<ui:param name="errorPath" value="city" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="country" />
+							<ui:param name="id" value="country" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.country}" />
+					    	<ui:param name="errorPath" value="country" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="email" />
+							<ui:param name="id" value="email" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.email}" />
+					    	<ui:param name="errorPath" value="email" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="website" />
+							<ui:param name="id" value="website" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.website}" />
+					    	<ui:param name="errorPath" value="website" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="status" />
+							<ui:param name="id" value="status" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.status}" />
+					    	<ui:param name="errorPath" value="status" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="note" />
+							<ui:param name="id" value="note" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.note}" />
+					    	<ui:param name="errorPath" value="note" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isActive" />
+							<ui:param name="id" value="isActive" />
+							<ui:param name="inputText" 
+								value="#{contactController.entity.isActive}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{contactController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{contactController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{contactController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{contactController.save(contactController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="Contact List" class="form-control"
+												outcome="ContactList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

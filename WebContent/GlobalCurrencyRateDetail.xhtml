@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{globalCurrencyRateDetailController.message}"
+				rendered="#{not empty globalCurrencyRateDetailController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="GlobalCurrencyRateDetail" />
+					<ui:param name="inputHidden" value="#{globalCurrencyRateDetailController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty globalCurrencyRateDetailController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{globalCurrencyRateDetailController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalCurrencyRate" />
+							<ui:param name="id" value="globalCurrencyRate" />
+							<ui:param name="inputText"
+								value="#{globalCurrencyRateDetailController.entity.globalCurrencyRate}" />
+							<ui:param name="errorPath" value="globalCurrencyRate" />
+							<ui:param name="converter" value="#{globalCurrencyRateConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalCurrencyRate" />
+							<ui:param name="controller" value="#{globalCurrencyRateDetailController}" />
+							<ui:param name="controllerMethodArgument" value="globalCurrencyRateDetail" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="date" />
+							<ui:param name="id" value="date" />
+							<ui:param name="inputText" 
+								value="#{globalCurrencyRateDetailController.entity.date}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="code" />
+							<ui:param name="id" value="code" />
+							<ui:param name="inputText"	
+								value="#{globalCurrencyRateDetailController.entity.code}" />
+					    	<ui:param name="errorPath" value="code" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{globalCurrencyRateDetailController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="buying" />
+							<ui:param name="id" value="buying" />
+							<ui:param name="inputText"	
+								value="#{globalCurrencyRateDetailController.entity.buying}" />
+					    	<ui:param name="errorPath" value="buying" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="selling" />
+							<ui:param name="id" value="selling" />
+							<ui:param name="inputText"	
+								value="#{globalCurrencyRateDetailController.entity.selling}" />
+					    	<ui:param name="errorPath" value="selling" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{globalCurrencyRateDetailController.save(globalCurrencyRateDetailController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="GlobalCurrencyRateDetail List" class="form-control"
+												outcome="GlobalCurrencyRateDetailList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

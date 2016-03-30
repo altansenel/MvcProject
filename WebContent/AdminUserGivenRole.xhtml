@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{adminUserGivenRoleController.message}"
+				rendered="#{not empty adminUserGivenRoleController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="AdminUserGivenRole" />
+					<ui:param name="inputHidden" value="#{adminUserGivenRoleController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty adminUserGivenRoleController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{adminUserGivenRoleController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminUserGroup" />
+							<ui:param name="id" value="adminUserGroup" />
+							<ui:param name="inputText"
+								value="#{adminUserGivenRoleController.entity.adminUserGroup}" />
+							<ui:param name="errorPath" value="adminUserGroup" />
+							<ui:param name="converter" value="#{adminUserGroupConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminUserGroup" />
+							<ui:param name="controller" value="#{adminUserGivenRoleController}" />
+							<ui:param name="controllerMethodArgument" value="adminUserGivenRole" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminUserRole" />
+							<ui:param name="id" value="adminUserRole" />
+							<ui:param name="inputText"
+								value="#{adminUserGivenRoleController.entity.adminUserRole}" />
+							<ui:param name="errorPath" value="adminUserRole" />
+							<ui:param name="converter" value="#{adminUserRoleConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminUserRole" />
+							<ui:param name="controller" value="#{adminUserGivenRoleController}" />
+							<ui:param name="controllerMethodArgument" value="adminUserGivenRole" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminWorkspace" />
+							<ui:param name="id" value="adminWorkspace" />
+							<ui:param name="inputText"
+								value="#{adminUserGivenRoleController.entity.adminWorkspace}" />
+							<ui:param name="errorPath" value="adminWorkspace" />
+							<ui:param name="converter" value="#{adminWorkspaceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminWorkspace" />
+							<ui:param name="controller" value="#{adminUserGivenRoleController}" />
+							<ui:param name="controllerMethodArgument" value="adminUserGivenRole" />
+						</ui:decorate>
+
+
+
+
+
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{adminUserGivenRoleController.save(adminUserGivenRoleController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="AdminUserGivenRole List" class="form-control"
+												outcome="AdminUserGivenRoleList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

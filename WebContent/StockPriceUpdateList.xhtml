@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{stockPriceUpdateController.message}"
+				rendered="#{not empty stockPriceUpdateController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="StockPriceUpdate List" />
+					<ui:param name="inputHidden"
+						value="#{stockPriceUpdateController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty stockPriceUpdateController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{stockPriceUpdateController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields7" />
+							<ui:param name="id" value="stockExtraFields7" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields7}" />
+							<ui:param name="errorPath" value="stockExtraFields7" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields3" />
+							<ui:param name="id" value="stockExtraFields3" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields3}" />
+							<ui:param name="errorPath" value="stockExtraFields3" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields8" />
+							<ui:param name="id" value="stockExtraFields8" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields8}" />
+							<ui:param name="errorPath" value="stockExtraFields8" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields4" />
+							<ui:param name="id" value="stockExtraFields4" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields4}" />
+							<ui:param name="errorPath" value="stockExtraFields4" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields" />
+							<ui:param name="id" value="stockExtraFields" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields}" />
+							<ui:param name="errorPath" value="stockExtraFields" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields9" />
+							<ui:param name="id" value="stockExtraFields9" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields9}" />
+							<ui:param name="errorPath" value="stockExtraFields9" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields5" />
+							<ui:param name="id" value="stockExtraFields5" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields5}" />
+							<ui:param name="errorPath" value="stockExtraFields5" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields2" />
+							<ui:param name="id" value="stockExtraFields2" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields2}" />
+							<ui:param name="errorPath" value="stockExtraFields2" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields10" />
+							<ui:param name="id" value="stockExtraFields10" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields10}" />
+							<ui:param name="errorPath" value="stockExtraFields10" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockExtraFields6" />
+							<ui:param name="id" value="stockExtraFields6" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockExtraFields6}" />
+							<ui:param name="errorPath" value="stockExtraFields6" />
+							<ui:param name="converter" value="#{stockExtraFieldsConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockExtraFields" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockCategory" />
+							<ui:param name="id" value="stockCategory" />
+							<ui:param name="inputText"
+								value="#{stockPriceUpdateController.entity.stockCategory}" />
+							<ui:param name="errorPath" value="stockCategory" />
+							<ui:param name="converter" value="#{stockCategoryConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockCategory" />
+							<ui:param name="controller" value="#{stockPriceUpdateController}" />
+							<ui:param name="controllerMethodArgument" value="stockPriceUpdate" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="execDate" />
+							<ui:param name="id" value="execDate" />
+							<ui:param name="inputText" 
+								value="#{stockPriceUpdateController.entity.execDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="effectType" />
+							<ui:param name="id" value="effectType" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.effectType}" />
+					    	<ui:param name="errorPath" value="effectType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="effectDirection" />
+							<ui:param name="id" value="effectDirection" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.effectDirection}" />
+					    	<ui:param name="errorPath" value="effectDirection" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="effect" />
+							<ui:param name="id" value="effect" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.effect}" />
+					    	<ui:param name="errorPath" value="effect" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="buyPrice" />
+							<ui:param name="id" value="buyPrice" />
+							<ui:param name="inputText" 
+								value="#{stockPriceUpdateController.entity.buyPrice}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="sellPrice" />
+							<ui:param name="id" value="sellPrice" />
+							<ui:param name="inputText" 
+								value="#{stockPriceUpdateController.entity.sellPrice}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="providerCode" />
+							<ui:param name="id" value="providerCode" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.providerCode}" />
+					    	<ui:param name="errorPath" value="providerCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{stockPriceUpdateController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{stockPriceUpdateController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{stockPriceUpdateController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{stockPriceUpdateController.entityList.size() > 0}">
+										<r:accordionItem header="StockPriceUpdate List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="stockPriceUpdateList" var="entity" class="tg"
+													rendered="#{stockPriceUpdateController.entityList.size() > 0}"
+													value="#{stockPriceUpdateController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="name" />
+														</f:facet>
+														<h:outputText value="#{entity.name}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="execDate" />
+														</f:facet>
+														<h:outputText value="#{entity.execDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="effectType" />
+														</f:facet>
+														<h:outputText value="#{entity.effectType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="effectDirection" />
+														</f:facet>
+														<h:outputText value="#{entity.effectDirection}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="effect" />
+														</f:facet>
+														<h:outputText value="#{entity.effect}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="description" />
+														</f:facet>
+														<h:outputText value="#{entity.description}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="buyPrice" />
+														</f:facet>
+														<h:outputText value="#{entity.buyPrice}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="sellPrice" />
+														</f:facet>
+														<h:outputText value="#{entity.sellPrice}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="providerCode" />
+														</f:facet>
+														<h:outputText value="#{entity.providerCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertBy" />
+														</f:facet>
+														<h:outputText value="#{entity.insertBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertAt" />
+														</f:facet>
+														<h:outputText value="#{entity.insertAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateBy" />
+														</f:facet>
+														<h:outputText value="#{entity.updateBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateAt" />
+														</f:facet>
+														<h:outputText value="#{entity.updateAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="workspace" />
+														</f:facet>
+														<h:outputText value="#{entity.workspace}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="version" />
+														</f:facet>
+														<h:outputText value="#{entity.version}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields7" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields7}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields3" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields3}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields8" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields8}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields4" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields4}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields9" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields9}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields5" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields5}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields2" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields2}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields10" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields10}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockExtraFields6" />
+														</f:facet>
+														<h:outputText value="#{entity.stockExtraFields6}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockCategory" />
+														</f:facet>
+														<h:outputText value="#{entity.stockCategory}" />
+													</r:column>
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKPRICEUPDATE_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="stockPriceUpdate?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKPRICEUPDATE_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{stockPriceUpdateController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty stockPriceUpdateController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{stockPriceUpdateController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{stockPriceUpdateController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKPRICEUPDATE_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{stockPriceUpdateController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{adminDocumentFieldController.message}"
+				rendered="#{not empty adminDocumentFieldController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="AdminDocumentField" />
+					<ui:param name="inputHidden" value="#{adminDocumentFieldController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty adminDocumentFieldController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{adminDocumentFieldController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument4" />
+							<ui:param name="id" value="adminDocument4" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument4}" />
+							<ui:param name="errorPath" value="adminDocument4" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument" />
+							<ui:param name="id" value="adminDocument" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument}" />
+							<ui:param name="errorPath" value="adminDocument" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument3" />
+							<ui:param name="id" value="adminDocument3" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument3}" />
+							<ui:param name="errorPath" value="adminDocument3" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument5" />
+							<ui:param name="id" value="adminDocument5" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument5}" />
+							<ui:param name="errorPath" value="adminDocument5" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument2" />
+							<ui:param name="id" value="adminDocument2" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument2}" />
+							<ui:param name="errorPath" value="adminDocument2" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="module" />
+							<ui:param name="id" value="module" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.module}" />
+					    	<ui:param name="errorPath" value="module" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="band" />
+							<ui:param name="id" value="band" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.band}" />
+					    	<ui:param name="errorPath" value="band" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="type" />
+							<ui:param name="id" value="type" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.type}" />
+					    	<ui:param name="errorPath" value="type" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="nickName" />
+							<ui:param name="id" value="nickName" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.nickName}" />
+					    	<ui:param name="errorPath" value="nickName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="hiddenField" />
+							<ui:param name="id" value="hiddenField" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.hiddenField}" />
+					    	<ui:param name="errorPath" value="hiddenField" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="label" />
+							<ui:param name="id" value="label" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.label}" />
+					    	<ui:param name="errorPath" value="label" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="originalLabel" />
+							<ui:param name="id" value="originalLabel" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.originalLabel}" />
+					    	<ui:param name="errorPath" value="originalLabel" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="labelWidth" />
+							<ui:param name="id" value="labelWidth" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.labelWidth}" />
+					    	<ui:param name="errorPath" value="labelWidth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="labelAlign" />
+							<ui:param name="id" value="labelAlign" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.labelAlign}" />
+					    	<ui:param name="errorPath" value="labelAlign" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="width" />
+							<ui:param name="id" value="width" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.width}" />
+					    	<ui:param name="errorPath" value="width" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="row" />
+							<ui:param name="id" value="row" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.row}" />
+					    	<ui:param name="errorPath" value="row" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="column" />
+							<ui:param name="id" value="column" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.column}" />
+					    	<ui:param name="errorPath" value="column" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="format" />
+							<ui:param name="id" value="format" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.format}" />
+					    	<ui:param name="errorPath" value="format" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="prefix" />
+							<ui:param name="id" value="prefix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.prefix}" />
+					    	<ui:param name="errorPath" value="prefix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="suffix" />
+							<ui:param name="id" value="suffix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.suffix}" />
+					    	<ui:param name="errorPath" value="suffix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="value" />
+							<ui:param name="id" value="value" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.value}" />
+					    	<ui:param name="errorPath" value="value" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="msgPrefix" />
+							<ui:param name="id" value="msgPrefix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.msgPrefix}" />
+					    	<ui:param name="errorPath" value="msgPrefix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="defauld" />
+							<ui:param name="id" value="defauld" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.defauld}" />
+					    	<ui:param name="errorPath" value="defauld" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isDbField" />
+							<ui:param name="id" value="isDbField" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentFieldController.entity.isDbField}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="tableType" />
+							<ui:param name="id" value="tableType" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.tableType}" />
+					    	<ui:param name="errorPath" value="tableType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{adminDocumentFieldController.save(adminDocumentFieldController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="AdminDocumentField List" class="form-control"
+												outcome="AdminDocumentFieldList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

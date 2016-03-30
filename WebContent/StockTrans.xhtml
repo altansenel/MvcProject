@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{stockTransController.message}"
+				rendered="#{not empty stockTransController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="StockTrans" />
+					<ui:param name="inputHidden" value="#{stockTransController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty stockTransController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{stockTransController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalPrivateCode" />
+							<ui:param name="id" value="globalPrivateCode" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.globalPrivateCode}" />
+							<ui:param name="errorPath" value="globalPrivateCode" />
+							<ui:param name="converter" value="#{globalPrivateCodeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockDepot2" />
+							<ui:param name="id" value="stockDepot2" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockDepot2}" />
+							<ui:param name="errorPath" value="stockDepot2" />
+							<ui:param name="converter" value="#{stockDepotConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockDepot" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockTransSource" />
+							<ui:param name="id" value="stockTransSource" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockTransSource}" />
+							<ui:param name="errorPath" value="stockTransSource" />
+							<ui:param name="converter" value="#{stockTransSourceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockTransSource" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalTransPoint" />
+							<ui:param name="id" value="globalTransPoint" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.globalTransPoint}" />
+							<ui:param name="errorPath" value="globalTransPoint" />
+							<ui:param name="converter" value="#{globalTransPointConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="saleSeller" />
+							<ui:param name="id" value="saleSeller" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.saleSeller}" />
+							<ui:param name="errorPath" value="saleSeller" />
+							<ui:param name="converter" value="#{saleSellerConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addSaleSeller" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockDepot" />
+							<ui:param name="id" value="stockDepot" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockDepot}" />
+							<ui:param name="errorPath" value="stockDepot" />
+							<ui:param name="converter" value="#{stockDepotConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockDepot" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="receiptNo" />
+							<ui:param name="id" value="receiptNo" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.receiptNo}" />
+					    	<ui:param name="errorPath" value="receiptNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isCompleted" />
+							<ui:param name="id" value="isCompleted" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.isCompleted}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="transDate" />
+							<ui:param name="id" value="transDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.transDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="realDate" />
+							<ui:param name="id" value="realDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.realDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="deliveryDate" />
+							<ui:param name="id" value="deliveryDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.deliveryDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transNo" />
+							<ui:param name="id" value="transNo" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transNo}" />
+					    	<ui:param name="errorPath" value="transNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isTaxInclude" />
+							<ui:param name="id" value="isTaxInclude" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.isTaxInclude}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="roundingDigits" />
+							<ui:param name="id" value="roundingDigits" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.roundingDigits}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="total" />
+							<ui:param name="id" value="total" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.total}" />
+					    	<ui:param name="errorPath" value="total" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="discountTotal" />
+							<ui:param name="id" value="discountTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.discountTotal}" />
+					    	<ui:param name="errorPath" value="discountTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="subtotal" />
+							<ui:param name="id" value="subtotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.subtotal}" />
+					    	<ui:param name="errorPath" value="subtotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="roundingDiscount" />
+							<ui:param name="id" value="roundingDiscount" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.roundingDiscount}" />
+					    	<ui:param name="errorPath" value="roundingDiscount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="totalDiscountRate" />
+							<ui:param name="id" value="totalDiscountRate" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.totalDiscountRate}" />
+					    	<ui:param name="errorPath" value="totalDiscountRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="taxTotal" />
+							<ui:param name="id" value="taxTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.taxTotal}" />
+					    	<ui:param name="errorPath" value="taxTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="netTotal" />
+							<ui:param name="id" value="netTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.netTotal}" />
+					    	<ui:param name="errorPath" value="netTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="plusFactorTotal" />
+							<ui:param name="id" value="plusFactorTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.plusFactorTotal}" />
+					    	<ui:param name="errorPath" value="plusFactorTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="minusFactorTotal" />
+							<ui:param name="id" value="minusFactorTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.minusFactorTotal}" />
+					    	<ui:param name="errorPath" value="minusFactorTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="amount" />
+							<ui:param name="id" value="amount" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.amount}" />
+					    	<ui:param name="errorPath" value="amount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transYear" />
+							<ui:param name="id" value="transYear" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transYear}" />
+					    	<ui:param name="errorPath" value="transYear" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transMonth" />
+							<ui:param name="id" value="transMonth" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transMonth}" />
+					    	<ui:param name="errorPath" value="transMonth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactName" />
+							<ui:param name="id" value="contactName" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactName}" />
+					    	<ui:param name="errorPath" value="contactName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTaxOffice" />
+							<ui:param name="id" value="contactTaxOffice" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTaxOffice}" />
+					    	<ui:param name="errorPath" value="contactTaxOffice" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTaxNumber" />
+							<ui:param name="id" value="contactTaxNumber" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTaxNumber}" />
+					    	<ui:param name="errorPath" value="contactTaxNumber" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactAddress1" />
+							<ui:param name="id" value="contactAddress1" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactAddress1}" />
+					    	<ui:param name="errorPath" value="contactAddress1" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactAddress2" />
+							<ui:param name="id" value="contactAddress2" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactAddress2}" />
+					    	<ui:param name="errorPath" value="contactAddress2" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="consigner" />
+							<ui:param name="id" value="consigner" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.consigner}" />
+					    	<ui:param name="errorPath" value="consigner" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="recepient" />
+							<ui:param name="id" value="recepient" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.recepient}" />
+					    	<ui:param name="errorPath" value="recepient" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transType" />
+							<ui:param name="id" value="transType" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transType}" />
+					    	<ui:param name="errorPath" value="transType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excRate" />
+							<ui:param name="id" value="excRate" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excRate}" />
+					    	<ui:param name="errorPath" value="excRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excEquivalent" />
+							<ui:param name="id" value="excEquivalent" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excEquivalent}" />
+					    	<ui:param name="errorPath" value="excEquivalent" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTransId" />
+							<ui:param name="id" value="contactTransId" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTransId}" />
+					    	<ui:param name="errorPath" value="contactTransId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refModule" />
+							<ui:param name="id" value="refModule" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.refModule}" />
+					    	<ui:param name="errorPath" value="refModule" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refId" />
+							<ui:param name="id" value="refId" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.refId}" />
+					    	<ui:param name="errorPath" value="refId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{stockTransController.save(stockTransController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="StockTrans List" class="form-control"
+												outcome="StockTransList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

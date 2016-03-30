@@ -1,0 +1,7 @@
+	<beans:bean id="$fn.uncapitalize($entity.name)DAO" class="com.dao.${entity.name}DaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="$fn.uncapitalize($entity.name)Service" class="com.dao.${entity.name}ServiceImpl">
+		<beans:property name="entityDAO" ref="$fn.uncapitalize($entity.name)DAO"></beans:property>
+	</beans:bean>

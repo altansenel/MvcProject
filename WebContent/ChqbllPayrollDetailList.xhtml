@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{chqbllPayrollDetailController.message}"
+				rendered="#{not empty chqbllPayrollDetailController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="ChqbllPayrollDetail List" />
+					<ui:param name="inputHidden"
+						value="#{chqbllPayrollDetailController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty chqbllPayrollDetailController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{chqbllPayrollDetailController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalPrivateCode" />
+							<ui:param name="id" value="globalPrivateCode" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.globalPrivateCode}" />
+							<ui:param name="errorPath" value="globalPrivateCode" />
+							<ui:param name="converter" value="#{globalPrivateCodeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="chqbllPayroll" />
+							<ui:param name="id" value="chqbllPayroll" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.chqbllPayroll}" />
+							<ui:param name="errorPath" value="chqbllPayroll" />
+							<ui:param name="converter" value="#{chqbllPayrollConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addChqbllPayroll" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="chqbllPayrollSource" />
+							<ui:param name="id" value="chqbllPayrollSource" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.chqbllPayrollSource}" />
+							<ui:param name="errorPath" value="chqbllPayrollSource" />
+							<ui:param name="converter" value="#{chqbllPayrollSourceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addChqbllPayrollSource" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalTransPoint" />
+							<ui:param name="id" value="globalTransPoint" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.globalTransPoint}" />
+							<ui:param name="errorPath" value="globalTransPoint" />
+							<ui:param name="converter" value="#{globalTransPointConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="chqbllType" />
+							<ui:param name="id" value="chqbllType" />
+							<ui:param name="inputText"
+								value="#{chqbllPayrollDetailController.entity.chqbllType}" />
+							<ui:param name="errorPath" value="chqbllType" />
+							<ui:param name="converter" value="#{chqbllTypeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addChqbllType" />
+							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
+							<ui:param name="controllerMethodArgument" value="chqbllPayrollDetail" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="sort" />
+							<ui:param name="id" value="sort" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.sort}" />
+					    	<ui:param name="errorPath" value="sort" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isCustomer" />
+							<ui:param name="id" value="isCustomer" />
+							<ui:param name="inputText" 
+								value="#{chqbllPayrollDetailController.entity.isCustomer}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="portfolioNo" />
+							<ui:param name="id" value="portfolioNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.portfolioNo}" />
+					    	<ui:param name="errorPath" value="portfolioNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="rowNo" />
+							<ui:param name="id" value="rowNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.rowNo}" />
+					    	<ui:param name="errorPath" value="rowNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="serialNo" />
+							<ui:param name="id" value="serialNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.serialNo}" />
+					    	<ui:param name="errorPath" value="serialNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="dueDate" />
+							<ui:param name="id" value="dueDate" />
+							<ui:param name="inputText" 
+								value="#{chqbllPayrollDetailController.entity.dueDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="amount" />
+							<ui:param name="id" value="amount" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.amount}" />
+					    	<ui:param name="errorPath" value="amount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="dueYear" />
+							<ui:param name="id" value="dueYear" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.dueYear}" />
+					    	<ui:param name="errorPath" value="dueYear" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="dueMonth" />
+							<ui:param name="id" value="dueMonth" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.dueMonth}" />
+					    	<ui:param name="errorPath" value="dueMonth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="owner" />
+							<ui:param name="id" value="owner" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.owner}" />
+					    	<ui:param name="errorPath" value="owner" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="paymentPlace" />
+							<ui:param name="id" value="paymentPlace" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.paymentPlace}" />
+					    	<ui:param name="errorPath" value="paymentPlace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bankAccountNo" />
+							<ui:param name="id" value="bankAccountNo" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.bankAccountNo}" />
+					    	<ui:param name="errorPath" value="bankAccountNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bankName" />
+							<ui:param name="id" value="bankName" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.bankName}" />
+					    	<ui:param name="errorPath" value="bankName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bankBranch" />
+							<ui:param name="id" value="bankBranch" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.bankBranch}" />
+					    	<ui:param name="errorPath" value="bankBranch" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="correspondentBranch" />
+							<ui:param name="id" value="correspondentBranch" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.correspondentBranch}" />
+					    	<ui:param name="errorPath" value="correspondentBranch" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactName" />
+							<ui:param name="id" value="contactName" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.contactName}" />
+					    	<ui:param name="errorPath" value="contactName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="lastStep" />
+							<ui:param name="id" value="lastStep" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.lastStep}" />
+					    	<ui:param name="errorPath" value="lastStep" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="lastContactName" />
+							<ui:param name="id" value="lastContactName" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.lastContactName}" />
+					    	<ui:param name="errorPath" value="lastContactName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="surety" />
+							<ui:param name="id" value="surety" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.surety}" />
+					    	<ui:param name="errorPath" value="surety" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="suretyAddress" />
+							<ui:param name="id" value="suretyAddress" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.suretyAddress}" />
+					    	<ui:param name="errorPath" value="suretyAddress" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="suretyPhone1" />
+							<ui:param name="id" value="suretyPhone1" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.suretyPhone1}" />
+					    	<ui:param name="errorPath" value="suretyPhone1" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="suretyPhone2" />
+							<ui:param name="id" value="suretyPhone2" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.suretyPhone2}" />
+					    	<ui:param name="errorPath" value="suretyPhone2" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excRate" />
+							<ui:param name="id" value="excRate" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.excRate}" />
+					    	<ui:param name="errorPath" value="excRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excEquivalent" />
+							<ui:param name="id" value="excEquivalent" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.excEquivalent}" />
+					    	<ui:param name="errorPath" value="excEquivalent" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="totalPaid" />
+							<ui:param name="id" value="totalPaid" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.totalPaid}" />
+					    	<ui:param name="errorPath" value="totalPaid" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bankId" />
+							<ui:param name="id" value="bankId" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.bankId}" />
+					    	<ui:param name="errorPath" value="bankId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{chqbllPayrollDetailController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{chqbllPayrollDetailController.entityList.size() > 0}">
+										<r:accordionItem header="ChqbllPayrollDetail List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="chqbllPayrollDetailList" var="entity" class="tg"
+													rendered="#{chqbllPayrollDetailController.entityList.size() > 0}"
+													value="#{chqbllPayrollDetailController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="sort" />
+														</f:facet>
+														<h:outputText value="#{entity.sort}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isCustomer" />
+														</f:facet>
+														<h:outputText value="#{entity.isCustomer}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="portfolioNo" />
+														</f:facet>
+														<h:outputText value="#{entity.portfolioNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="rowNo" />
+														</f:facet>
+														<h:outputText value="#{entity.rowNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="serialNo" />
+														</f:facet>
+														<h:outputText value="#{entity.serialNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="dueDate" />
+														</f:facet>
+														<h:outputText value="#{entity.dueDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="amount" />
+														</f:facet>
+														<h:outputText value="#{entity.amount}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="description" />
+														</f:facet>
+														<h:outputText value="#{entity.description}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="dueYear" />
+														</f:facet>
+														<h:outputText value="#{entity.dueYear}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="dueMonth" />
+														</f:facet>
+														<h:outputText value="#{entity.dueMonth}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="owner" />
+														</f:facet>
+														<h:outputText value="#{entity.owner}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="paymentPlace" />
+														</f:facet>
+														<h:outputText value="#{entity.paymentPlace}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="bankAccountNo" />
+														</f:facet>
+														<h:outputText value="#{entity.bankAccountNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="bankName" />
+														</f:facet>
+														<h:outputText value="#{entity.bankName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="bankBranch" />
+														</f:facet>
+														<h:outputText value="#{entity.bankBranch}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="correspondentBranch" />
+														</f:facet>
+														<h:outputText value="#{entity.correspondentBranch}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactName" />
+														</f:facet>
+														<h:outputText value="#{entity.contactName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="lastStep" />
+														</f:facet>
+														<h:outputText value="#{entity.lastStep}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="lastContactName" />
+														</f:facet>
+														<h:outputText value="#{entity.lastContactName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="surety" />
+														</f:facet>
+														<h:outputText value="#{entity.surety}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="suretyAddress" />
+														</f:facet>
+														<h:outputText value="#{entity.suretyAddress}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="suretyPhone1" />
+														</f:facet>
+														<h:outputText value="#{entity.suretyPhone1}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="suretyPhone2" />
+														</f:facet>
+														<h:outputText value="#{entity.suretyPhone2}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excCode" />
+														</f:facet>
+														<h:outputText value="#{entity.excCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excRate" />
+														</f:facet>
+														<h:outputText value="#{entity.excRate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excEquivalent" />
+														</f:facet>
+														<h:outputText value="#{entity.excEquivalent}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="totalPaid" />
+														</f:facet>
+														<h:outputText value="#{entity.totalPaid}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="bankId" />
+														</f:facet>
+														<h:outputText value="#{entity.bankId}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="workspace" />
+														</f:facet>
+														<h:outputText value="#{entity.workspace}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalPrivateCode" />
+														</f:facet>
+														<h:outputText value="#{entity.globalPrivateCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="chqbllPayroll" />
+														</f:facet>
+														<h:outputText value="#{entity.chqbllPayroll}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contact" />
+														</f:facet>
+														<h:outputText value="#{entity.contact}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="chqbllPayrollSource" />
+														</f:facet>
+														<h:outputText value="#{entity.chqbllPayrollSource}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalTransPoint" />
+														</f:facet>
+														<h:outputText value="#{entity.globalTransPoint}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="chqbllType" />
+														</f:facet>
+														<h:outputText value="#{entity.chqbllType}" />
+													</r:column>
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_CHQBLLPAYROLLDETAIL_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="chqbllPayrollDetail?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_CHQBLLPAYROLLDETAIL_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{chqbllPayrollDetailController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty chqbllPayrollDetailController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{chqbllPayrollDetailController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{chqbllPayrollDetailController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_CHQBLLPAYROLLDETAIL_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{chqbllPayrollDetailController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

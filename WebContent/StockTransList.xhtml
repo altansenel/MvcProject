@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{stockTransController.message}"
+				rendered="#{not empty stockTransController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="StockTrans List" />
+					<ui:param name="inputHidden"
+						value="#{stockTransController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty stockTransController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{stockTransController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalPrivateCode" />
+							<ui:param name="id" value="globalPrivateCode" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.globalPrivateCode}" />
+							<ui:param name="errorPath" value="globalPrivateCode" />
+							<ui:param name="converter" value="#{globalPrivateCodeConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockDepot2" />
+							<ui:param name="id" value="stockDepot2" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockDepot2}" />
+							<ui:param name="errorPath" value="stockDepot2" />
+							<ui:param name="converter" value="#{stockDepotConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockDepot" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockTransSource" />
+							<ui:param name="id" value="stockTransSource" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockTransSource}" />
+							<ui:param name="errorPath" value="stockTransSource" />
+							<ui:param name="converter" value="#{stockTransSourceConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockTransSource" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="globalTransPoint" />
+							<ui:param name="id" value="globalTransPoint" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.globalTransPoint}" />
+							<ui:param name="errorPath" value="globalTransPoint" />
+							<ui:param name="converter" value="#{globalTransPointConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="contact" />
+							<ui:param name="id" value="contact" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.contact}" />
+							<ui:param name="errorPath" value="contact" />
+							<ui:param name="converter" value="#{contactConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addContact" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="saleSeller" />
+							<ui:param name="id" value="saleSeller" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.saleSeller}" />
+							<ui:param name="errorPath" value="saleSeller" />
+							<ui:param name="converter" value="#{saleSellerConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addSaleSeller" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="stockDepot" />
+							<ui:param name="id" value="stockDepot" />
+							<ui:param name="inputText"
+								value="#{stockTransController.entity.stockDepot}" />
+							<ui:param name="errorPath" value="stockDepot" />
+							<ui:param name="converter" value="#{stockDepotConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addStockDepot" />
+							<ui:param name="controller" value="#{stockTransController}" />
+							<ui:param name="controllerMethodArgument" value="stockTrans" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="receiptNo" />
+							<ui:param name="id" value="receiptNo" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.receiptNo}" />
+					    	<ui:param name="errorPath" value="receiptNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isCompleted" />
+							<ui:param name="id" value="isCompleted" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.isCompleted}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="transDate" />
+							<ui:param name="id" value="transDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.transDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="realDate" />
+							<ui:param name="id" value="realDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.realDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="deliveryDate" />
+							<ui:param name="id" value="deliveryDate" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.deliveryDate}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transNo" />
+							<ui:param name="id" value="transNo" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transNo}" />
+					    	<ui:param name="errorPath" value="transNo" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isTaxInclude" />
+							<ui:param name="id" value="isTaxInclude" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.isTaxInclude}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="roundingDigits" />
+							<ui:param name="id" value="roundingDigits" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.roundingDigits}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="total" />
+							<ui:param name="id" value="total" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.total}" />
+					    	<ui:param name="errorPath" value="total" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="discountTotal" />
+							<ui:param name="id" value="discountTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.discountTotal}" />
+					    	<ui:param name="errorPath" value="discountTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="subtotal" />
+							<ui:param name="id" value="subtotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.subtotal}" />
+					    	<ui:param name="errorPath" value="subtotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="roundingDiscount" />
+							<ui:param name="id" value="roundingDiscount" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.roundingDiscount}" />
+					    	<ui:param name="errorPath" value="roundingDiscount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="totalDiscountRate" />
+							<ui:param name="id" value="totalDiscountRate" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.totalDiscountRate}" />
+					    	<ui:param name="errorPath" value="totalDiscountRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="taxTotal" />
+							<ui:param name="id" value="taxTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.taxTotal}" />
+					    	<ui:param name="errorPath" value="taxTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="netTotal" />
+							<ui:param name="id" value="netTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.netTotal}" />
+					    	<ui:param name="errorPath" value="netTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="plusFactorTotal" />
+							<ui:param name="id" value="plusFactorTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.plusFactorTotal}" />
+					    	<ui:param name="errorPath" value="plusFactorTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="minusFactorTotal" />
+							<ui:param name="id" value="minusFactorTotal" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.minusFactorTotal}" />
+					    	<ui:param name="errorPath" value="minusFactorTotal" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="amount" />
+							<ui:param name="id" value="amount" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.amount}" />
+					    	<ui:param name="errorPath" value="amount" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transYear" />
+							<ui:param name="id" value="transYear" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transYear}" />
+					    	<ui:param name="errorPath" value="transYear" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transMonth" />
+							<ui:param name="id" value="transMonth" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transMonth}" />
+					    	<ui:param name="errorPath" value="transMonth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactName" />
+							<ui:param name="id" value="contactName" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactName}" />
+					    	<ui:param name="errorPath" value="contactName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTaxOffice" />
+							<ui:param name="id" value="contactTaxOffice" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTaxOffice}" />
+					    	<ui:param name="errorPath" value="contactTaxOffice" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTaxNumber" />
+							<ui:param name="id" value="contactTaxNumber" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTaxNumber}" />
+					    	<ui:param name="errorPath" value="contactTaxNumber" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactAddress1" />
+							<ui:param name="id" value="contactAddress1" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactAddress1}" />
+					    	<ui:param name="errorPath" value="contactAddress1" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactAddress2" />
+							<ui:param name="id" value="contactAddress2" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactAddress2}" />
+					    	<ui:param name="errorPath" value="contactAddress2" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="consigner" />
+							<ui:param name="id" value="consigner" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.consigner}" />
+					    	<ui:param name="errorPath" value="consigner" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="recepient" />
+							<ui:param name="id" value="recepient" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.recepient}" />
+					    	<ui:param name="errorPath" value="recepient" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="transType" />
+							<ui:param name="id" value="transType" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.transType}" />
+					    	<ui:param name="errorPath" value="transType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excCode" />
+							<ui:param name="id" value="excCode" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excCode}" />
+					    	<ui:param name="errorPath" value="excCode" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excRate" />
+							<ui:param name="id" value="excRate" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excRate}" />
+					    	<ui:param name="errorPath" value="excRate" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="excEquivalent" />
+							<ui:param name="id" value="excEquivalent" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.excEquivalent}" />
+					    	<ui:param name="errorPath" value="excEquivalent" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="insertBy" />
+							<ui:param name="id" value="insertBy" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.insertBy}" />
+					    	<ui:param name="errorPath" value="insertBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="insertAt" />
+							<ui:param name="id" value="insertAt" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.insertAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="updateBy" />
+							<ui:param name="id" value="updateBy" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.updateBy}" />
+					    	<ui:param name="errorPath" value="updateBy" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="updateAt" />
+							<ui:param name="id" value="updateAt" />
+							<ui:param name="inputText" 
+								value="#{stockTransController.entity.updateAt}" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="contactTransId" />
+							<ui:param name="id" value="contactTransId" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.contactTransId}" />
+					    	<ui:param name="errorPath" value="contactTransId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refModule" />
+							<ui:param name="id" value="refModule" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.refModule}" />
+					    	<ui:param name="errorPath" value="refModule" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="refId" />
+							<ui:param name="id" value="refId" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.refId}" />
+					    	<ui:param name="errorPath" value="refId" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="workspace" />
+							<ui:param name="id" value="workspace" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.workspace}" />
+					    	<ui:param name="errorPath" value="workspace" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{stockTransController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{stockTransController.entityList.size() > 0}">
+										<r:accordionItem header="StockTrans List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="stockTransList" var="entity" class="tg"
+													rendered="#{stockTransController.entityList.size() > 0}"
+													value="#{stockTransController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="receiptNo" />
+														</f:facet>
+														<h:outputText value="#{entity.receiptNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="right" />
+														</f:facet>
+														<h:outputText value="#{entity.right}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isCompleted" />
+														</f:facet>
+														<h:outputText value="#{entity.isCompleted}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transDate" />
+														</f:facet>
+														<h:outputText value="#{entity.transDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="realDate" />
+														</f:facet>
+														<h:outputText value="#{entity.realDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="deliveryDate" />
+														</f:facet>
+														<h:outputText value="#{entity.deliveryDate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transNo" />
+														</f:facet>
+														<h:outputText value="#{entity.transNo}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isTaxInclude" />
+														</f:facet>
+														<h:outputText value="#{entity.isTaxInclude}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="roundingDigits" />
+														</f:facet>
+														<h:outputText value="#{entity.roundingDigits}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="total" />
+														</f:facet>
+														<h:outputText value="#{entity.total}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="discountTotal" />
+														</f:facet>
+														<h:outputText value="#{entity.discountTotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="subtotal" />
+														</f:facet>
+														<h:outputText value="#{entity.subtotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="roundingDiscount" />
+														</f:facet>
+														<h:outputText value="#{entity.roundingDiscount}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="totalDiscountRate" />
+														</f:facet>
+														<h:outputText value="#{entity.totalDiscountRate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="taxTotal" />
+														</f:facet>
+														<h:outputText value="#{entity.taxTotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="netTotal" />
+														</f:facet>
+														<h:outputText value="#{entity.netTotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="plusFactorTotal" />
+														</f:facet>
+														<h:outputText value="#{entity.plusFactorTotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="minusFactorTotal" />
+														</f:facet>
+														<h:outputText value="#{entity.minusFactorTotal}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="amount" />
+														</f:facet>
+														<h:outputText value="#{entity.amount}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="description" />
+														</f:facet>
+														<h:outputText value="#{entity.description}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transYear" />
+														</f:facet>
+														<h:outputText value="#{entity.transYear}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transMonth" />
+														</f:facet>
+														<h:outputText value="#{entity.transMonth}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactName" />
+														</f:facet>
+														<h:outputText value="#{entity.contactName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactTaxOffice" />
+														</f:facet>
+														<h:outputText value="#{entity.contactTaxOffice}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactTaxNumber" />
+														</f:facet>
+														<h:outputText value="#{entity.contactTaxNumber}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactAddress1" />
+														</f:facet>
+														<h:outputText value="#{entity.contactAddress1}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactAddress2" />
+														</f:facet>
+														<h:outputText value="#{entity.contactAddress2}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="consigner" />
+														</f:facet>
+														<h:outputText value="#{entity.consigner}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="recepient" />
+														</f:facet>
+														<h:outputText value="#{entity.recepient}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="transType" />
+														</f:facet>
+														<h:outputText value="#{entity.transType}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excCode" />
+														</f:facet>
+														<h:outputText value="#{entity.excCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excRate" />
+														</f:facet>
+														<h:outputText value="#{entity.excRate}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="excEquivalent" />
+														</f:facet>
+														<h:outputText value="#{entity.excEquivalent}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertBy" />
+														</f:facet>
+														<h:outputText value="#{entity.insertBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="insertAt" />
+														</f:facet>
+														<h:outputText value="#{entity.insertAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateBy" />
+														</f:facet>
+														<h:outputText value="#{entity.updateBy}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="updateAt" />
+														</f:facet>
+														<h:outputText value="#{entity.updateAt}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contactTransId" />
+														</f:facet>
+														<h:outputText value="#{entity.contactTransId}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="refModule" />
+														</f:facet>
+														<h:outputText value="#{entity.refModule}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="refId" />
+														</f:facet>
+														<h:outputText value="#{entity.refId}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="workspace" />
+														</f:facet>
+														<h:outputText value="#{entity.workspace}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="version" />
+														</f:facet>
+														<h:outputText value="#{entity.version}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalPrivateCode" />
+														</f:facet>
+														<h:outputText value="#{entity.globalPrivateCode}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockDepot2" />
+														</f:facet>
+														<h:outputText value="#{entity.stockDepot2}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockTransSource" />
+														</f:facet>
+														<h:outputText value="#{entity.stockTransSource}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="globalTransPoint" />
+														</f:facet>
+														<h:outputText value="#{entity.globalTransPoint}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="contact" />
+														</f:facet>
+														<h:outputText value="#{entity.contact}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="saleSeller" />
+														</f:facet>
+														<h:outputText value="#{entity.saleSeller}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="stockDepot" />
+														</f:facet>
+														<h:outputText value="#{entity.stockDepot}" />
+													</r:column>
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKTRANS_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="stockTrans?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKTRANS_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{stockTransController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty stockTransController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{stockTransController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{stockTransController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_STOCKTRANS_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{stockTransController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

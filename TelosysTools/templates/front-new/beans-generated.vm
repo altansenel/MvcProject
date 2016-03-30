@@ -1,0 +1,11 @@
+#foreach($entity in $selectedEntities)
+#set( $uncapitalizedEntityName = $fn.uncapitalize($entity.name) )	
+	<beans:bean id="${uncapitalizedEntityName}DAO" class="com.dao.${entity.name}DaoImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+ 	<beans:bean id="${uncapitalizedEntityName}Service" class="com.dao.${entity.name}ServiceImpl">
+		<beans:property name="entityDAO" ref="${uncapitalizedEntityName}DAO"></beans:property>
+	</beans:bean> 
+#end
+

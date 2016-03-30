@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{adminDocumentController.message}"
+				rendered="#{not empty adminDocumentController.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="AdminDocument" />
+					<ui:param name="inputHidden" value="#{adminDocumentController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty adminDocumentController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{adminDocumentController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="module" />
+							<ui:param name="id" value="module" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.module}" />
+					    	<ui:param name="errorPath" value="module" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="header" />
+							<ui:param name="id" value="header" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.header}" />
+					    	<ui:param name="errorPath" value="header" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="right" />
+							<ui:param name="id" value="right" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.right}" />
+					    	<ui:param name="errorPath" value="right" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageRows" />
+							<ui:param name="id" value="pageRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageRows}" />
+					    	<ui:param name="errorPath" value="pageRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="reportTitleRows" />
+							<ui:param name="id" value="reportTitleRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.reportTitleRows}" />
+					    	<ui:param name="errorPath" value="reportTitleRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageTitleRows" />
+							<ui:param name="id" value="pageTitleRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageTitleRows}" />
+					    	<ui:param name="errorPath" value="pageTitleRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="detailRows" />
+							<ui:param name="id" value="detailRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.detailRows}" />
+					    	<ui:param name="errorPath" value="detailRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="pageFooterRows" />
+							<ui:param name="id" value="pageFooterRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.pageFooterRows}" />
+					    	<ui:param name="errorPath" value="pageFooterRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="reportFooterRows" />
+							<ui:param name="id" value="reportFooterRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.reportFooterRows}" />
+					    	<ui:param name="errorPath" value="reportFooterRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="reportTitleLabels" />
+							<ui:param name="id" value="reportTitleLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.reportTitleLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="pageTitleLabels" />
+							<ui:param name="id" value="pageTitleLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.pageTitleLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="detailLabels" />
+							<ui:param name="id" value="detailLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.detailLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="pageFooterLabels" />
+							<ui:param name="id" value="pageFooterLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.pageFooterLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="reportFooterLabels" />
+							<ui:param name="id" value="reportFooterLabels" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.reportFooterLabels}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="leftMargin" />
+							<ui:param name="id" value="leftMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.leftMargin}" />
+					    	<ui:param name="errorPath" value="leftMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="topMargin" />
+							<ui:param name="id" value="topMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.topMargin}" />
+					    	<ui:param name="errorPath" value="topMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="bottomMargin" />
+							<ui:param name="id" value="bottomMargin" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.bottomMargin}" />
+					    	<ui:param name="errorPath" value="bottomMargin" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isSinglePage" />
+							<ui:param name="id" value="isSinglePage" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.isSinglePage}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="hasPaging" />
+							<ui:param name="id" value="hasPaging" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.hasPaging}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="columnTitleType" />
+							<ui:param name="id" value="columnTitleType" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.columnTitleType}" />
+					    	<ui:param name="errorPath" value="columnTitleType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="carryingOverName" />
+							<ui:param name="id" value="carryingOverName" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.carryingOverName}" />
+					    	<ui:param name="errorPath" value="carryingOverName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="description" />
+							<ui:param name="id" value="description" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.description}" />
+					    	<ui:param name="errorPath" value="description" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="templateRows" />
+							<ui:param name="id" value="templateRows" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.templateRows}" />
+					    	<ui:param name="errorPath" value="templateRows" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isActive" />
+							<ui:param name="id" value="isActive" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentController.entity.isActive}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="version" />
+							<ui:param name="id" value="version" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentController.entity.version}" />
+					    	<ui:param name="errorPath" value="version" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{adminDocumentController.save(adminDocumentController.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="AdminDocument List" class="form-control"
+												outcome="AdminDocumentList?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

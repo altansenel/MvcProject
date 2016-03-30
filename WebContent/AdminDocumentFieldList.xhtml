@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{adminDocumentFieldController.message}"
+				rendered="#{not empty adminDocumentFieldController.message}" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="AdminDocumentField List" />
+					<ui:param name="inputHidden"
+						value="#{adminDocumentFieldController.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="${!empty adminDocumentFieldController.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText"
+									value="#{adminDocumentFieldController.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument4" />
+							<ui:param name="id" value="adminDocument4" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument4}" />
+							<ui:param name="errorPath" value="adminDocument4" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument" />
+							<ui:param name="id" value="adminDocument" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument}" />
+							<ui:param name="errorPath" value="adminDocument" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument3" />
+							<ui:param name="id" value="adminDocument3" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument3}" />
+							<ui:param name="errorPath" value="adminDocument3" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument5" />
+							<ui:param name="id" value="adminDocument5" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument5}" />
+							<ui:param name="errorPath" value="adminDocument5" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="adminDocument2" />
+							<ui:param name="id" value="adminDocument2" />
+							<ui:param name="inputText"
+								value="#{adminDocumentFieldController.entity.adminDocument2}" />
+							<ui:param name="errorPath" value="adminDocument2" />
+							<ui:param name="converter" value="#{adminDocumentConverter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="addAdminDocument" />
+							<ui:param name="controller" value="#{adminDocumentFieldController}" />
+							<ui:param name="controllerMethodArgument" value="adminDocumentField" />
+						</ui:decorate>
+
+
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="module" />
+							<ui:param name="id" value="module" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.module}" />
+					    	<ui:param name="errorPath" value="module" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="band" />
+							<ui:param name="id" value="band" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.band}" />
+					    	<ui:param name="errorPath" value="band" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="type" />
+							<ui:param name="id" value="type" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.type}" />
+					    	<ui:param name="errorPath" value="type" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="name" />
+							<ui:param name="id" value="name" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.name}" />
+					    	<ui:param name="errorPath" value="name" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="nickName" />
+							<ui:param name="id" value="nickName" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.nickName}" />
+					    	<ui:param name="errorPath" value="nickName" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="hiddenField" />
+							<ui:param name="id" value="hiddenField" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.hiddenField}" />
+					    	<ui:param name="errorPath" value="hiddenField" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="label" />
+							<ui:param name="id" value="label" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.label}" />
+					    	<ui:param name="errorPath" value="label" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="originalLabel" />
+							<ui:param name="id" value="originalLabel" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.originalLabel}" />
+					    	<ui:param name="errorPath" value="originalLabel" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="labelWidth" />
+							<ui:param name="id" value="labelWidth" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.labelWidth}" />
+					    	<ui:param name="errorPath" value="labelWidth" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="labelAlign" />
+							<ui:param name="id" value="labelAlign" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.labelAlign}" />
+					    	<ui:param name="errorPath" value="labelAlign" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="width" />
+							<ui:param name="id" value="width" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.width}" />
+					    	<ui:param name="errorPath" value="width" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="row" />
+							<ui:param name="id" value="row" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.row}" />
+					    	<ui:param name="errorPath" value="row" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="column" />
+							<ui:param name="id" value="column" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.column}" />
+					    	<ui:param name="errorPath" value="column" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="format" />
+							<ui:param name="id" value="format" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.format}" />
+					    	<ui:param name="errorPath" value="format" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="prefix" />
+							<ui:param name="id" value="prefix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.prefix}" />
+					    	<ui:param name="errorPath" value="prefix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="suffix" />
+							<ui:param name="id" value="suffix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.suffix}" />
+					    	<ui:param name="errorPath" value="suffix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="value" />
+							<ui:param name="id" value="value" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.value}" />
+					    	<ui:param name="errorPath" value="value" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="msgPrefix" />
+							<ui:param name="id" value="msgPrefix" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.msgPrefix}" />
+					    	<ui:param name="errorPath" value="msgPrefix" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="defauld" />
+							<ui:param name="id" value="defauld" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.defauld}" />
+					    	<ui:param name="errorPath" value="defauld" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="isDbField" />
+							<ui:param name="id" value="isDbField" />
+							<ui:param name="inputText" 
+								value="#{adminDocumentFieldController.entity.isDbField}" />
+						</ui:decorate>
+
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="tableType" />
+							<ui:param name="id" value="tableType" />
+							<ui:param name="inputText"	
+								value="#{adminDocumentFieldController.entity.tableType}" />
+					    	<ui:param name="errorPath" value="tableType" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+
+
+
+
+
+
+					</ui:define>
+					<ui:define name="rightPanel">
+						<ui:decorate template="/basic/rowTable.xhtml">
+							<ui:define name="table">
+								<a:outputPanel ajaxRendered="true">
+									<r:accordion
+										rendered="#{adminDocumentFieldController.entityList.size() > 0}">
+										<r:accordionItem header="AdminDocumentField List">
+											<h:panelGrid columns="1">
+												<r:dataTable id="adminDocumentFieldList" var="entity" class="tg"
+													rendered="#{adminDocumentFieldController.entityList.size() > 0}"
+													value="#{adminDocumentFieldController.entityList}" width="100%"
+													rows="10" rowKeyVar="rkv">
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="Id" />
+														</f:facet>
+														<h:outputText value="#{entity.id}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="module" />
+														</f:facet>
+														<h:outputText value="#{entity.module}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="band" />
+														</f:facet>
+														<h:outputText value="#{entity.band}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="type" />
+														</f:facet>
+														<h:outputText value="#{entity.type}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="name" />
+														</f:facet>
+														<h:outputText value="#{entity.name}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="nickName" />
+														</f:facet>
+														<h:outputText value="#{entity.nickName}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="hiddenField" />
+														</f:facet>
+														<h:outputText value="#{entity.hiddenField}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="label" />
+														</f:facet>
+														<h:outputText value="#{entity.label}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="originalLabel" />
+														</f:facet>
+														<h:outputText value="#{entity.originalLabel}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="labelWidth" />
+														</f:facet>
+														<h:outputText value="#{entity.labelWidth}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="labelAlign" />
+														</f:facet>
+														<h:outputText value="#{entity.labelAlign}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="width" />
+														</f:facet>
+														<h:outputText value="#{entity.width}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="row" />
+														</f:facet>
+														<h:outputText value="#{entity.row}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="column" />
+														</f:facet>
+														<h:outputText value="#{entity.column}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="format" />
+														</f:facet>
+														<h:outputText value="#{entity.format}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="prefix" />
+														</f:facet>
+														<h:outputText value="#{entity.prefix}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="suffix" />
+														</f:facet>
+														<h:outputText value="#{entity.suffix}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="value" />
+														</f:facet>
+														<h:outputText value="#{entity.value}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="msgPrefix" />
+														</f:facet>
+														<h:outputText value="#{entity.msgPrefix}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="defauld" />
+														</f:facet>
+														<h:outputText value="#{entity.defauld}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="isDbField" />
+														</f:facet>
+														<h:outputText value="#{entity.isDbField}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="tableType" />
+														</f:facet>
+														<h:outputText value="#{entity.tableType}" />
+													</r:column>
+
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="adminDocument4" />
+														</f:facet>
+														<h:outputText value="#{entity.adminDocument4}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="adminDocument" />
+														</f:facet>
+														<h:outputText value="#{entity.adminDocument}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="adminDocument3" />
+														</f:facet>
+														<h:outputText value="#{entity.adminDocument3}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="adminDocument5" />
+														</f:facet>
+														<h:outputText value="#{entity.adminDocument5}" />
+													</r:column>
+													<r:column sortable="true">
+														<f:facet name="header">
+															<h:outputText value="adminDocument2" />
+														</f:facet>
+														<h:outputText value="#{entity.adminDocument2}" />
+													</r:column>
+
+
+
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENTFIELD_EDIT')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Edit" />
+															</f:facet>
+															<h:link outcome="adminDocumentField?faces-redirect=true">
+																<h:graphicImage alt="güncelle" title="güncelle"
+																	name="/images/form_edit.png" />
+																<f:param name="entityId" value="#{entity.id}" />
+															</h:link>
+														</r:column>
+													</sec:authorize>
+													<sec:authorize
+														access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENTFIELD_REMOVE')">
+														<r:column>
+															<f:facet name="header">
+																<h:outputText value="Delete" />
+															</f:facet>
+															<a:commandLink status="commonAjaxStatus"
+																action="#{adminDocumentFieldController.remove(rkv)}">
+																<h:graphicImage alt="sil" title="sil"
+																	name="/images/form_delete.png" />
+															</a:commandLink>
+														</r:column>
+													</sec:authorize>
+													<r:column rendered="#{!empty adminDocumentFieldController.dataBean.parentDataBean}">
+														<f:facet name="header">
+															<h:outputText value="Select" />
+														</f:facet>
+														<a:commandLink status="commonAjaxStatus"
+															action="#{adminDocumentFieldController.select(rkv)}">
+															<h:graphicImage alt="select" title="select"
+																name="/images/form_select.png" />
+														</a:commandLink>
+													</r:column>
+													<f:facet name="footer">
+														<r:dataScroller renderIfSinglePage="false"
+															ajaxSingle="true" />
+													</f:facet>
+												</r:dataTable>
+											</h:panelGrid>
+										</r:accordionItem>
+									</r:accordion>
+								</a:outputPanel>
+							</ui:define>
+						</ui:decorate>
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Search"
+												class="form-control"
+												action="#{adminDocumentFieldController.search()}" />
+										</div>
+										<div class="col-xs-6">
+											<sec:authorize
+												access="hasAnyRole('ROLE_ADMIN','ROLE_ADMINDOCUMENTFIELD_ADD')">
+												<h:commandButton styleClass="button" value="New"
+													class="form-control"
+													action="#{adminDocumentFieldController.newEntity()}" />
+											</sec:authorize>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>
