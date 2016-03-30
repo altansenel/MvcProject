@@ -1,0 +1,157 @@
+##--------------------------------------------------------------------------------------------------------
+#set( $_ = "$" )
+##--------------------------------------------------------------------------------------------------------
+## Key fields = fields in Primary Key    
+#set( $keyFields = $entity.getAttributesByCriteria( $const.KEY ) )
+##--------------------------------------------------------------------------------------------------------
+## Data fields = fields not in Primary Key and not in selected Links    
+#set( $dataFields = $entity.getAttributesByCriteria( $const.NOT_KEY, $const.NOT_IN_SELECTED_LINKS ) )
+##--------------------------------------------------------------------------------------------------------
+## #set( $itemVariable = $fn.uncapitalize($entity.name) )
+#set( $itemVariable = $fn.uncapitalize($entity.name) )
+##--------------------------------------------------------------------------------------------------------
+## 
+#set( $itemVariableUpperCase = $fn.toUpperCase($entity.name) )
+## Link fields = fields not in Primary Key and used as FK in selected Links    
+#set( $linkFields = $entity.selectedLinks )
+##--------------------------------------------------------------------------------------------------------
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:sec="http://www.springframework.org/security/tags"
+	xmlns:r="http://richfaces.org/rich" xmlns:a="http://richfaces.org/a4j"
+	xmlns:p="http://primefaces.org/ui" xmlns:gns="customtaglib"
+	template="/basic/template.xhtml">
+	<ui:define name="content">
+		<h:form id="main" class="form-horizontal" role="form">
+			<h:outputText value="#{${itemVariable}Controller.message}"
+				rendered="#{not empty ${itemVariable}Controller.message}" />
+			<r:messages globalOnly="true" styleClass="message"
+				ajaxRendered="true" />
+			<div class="panel-group">
+				<ui:decorate template="/basic/panel.xhtml">
+					<ui:param name="panelHeading" value="${entity.name}" />
+					<ui:param name="inputHidden" value="#{${itemVariable}Controller.entity.id}" />
+					<ui:param name="left" value="true" />
+					<ui:param name="right" value="true" />
+					<ui:define name="leftPanel">
+						<c:if test="$_{!empty ${itemVariable}Controller.entity.id}">
+							<ui:decorate template="/basic/row.xhtml">
+								<ui:param name="label" value="Id" />
+								<ui:param name="readOnlyMi" value="true" />
+								<ui:param name="id" value="id" />
+								<ui:param name="inputText" value="#{${itemVariable}Controller.entity.id}" />
+								<ui:param name="errorPath" value="id" />
+							</ui:decorate>
+						</c:if>
+
+#foreach( $link in $linkFields )
+#if ( $link.isCardinalityManyToMany() || $link.isCardinalityOneToMany() )
+##şimdilik yok
+#else
+
+#set( $uncapitalizedLinkName = $fn.uncapitalize(${link.formattedFieldType(0)}) )
+						<ui:decorate template="/basic/rowManyToOne.xhtml">
+							<ui:param name="label" value="${link.formattedFieldName(0)}" />
+							<ui:param name="id" value="${link.formattedFieldName(0)}" />
+							<ui:param name="inputText"
+								value="#{${itemVariable}Controller.entity.${link.formattedFieldName(0)}}" />
+							<ui:param name="errorPath" value="${link.formattedFieldName(0)}" />
+							<ui:param name="converter" value="#{${uncapitalizedLinkName}Converter}" />
+							<ui:param name="validatorMessage"
+								value="Bu alanı doldurmak zorundasınız!" />
+							<ui:param name="controllerMethod" value="add${link.formattedFieldType(0)}" />
+							<ui:param name="controller" value="#{${itemVariable}Controller}" />
+							<ui:param name="controllerMethodArgument" value="${itemVariable}" />
+						</ui:decorate>
+
+#end
+#end
+
+
+
+
+#foreach( $field in $dataFields )
+
+#if( $field.fullType == "java.lang.String" || $field.fullType == "java.lang.Integer" || $field.fullType == "java.lang.Long" 
+|| $field.fullType == "java.lang.BigDecimal" || $field.fullType == "java.lang.Double")
+						<ui:decorate template="/basic/row.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="inputText"	
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+					    	<ui:param name="errorPath" value="${field.formattedName(0)}" />" 
+							<ui:param name="validatorMessage" 
+								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+##elseif( $field.isLongText() )
+#elseif( $field.fullType == "java.lang.Boolean")
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="inputText" 
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+						</ui:decorate>
+#elseif( $field.fullType == "java.util.Date")
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="inputText" 
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+						</ui:decorate>
+
+##<ui:decorate template="/basic/rowDate.xhtml"><ui:param name="label" value=ilk ${field.formattedName(0)}" />
+##<ui:param name="id" value=ilk${field.formattedName(0)}" />
+##<ui:param name="inputText" value="#{${itemVariable}Controller.entity.ilk${field.formattedName(0)}}" /></ui:decorate>
+
+##<ui:decorate template="/basic/rowDate.xhtml"><ui:param name="label" value=son ${field.formattedName(0)}" />
+##<ui:param name="id" value=son${field.formattedName(0)}" />
+##<ui:param name="inputText" value="#{${itemVariable}Controller.entity.son${field.formattedName(0)}}" /></ui:decorate>
+#elseif( $field.fullType.substring(0,10) == "com.enums.")
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="selectOneMenu"	
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+							<ui:param name="selectItems" value="#{projectEnumAction.get$fn.capitalize($field.formattedType(0))}()}" />
+							<ui:param name="validatorMessage" value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+#else
+#end
+#end
+
+	
+					</ui:define>
+					<ui:define name="rightPanel">
+					</ui:define>
+					<ui:define name="buttonPanel">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="panel panel-default">
+									<div class="row">
+										<div class="col-xs-6">
+											<h:commandButton styleClass="button" value="Save" id="doSave"
+												class="form-control"
+												action="#{${itemVariable}Controller.save(${itemVariable}Controller.entity.id)}" />
+										</div>
+										<div class="col-xs-6">
+											<h:link value="${entity.name} List" class="form-control"
+												outcome="${entity.name}List?faces-redirect=true" styleClass="button" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</ui:define>
+				</ui:decorate>
+			</div>
+			<br />
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -39,7 +39,7 @@
 					<ui:param name="left" value="true" />
 					<ui:param name="right" value="true" />
 					<ui:define name="leftPanel">
-						<c:if test="${!empty ${itemVariable}Controller.entity.id}">
+						<c:if test="$_{!empty ${itemVariable}Controller.entity.id}">
 							<ui:decorate template="/basic/row.xhtml">
 								<ui:param name="label" value="Id" />
 								<ui:param name="id" value="id" />
@@ -56,35 +56,70 @@
 #else
 
 #set( $uncapitalizedLinkName = $fn.uncapitalize(${link.formattedFieldType(0)}) )
-
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
-							<ui:param name="label" value="${link.formattedFieldType(0)}" />
-							<ui:param name="id" value="${uncapitalizedLinkName}" />
+							<ui:param name="label" value="${link.formattedFieldName(0)}" />
+							<ui:param name="id" value="${link.formattedFieldName(0)}" />
 							<ui:param name="inputText"
-								value="#{${itemVariable}Controller.entity.${uncapitalizedLinkName}}" />
-							<ui:param name="errorPath" value="${uncapitalizedLinkName}" />
+								value="#{${itemVariable}Controller.entity.${link.formattedFieldName(0)}}" />
+							<ui:param name="errorPath" value="${link.formattedFieldName(0)}" />
 							<ui:param name="converter" value="#{${uncapitalizedLinkName}Converter}" />
 							<ui:param name="validatorMessage"
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="add${link.formattedFieldType(0)}" />
 							<ui:param name="controller" value="#{${itemVariable}Controller}" />
-							<ui:param name="controllerMethodArgument" value="${itemVariable}List" />
+							<ui:param name="controllerMethodArgument" value="${itemVariable}" />
 						</ui:decorate>
-
 #end
 #end
 
 
 #foreach( $field in $dataFields )
+
+#if( $field.fullType == "java.lang.String" || $field.fullType == "java.lang.Integer" || $field.fullType == "java.lang.Long" 
+|| $field.fullType == "java.lang.BigDecimal" || $field.fullType == "java.lang.Double")
 						<ui:decorate template="/basic/row.xhtml">
 							<ui:param name="label" value="${field.formattedName(0)}" />
 							<ui:param name="id" value="${field.formattedName(0)}" />
-							<ui:param name="inputText"
+							<ui:param name="inputText"	
 								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
-							<ui:param name="errorPath" value="${field.formattedName(0)}" />
-							<ui:param name="validatorMessage"
+					    	<ui:param name="errorPath" value="${field.formattedName(0)}" />" 
+							<ui:param name="validatorMessage" 
 								value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate> 
+##elseif( $field.isLongText() )
+#elseif( $field.fullType == "java.lang.Boolean")
+						<ui:decorate template="/basic/rowBoolean.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="inputText" 
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
 						</ui:decorate>
+#elseif( $field.fullType == "java.util.Date")
+						<ui:decorate template="/basic/rowDate.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="inputText" 
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+						</ui:decorate>
+
+##<ui:decorate template="/basic/rowDate.xhtml"><ui:param name="label" value=ilk ${field.formattedName(0)}" />
+##<ui:param name="id" value=ilk${field.formattedName(0)}" />
+##<ui:param name="inputText" value="#{${itemVariable}Controller.entity.ilk${field.formattedName(0)}}" /></ui:decorate>
+
+##<ui:decorate template="/basic/rowDate.xhtml"><ui:param name="label" value=son ${field.formattedName(0)}" />
+##<ui:param name="id" value=son${field.formattedName(0)}" />
+##<ui:param name="inputText" value="#{${itemVariable}Controller.entity.son${field.formattedName(0)}}" /></ui:decorate>
+#elseif( $field.fullType.substring(0,10) == "com.enums.")
+						<ui:decorate template="/basic/rowSelectOneMenu.xhtml">
+							<ui:param name="label" value="${field.formattedName(0)}" />
+							<ui:param name="id" value="${field.formattedName(0)}" />
+							<ui:param name="selectOneMenu"	
+								value="#{${itemVariable}Controller.entity.${field.formattedName(0)}}" />
+							<ui:param name="selectItems" value="#{projectEnumAction.get$fn.capitalize($field.formattedType(0))}()}" />
+							<ui:param name="validatorMessage" value="Bu alanı doldurmak zorundasınız!" />
+						</ui:decorate>
+#else
+#end
 #end
 
 
@@ -125,12 +160,12 @@
 #if ( $link.isCardinalityManyToMany() || $link.isCardinalityOneToMany() )
 ##şimdilik yok
 #else
-#set( $uncapitalizedLinkName = $fn.uncapitalize(${link.formattedFieldType(0)}) )
+##set( $uncapitalizedLinkName = $fn.uncapitalize(${link.formattedFieldType(0)}) )
 													<r:column sortable="true">
 														<f:facet name="header">
-															<h:outputText value="${link.formattedFieldType(0)}" />
+															<h:outputText value="${link.formattedFieldName(0)}" />
 														</f:facet>
-														<h:outputText value="#{entity.${uncapitalizedLinkName}}" />
+														<h:outputText value="#{entity.${link.formattedFieldName(0)}}" />
 													</r:column>
 #end
 #end
