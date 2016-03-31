@@ -99,7 +99,7 @@ public class SafeExpenseController extends BaseController<SafeExpense>
 	public String edit(int row) {
 		setEntity(this.safeExpenseService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "safeExpense?faces-redirect=true&entityId="
+		return "SafeExpense?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -105,7 +105,7 @@ public class WaybillTransStatusController extends BaseController<WaybillTransSta
 	public String edit(int row) {
 		setEntity(this.waybillTransStatusService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "waybillTransStatus?faces-redirect=true&entityId="
+		return "WaybillTransStatus?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

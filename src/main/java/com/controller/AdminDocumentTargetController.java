@@ -97,7 +97,7 @@ public class AdminDocumentTargetController extends BaseController<AdminDocumentT
 	public String edit(int row) {
 		setEntity(this.adminDocumentTargetService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminDocumentTarget?faces-redirect=true&entityId="
+		return "AdminDocumentTarget?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

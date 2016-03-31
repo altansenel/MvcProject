@@ -101,7 +101,7 @@ public class StockTransFactorController extends BaseController<StockTransFactor>
 	public String edit(int row) {
 		setEntity(this.stockTransFactorService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockTransFactor?faces-redirect=true&entityId="
+		return "StockTransFactor?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

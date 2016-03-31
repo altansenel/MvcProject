@@ -105,7 +105,7 @@ public class StockCostFactorController extends BaseController<StockCostFactor>
 	public String edit(int row) {
 		setEntity(this.stockCostFactorService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockCostFactor?faces-redirect=true&entityId="
+		return "StockCostFactor?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

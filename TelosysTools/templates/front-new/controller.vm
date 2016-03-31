@@ -117,7 +117,7 @@ public class ${entity.name}Controller extends BaseController<${entity.name}>
 	public String edit(int row) {
 		setEntity(this.${uncapitalizedEntityName}Service.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "${uncapitalizedEntityName}?faces-redirect=true&entityId="
+		return "${entity.name}?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

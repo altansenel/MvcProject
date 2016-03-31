@@ -119,7 +119,7 @@ public class SaleCampaignController extends BaseController<SaleCampaign>
 	public String edit(int row) {
 		setEntity(this.saleCampaignService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "saleCampaign?faces-redirect=true&entityId="
+		return "SaleCampaign?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -103,7 +103,7 @@ public class ChqbllPayrollSourceController extends BaseController<ChqbllPayrollS
 	public String edit(int row) {
 		setEntity(this.chqbllPayrollSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "chqbllPayrollSource?faces-redirect=true&entityId="
+		return "ChqbllPayrollSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

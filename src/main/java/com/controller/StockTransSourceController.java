@@ -101,7 +101,7 @@ public class StockTransSourceController extends BaseController<StockTransSource>
 	public String edit(int row) {
 		setEntity(this.stockTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockTransSource?faces-redirect=true&entityId="
+		return "StockTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

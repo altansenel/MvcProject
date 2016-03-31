@@ -99,7 +99,7 @@ public class BankTransSourceController extends BaseController<BankTransSource>
 	public String edit(int row) {
 		setEntity(this.bankTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "bankTransSource?faces-redirect=true&entityId="
+		return "BankTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

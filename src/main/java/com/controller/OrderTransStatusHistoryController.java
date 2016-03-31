@@ -97,7 +97,7 @@ public class OrderTransStatusHistoryController extends BaseController<OrderTrans
 	public String edit(int row) {
 		setEntity(this.orderTransStatusHistoryService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "orderTransStatusHistory?faces-redirect=true&entityId="
+		return "OrderTransStatusHistory?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

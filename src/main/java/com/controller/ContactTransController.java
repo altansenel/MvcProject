@@ -105,7 +105,7 @@ public class ContactTransController extends BaseController<ContactTrans>
 	public String edit(int row) {
 		setEntity(this.contactTransService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "contactTrans?faces-redirect=true&entityId="
+		return "ContactTrans?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

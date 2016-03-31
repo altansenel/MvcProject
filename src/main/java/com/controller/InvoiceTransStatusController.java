@@ -105,7 +105,7 @@ public class InvoiceTransStatusController extends BaseController<InvoiceTransSta
 	public String edit(int row) {
 		setEntity(this.invoiceTransStatusService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "invoiceTransStatus?faces-redirect=true&entityId="
+		return "InvoiceTransStatus?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -101,7 +101,7 @@ public class InvoiceTransFactorController extends BaseController<InvoiceTransFac
 	public String edit(int row) {
 		setEntity(this.invoiceTransFactorService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "invoiceTransFactor?faces-redirect=true&entityId="
+		return "InvoiceTransFactor?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

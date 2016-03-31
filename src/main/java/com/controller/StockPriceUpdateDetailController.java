@@ -99,7 +99,7 @@ public class StockPriceUpdateDetailController extends BaseController<StockPriceU
 	public String edit(int row) {
 		setEntity(this.stockPriceUpdateDetailService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockPriceUpdateDetail?faces-redirect=true&entityId="
+		return "StockPriceUpdateDetail?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

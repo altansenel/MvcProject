@@ -99,7 +99,7 @@ public class AdminUserController extends BaseController<AdminUser>
 	public String edit(int row) {
 		setEntity(this.adminUserService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminUser?faces-redirect=true&entityId="
+		return "AdminUser?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

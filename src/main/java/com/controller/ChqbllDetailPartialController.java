@@ -103,7 +103,7 @@ public class ChqbllDetailPartialController extends BaseController<ChqbllDetailPa
 	public String edit(int row) {
 		setEntity(this.chqbllDetailPartialService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "chqbllDetailPartial?faces-redirect=true&entityId="
+		return "ChqbllDetailPartial?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

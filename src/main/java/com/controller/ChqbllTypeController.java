@@ -99,7 +99,7 @@ public class ChqbllTypeController extends BaseController<ChqbllType>
 	public String edit(int row) {
 		setEntity(this.chqbllTypeService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "chqbllType?faces-redirect=true&entityId="
+		return "ChqbllType?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

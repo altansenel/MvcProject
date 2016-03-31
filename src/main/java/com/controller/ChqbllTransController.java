@@ -111,7 +111,7 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 	public String edit(int row) {
 		setEntity(this.chqbllTransService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "chqbllTrans?faces-redirect=true&entityId="
+		return "ChqbllTrans?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

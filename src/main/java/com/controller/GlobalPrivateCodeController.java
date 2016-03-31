@@ -125,7 +125,7 @@ public class GlobalPrivateCodeController extends BaseController<GlobalPrivateCod
 	public String edit(int row) {
 		setEntity(this.globalPrivateCodeService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "globalPrivateCode?faces-redirect=true&entityId="
+		return "GlobalPrivateCode?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

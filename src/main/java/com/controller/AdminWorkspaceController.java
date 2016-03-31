@@ -99,7 +99,7 @@ public class AdminWorkspaceController extends BaseController<AdminWorkspace>
 	public String edit(int row) {
 		setEntity(this.adminWorkspaceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminWorkspace?faces-redirect=true&entityId="
+		return "AdminWorkspace?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

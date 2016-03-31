@@ -115,7 +115,7 @@ public class SaleSellerController extends BaseController<SaleSeller>
 	public String edit(int row) {
 		setEntity(this.saleSellerService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "saleSeller?faces-redirect=true&entityId="
+		return "SaleSeller?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

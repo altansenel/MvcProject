@@ -115,7 +115,7 @@ public class OrderTransDetailController extends BaseController<OrderTransDetail>
 	public String edit(int row) {
 		setEntity(this.orderTransDetailService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "orderTransDetail?faces-redirect=true&entityId="
+		return "OrderTransDetail?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -97,7 +97,7 @@ public class TempContactAgingController extends BaseController<TempContactAging>
 	public String edit(int row) {
 		setEntity(this.tempContactAgingService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "tempContactAging?faces-redirect=true&entityId="
+		return "TempContactAging?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

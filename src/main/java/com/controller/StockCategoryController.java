@@ -107,7 +107,7 @@ public class StockCategoryController extends BaseController<StockCategory>
 	public String edit(int row) {
 		setEntity(this.stockCategoryService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockCategory?faces-redirect=true&entityId="
+		return "StockCategory?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

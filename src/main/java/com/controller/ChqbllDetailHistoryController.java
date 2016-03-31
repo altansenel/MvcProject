@@ -105,7 +105,7 @@ public class ChqbllDetailHistoryController extends BaseController<ChqbllDetailHi
 	public String edit(int row) {
 		setEntity(this.chqbllDetailHistoryService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "chqbllDetailHistory?faces-redirect=true&entityId="
+		return "ChqbllDetailHistory?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

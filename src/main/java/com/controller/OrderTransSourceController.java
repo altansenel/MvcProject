@@ -101,7 +101,7 @@ public class OrderTransSourceController extends BaseController<OrderTransSource>
 	public String edit(int row) {
 		setEntity(this.orderTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "orderTransSource?faces-redirect=true&entityId="
+		return "OrderTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

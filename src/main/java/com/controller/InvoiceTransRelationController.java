@@ -99,7 +99,7 @@ public class InvoiceTransRelationController extends BaseController<InvoiceTransR
 	public String edit(int row) {
 		setEntity(this.invoiceTransRelationService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "invoiceTransRelation?faces-redirect=true&entityId="
+		return "InvoiceTransRelation?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

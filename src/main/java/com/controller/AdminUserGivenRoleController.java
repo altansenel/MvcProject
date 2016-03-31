@@ -103,7 +103,7 @@ public class AdminUserGivenRoleController extends BaseController<AdminUserGivenR
 	public String edit(int row) {
 		setEntity(this.adminUserGivenRoleService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminUserGivenRole?faces-redirect=true&entityId="
+		return "AdminUserGivenRole?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -149,7 +149,7 @@ public class ContactController extends BaseController<Contact>
 	public String edit(int row) {
 		setEntity(this.contactService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "contact?faces-redirect=true&entityId="
+		return "Contact?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

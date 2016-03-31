@@ -99,7 +99,7 @@ public class ContactTransSourceController extends BaseController<ContactTransSou
 	public String edit(int row) {
 		setEntity(this.contactTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "contactTransSource?faces-redirect=true&entityId="
+		return "ContactTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

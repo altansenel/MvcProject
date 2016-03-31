@@ -97,7 +97,7 @@ public class AdminUserAuditController extends BaseController<AdminUserAudit>
 	public String edit(int row) {
 		setEntity(this.adminUserAuditService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminUserAudit?faces-redirect=true&entityId="
+		return "AdminUserAudit?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

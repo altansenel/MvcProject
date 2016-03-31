@@ -99,7 +99,7 @@ public class BankExpenseController extends BaseController<BankExpense>
 	public String edit(int row) {
 		setEntity(this.bankExpenseService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "bankExpense?faces-redirect=true&entityId="
+		return "BankExpense?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

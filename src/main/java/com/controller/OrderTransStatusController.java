@@ -105,7 +105,7 @@ public class OrderTransStatusController extends BaseController<OrderTransStatus>
 	public String edit(int row) {
 		setEntity(this.orderTransStatusService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "orderTransStatus?faces-redirect=true&entityId="
+		return "OrderTransStatus?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

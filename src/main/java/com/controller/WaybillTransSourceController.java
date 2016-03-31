@@ -101,7 +101,7 @@ public class WaybillTransSourceController extends BaseController<WaybillTransSou
 	public String edit(int row) {
 		setEntity(this.waybillTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "waybillTransSource?faces-redirect=true&entityId="
+		return "WaybillTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

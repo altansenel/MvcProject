@@ -99,7 +99,7 @@ public class InvoiceTransCurrencyController extends BaseController<InvoiceTransC
 	public String edit(int row) {
 		setEntity(this.invoiceTransCurrencyService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "invoiceTransCurrency?faces-redirect=true&entityId="
+		return "InvoiceTransCurrency?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

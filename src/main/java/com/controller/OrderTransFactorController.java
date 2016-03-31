@@ -101,7 +101,7 @@ public class OrderTransFactorController extends BaseController<OrderTransFactor>
 	public String edit(int row) {
 		setEntity(this.orderTransFactorService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "orderTransFactor?faces-redirect=true&entityId="
+		return "OrderTransFactor?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

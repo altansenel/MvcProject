@@ -99,7 +99,7 @@ public class ContactCategoryController extends BaseController<ContactCategory>
 	public String edit(int row) {
 		setEntity(this.contactCategoryService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "contactCategory?faces-redirect=true&entityId="
+		return "ContactCategory?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

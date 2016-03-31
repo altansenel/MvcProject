@@ -97,7 +97,7 @@ public class AdminExtraFieldsController extends BaseController<AdminExtraFields>
 	public String edit(int row) {
 		setEntity(this.adminExtraFieldsService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminExtraFields?faces-redirect=true&entityId="
+		return "AdminExtraFields?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

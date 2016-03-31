@@ -105,7 +105,7 @@ public class SafeController extends BaseController<Safe>
 	public String edit(int row) {
 		setEntity(this.safeService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "safe?faces-redirect=true&entityId="
+		return "Safe?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

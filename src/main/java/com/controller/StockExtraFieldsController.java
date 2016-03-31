@@ -197,7 +197,7 @@ public class StockExtraFieldsController extends BaseController<StockExtraFields>
 	public String edit(int row) {
 		setEntity(this.stockExtraFieldsService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockExtraFields?faces-redirect=true&entityId="
+		return "StockExtraFields?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

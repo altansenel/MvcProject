@@ -101,7 +101,7 @@ public class AdminUserGroupController extends BaseController<AdminUserGroup>
 	public String edit(int row) {
 		setEntity(this.adminUserGroupService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminUserGroup?faces-redirect=true&entityId="
+		return "AdminUserGroup?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

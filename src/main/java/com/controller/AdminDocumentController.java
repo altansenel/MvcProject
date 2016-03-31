@@ -107,7 +107,7 @@ public class AdminDocumentController extends BaseController<AdminDocument>
 	public String edit(int row) {
 		setEntity(this.adminDocumentService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminDocument?faces-redirect=true&entityId="
+		return "AdminDocument?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

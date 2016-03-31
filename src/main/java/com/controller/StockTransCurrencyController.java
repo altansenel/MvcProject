@@ -99,7 +99,7 @@ public class StockTransCurrencyController extends BaseController<StockTransCurre
 	public String edit(int row) {
 		setEntity(this.stockTransCurrencyService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockTransCurrency?faces-redirect=true&entityId="
+		return "StockTransCurrency?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -127,7 +127,7 @@ public class GlobalTransPointController extends BaseController<GlobalTransPoint>
 	public String edit(int row) {
 		setEntity(this.globalTransPointService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "globalTransPoint?faces-redirect=true&entityId="
+		return "GlobalTransPoint?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

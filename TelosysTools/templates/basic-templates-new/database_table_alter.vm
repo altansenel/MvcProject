@@ -1,7 +1,30 @@
 #foreach($entity in $selectedEntities)
-alter table $entity.databaseTable add version int(11);
+	#set($exists = false)
+	###set($exists2 = false)
+	#foreach($attribute in $entity.attributes) 
+    	#if($attribute.databaseName == "version")
+        	#set($exists = true)
+			#break
+    	#end
+    	###if($attribute.databaseName == "id")
+        ##	#set($exists2 = true)
+    	###end
+    	###if($exists == true && $exists2 == true)
+        ##	#break
+    	###end
+	#end
+#if ($exists)
+alter table ${entity.databaseTable} drop version;
 #end
+###if ($exists2)
+##alter table ${entity.databaseTable} drop id;
+#end
+alter table ${entity.databaseTable} add version int(11) default 0;
+##alter table ${entity.databaseTable} add id int(11) PRIMARY KEY;
+create table ${entity.databaseTable}_v as select * from ${entity.databaseTable} where id=0;
+alter table ${entity.databaseTable}_v drop id;
+alter table ${entity.databaseTable}_v add id int(11);
+alter table ${entity.databaseTable}_v add rev bigint(20) PRIMARY KEY;
+alter table ${entity.databaseTable}_v add revtype bigint(20);
 
-
-
-
+#end

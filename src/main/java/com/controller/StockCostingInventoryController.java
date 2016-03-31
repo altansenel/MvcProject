@@ -103,7 +103,7 @@ public class StockCostingInventoryController extends BaseController<StockCosting
 	public String edit(int row) {
 		setEntity(this.stockCostingInventoryService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockCostingInventory?faces-redirect=true&entityId="
+		return "StockCostingInventory?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

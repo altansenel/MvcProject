@@ -101,7 +101,7 @@ public class StockCostingDetailController extends BaseController<StockCostingDet
 	public String edit(int row) {
 		setEntity(this.stockCostingDetailService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockCostingDetail?faces-redirect=true&entityId="
+		return "StockCostingDetail?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

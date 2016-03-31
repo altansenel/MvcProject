@@ -99,7 +99,7 @@ public class GlobalCurrencyRateController extends BaseController<GlobalCurrencyR
 	public String edit(int row) {
 		setEntity(this.globalCurrencyRateService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "globalCurrencyRate?faces-redirect=true&entityId="
+		return "GlobalCurrencyRate?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

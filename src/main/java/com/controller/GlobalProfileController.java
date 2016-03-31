@@ -97,7 +97,7 @@ public class GlobalProfileController extends BaseController<GlobalProfile>
 	public String edit(int row) {
 		setEntity(this.globalProfileService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "globalProfile?faces-redirect=true&entityId="
+		return "GlobalProfile?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

@@ -99,7 +99,7 @@ public class WaybillTransRelationController extends BaseController<WaybillTransR
 	public String edit(int row) {
 		setEntity(this.waybillTransRelationService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "waybillTransRelation?faces-redirect=true&entityId="
+		return "WaybillTransRelation?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

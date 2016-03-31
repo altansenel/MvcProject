@@ -117,7 +117,7 @@ public class ContactExtraFieldsController extends BaseController<ContactExtraFie
 	public String edit(int row) {
 		setEntity(this.contactExtraFieldsService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "contactExtraFields?faces-redirect=true&entityId="
+		return "ContactExtraFields?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

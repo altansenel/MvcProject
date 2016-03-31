@@ -107,7 +107,7 @@ public class BankTransController extends BaseController<BankTrans>
 	public String edit(int row) {
 		setEntity(this.bankTransService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "bankTrans?faces-redirect=true&entityId="
+		return "BankTrans?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

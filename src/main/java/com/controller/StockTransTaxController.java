@@ -99,7 +99,7 @@ public class StockTransTaxController extends BaseController<StockTransTax>
 	public String edit(int row) {
 		setEntity(this.stockTransTaxService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockTransTax?faces-redirect=true&entityId="
+		return "StockTransTax?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

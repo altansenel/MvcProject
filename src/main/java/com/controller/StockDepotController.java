@@ -119,7 +119,7 @@ public class StockDepotController extends BaseController<StockDepot>
 	public String edit(int row) {
 		setEntity(this.stockDepotService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockDepot?faces-redirect=true&entityId="
+		return "StockDepot?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

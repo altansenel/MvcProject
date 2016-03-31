@@ -109,7 +109,7 @@ public class SafeTransController extends BaseController<SafeTrans>
 	public String edit(int row) {
 		setEntity(this.safeTransService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "safeTrans?faces-redirect=true&entityId="
+		return "SafeTrans?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

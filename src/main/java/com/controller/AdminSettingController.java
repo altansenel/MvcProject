@@ -97,7 +97,7 @@ public class AdminSettingController extends BaseController<AdminSetting>
 	public String edit(int row) {
 		setEntity(this.adminSettingService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "adminSetting?faces-redirect=true&entityId="
+		return "AdminSetting?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

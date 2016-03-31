@@ -121,7 +121,7 @@ public class StockPriceListController extends BaseController<StockPriceList>
 	public String edit(int row) {
 		setEntity(this.stockPriceListService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockPriceList?faces-redirect=true&entityId="
+		return "StockPriceList?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

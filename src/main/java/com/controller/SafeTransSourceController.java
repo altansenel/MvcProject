@@ -99,7 +99,7 @@ public class SafeTransSourceController extends BaseController<SafeTransSource>
 	public String edit(int row) {
 		setEntity(this.safeTransSourceService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "safeTransSource?faces-redirect=true&entityId="
+		return "SafeTransSource?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

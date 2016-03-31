@@ -115,7 +115,7 @@ public class InvoiceTransDetailController extends BaseController<InvoiceTransDet
 	public String edit(int row) {
 		setEntity(this.invoiceTransDetailService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "invoiceTransDetail?faces-redirect=true&entityId="
+		return "InvoiceTransDetail?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 

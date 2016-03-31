@@ -99,7 +99,7 @@ public class StockBarcodeController extends BaseController<StockBarcode>
 	public String edit(int row) {
 		setEntity(this.stockBarcodeService.getEntityById(getEntityList()
 				.get(row).getId()));
-		return "stockBarcode?faces-redirect=true&entityId="
+		return "StockBarcode?faces-redirect=true&entityId="
 				+ getEntityList().get(row).getId();
 	}
 
