@@ -140,13 +140,13 @@ public class AdminDocumentFieldController extends BaseController<AdminDocumentFi
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("adminDocumentList");
+		childDataBean.setFrom("AdminDocumentList");
 		childDataBean.setName("org.demo.bean.yeni.AdminDocument");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "adminDocumentList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "AdminDocumentList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

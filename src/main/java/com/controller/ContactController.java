@@ -182,13 +182,13 @@ public class ContactController extends BaseController<Contact>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("contactCategoryList");
+		childDataBean.setFrom("ContactCategoryList");
 		childDataBean.setName("org.demo.bean.yeni.ContactCategory");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "contactCategoryList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ContactCategoryList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -205,13 +205,13 @@ public class ContactController extends BaseController<Contact>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("contactExtraFieldsList");
+		childDataBean.setFrom("ContactExtraFieldsList");
 		childDataBean.setName("org.demo.bean.yeni.ContactExtraFields");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "contactExtraFieldsList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ContactExtraFieldsList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -228,13 +228,13 @@ public class ContactController extends BaseController<Contact>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("saleSellerList");
+		childDataBean.setFrom("SaleSellerList");
 		childDataBean.setName("org.demo.bean.yeni.SaleSeller");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "saleSellerList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SaleSellerList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -251,13 +251,13 @@ public class ContactController extends BaseController<Contact>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockPriceListList");
+		childDataBean.setFrom("StockPriceListList");
 		childDataBean.setName("org.demo.bean.yeni.StockPriceList");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockPriceListList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockPriceListList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

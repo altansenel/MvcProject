@@ -132,13 +132,13 @@ public class GlobalCurrencyRateDetailController extends BaseController<GlobalCur
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalCurrencyRateList");
+		childDataBean.setFrom("GlobalCurrencyRateList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalCurrencyRate");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalCurrencyRateList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalCurrencyRateList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

@@ -134,13 +134,13 @@ public class ChqbllTransDetailController extends BaseController<ChqbllTransDetai
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("chqbllPayrollDetailList");
+		childDataBean.setFrom("ChqbllPayrollDetailList");
 		childDataBean.setName("org.demo.bean.yeni.ChqbllPayrollDetail");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "chqbllPayrollDetailList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ChqbllPayrollDetailList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -157,13 +157,13 @@ public class ChqbllTransDetailController extends BaseController<ChqbllTransDetai
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("chqbllTransList");
+		childDataBean.setFrom("ChqbllTransList");
 		childDataBean.setName("org.demo.bean.yeni.ChqbllTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "chqbllTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ChqbllTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

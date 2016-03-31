@@ -136,13 +136,13 @@ public class AdminUserGivenRoleController extends BaseController<AdminUserGivenR
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("adminUserGroupList");
+		childDataBean.setFrom("AdminUserGroupList");
 		childDataBean.setName("org.demo.bean.yeni.AdminUserGroup");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "adminUserGroupList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "AdminUserGroupList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -159,13 +159,13 @@ public class AdminUserGivenRoleController extends BaseController<AdminUserGivenR
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("adminUserRoleList");
+		childDataBean.setFrom("AdminUserRoleList");
 		childDataBean.setName("org.demo.bean.yeni.AdminUserRole");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "adminUserRoleList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "AdminUserRoleList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -182,13 +182,13 @@ public class AdminUserGivenRoleController extends BaseController<AdminUserGivenR
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("adminWorkspaceList");
+		childDataBean.setFrom("AdminWorkspaceList");
 		childDataBean.setName("org.demo.bean.yeni.AdminWorkspace");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "adminWorkspaceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "AdminWorkspaceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

@@ -140,13 +140,13 @@ public class BankTransController extends BaseController<BankTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalTransPointList");
+		childDataBean.setFrom("GlobalTransPointList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalTransPoint");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -163,13 +163,13 @@ public class BankTransController extends BaseController<BankTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("bankList");
+		childDataBean.setFrom("BankList");
 		childDataBean.setName("org.demo.bean.yeni.Bank");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "bankList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "BankList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -186,13 +186,13 @@ public class BankTransController extends BaseController<BankTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("bankTransSourceList");
+		childDataBean.setFrom("BankTransSourceList");
 		childDataBean.setName("org.demo.bean.yeni.BankTransSource");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "bankTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "BankTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -209,13 +209,13 @@ public class BankTransController extends BaseController<BankTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalPrivateCodeList");
+		childDataBean.setFrom("GlobalPrivateCodeList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalPrivateCode");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -232,13 +232,13 @@ public class BankTransController extends BaseController<BankTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("bankExpenseList");
+		childDataBean.setFrom("BankExpenseList");
 		childDataBean.setName("org.demo.bean.yeni.BankExpense");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "bankExpenseList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "BankExpenseList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

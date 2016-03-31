@@ -138,13 +138,13 @@ public class InvoiceTransStatusController extends BaseController<InvoiceTransSta
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("invoiceTransStatusList");
+		childDataBean.setFrom("InvoiceTransStatusList");
 		childDataBean.setName("org.demo.bean.yeni.InvoiceTransStatus");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "invoiceTransStatusList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "InvoiceTransStatusList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

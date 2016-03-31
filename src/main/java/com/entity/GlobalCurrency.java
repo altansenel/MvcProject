@@ -13,7 +13,11 @@ import java.io.Serializable;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.envers.Audited;
 
@@ -24,9 +28,6 @@ import org.hibernate.envers.Audited;
  *
  */
 
-
-
-
 @Audited
 @Entity
 // Define named queries here
@@ -34,161 +35,148 @@ import org.hibernate.envers.Audited;
 @org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class GlobalCurrency extends BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )  
-    //----------------------------------------------------------------------
-//	@EmbeddedId
-//   private GlobalCurrencyKey compositePrimaryKey ;
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )
+	// ----------------------------------------------------------------------
+	// @EmbeddedId
+	// private GlobalCurrencyKey compositePrimaryKey ;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Column(name = "code", nullable = false, length = 3)
+	private String code;
+	@Column(name = "name", nullable = false, length = 25)
+	private String name;
+	@Column(name = "insert_by", length = 20)
+	private String insertBy;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "insert_at")
+	private Date insertAt;
+	@Column(name = "update_by", length = 20)
+	private String updateBy;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "update_at")
+	private Date updateAt;
+	@Column(name = "is_active")
+	private Boolean isActive;
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Column(name="code", nullable=false, length=3)
-    private String     code         ;    @Column(name="name", nullable=false, length=25)
-    private String     name         ;    @Column(name="insert_by", length=20)
-    private String     insertBy     ;    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="insert_at")
-    private Date       insertAt     ;    @Column(name="update_by", length=20)
-    private String     updateBy     ;    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="update_at")
-    private Date       updateAt     ;    @Column(name="is_active")
-    private Boolean    isActive     ;
+	// ----------------------------------------------------------------------
+	// ENTITY LINKS ( RELATIONSHIP )
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE COMPOSITE KEY
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // ENTITY LINKS ( RELATIONSHIP )
-    //----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE COMPOSITE KEY 
-    //----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
+	// --- DATABASE MAPPING : code ( VARCHAR )
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
+	public String getCode() {
+		return this.code;
+	}
 
+	// --- DATABASE MAPPING : name ( VARCHAR )
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	public String getName() {
+		return this.name;
+	}
 
-    //--- DATABASE MAPPING : code ( VARCHAR ) 
-    public void setCode( String code ) {
-        this.code = code;
-    }
-    public String getCode() {
-        return this.code;
-    }
+	// --- DATABASE MAPPING : insert_by ( VARCHAR )
+	public void setInsertBy(String insertBy) {
+		this.insertBy = insertBy;
+	}
 
+	public String getInsertBy() {
+		return this.insertBy;
+	}
 
+	// --- DATABASE MAPPING : insert_at ( DATETIME )
+	public void setInsertAt(Date insertAt) {
+		this.insertAt = insertAt;
+	}
 
+	public Date getInsertAt() {
+		return this.insertAt;
+	}
 
-    //--- DATABASE MAPPING : name ( VARCHAR ) 
-    public void setName( String name ) {
-        this.name = name;
-    }
-    public String getName() {
-        return this.name;
-    }
+	// --- DATABASE MAPPING : update_by ( VARCHAR )
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
+	}
 
+	public String getUpdateBy() {
+		return this.updateBy;
+	}
 
+	// --- DATABASE MAPPING : update_at ( DATETIME )
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
+	}
 
+	public Date getUpdateAt() {
+		return this.updateAt;
+	}
 
-    //--- DATABASE MAPPING : insert_by ( VARCHAR ) 
-    public void setInsertBy( String insertBy ) {
-        this.insertBy = insertBy;
-    }
-    public String getInsertBy() {
-        return this.insertBy;
-    }
+	// --- DATABASE MAPPING : is_active ( BIT )
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
 
+	public Boolean getIsActive() {
+		return this.isActive;
+	}
 
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR LINKS
+	// ----------------------------------------------------------------------
 
-
-    //--- DATABASE MAPPING : insert_at ( DATETIME ) 
-    public void setInsertAt( Date insertAt ) {
-        this.insertAt = insertAt;
-    }
-    public Date getInsertAt() {
-        return this.insertAt;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : update_by ( VARCHAR ) 
-    public void setUpdateBy( String updateBy ) {
-        this.updateBy = updateBy;
-    }
-    public String getUpdateBy() {
-        return this.updateBy;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : update_at ( DATETIME ) 
-    public void setUpdateAt( Date updateAt ) {
-        this.updateAt = updateAt;
-    }
-    public Date getUpdateAt() {
-        return this.updateAt;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : is_active ( BIT ) 
-    public void setIsActive( Boolean isActive ) {
-        this.isActive = isActive;
-    }
-    public Boolean getIsActive() {
-        return this.isActive;
-    }
-
-
-
-
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR LINKS
-    //----------------------------------------------------------------------
-
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(id);
-        sb.append("]:"); 
-        sb.append(code);
-        sb.append("|");
-        sb.append(name);
-        sb.append("|");
-        sb.append(insertBy);
-        sb.append("|");
-        sb.append(insertAt);
-        sb.append("|");
-        sb.append(updateBy);
-        sb.append("|");
-        sb.append(updateAt);
-        sb.append("|");
-        sb.append(isActive);
-        sb.append("|");
-        sb.append(version);
-        return sb.toString(); 
-    } 
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(id);
+		sb.append("]:");
+		sb.append(code);
+		sb.append("|");
+		sb.append(name);
+		sb.append("|");
+		sb.append(insertBy);
+		sb.append("|");
+		sb.append(insertAt);
+		sb.append("|");
+		sb.append(updateBy);
+		sb.append("|");
+		sb.append(updateAt);
+		sb.append("|");
+		sb.append(isActive);
+		sb.append("|");
+		sb.append(version);
+		return sb.toString();
+	}
 
 }

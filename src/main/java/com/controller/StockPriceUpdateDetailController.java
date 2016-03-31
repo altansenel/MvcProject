@@ -132,13 +132,13 @@ public class StockPriceUpdateDetailController extends BaseController<StockPriceU
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockPriceUpdateList");
+		childDataBean.setFrom("StockPriceUpdateList");
 		childDataBean.setName("org.demo.bean.yeni.StockPriceUpdate");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockPriceUpdateList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockPriceUpdateList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

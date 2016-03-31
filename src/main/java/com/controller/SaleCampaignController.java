@@ -152,13 +152,13 @@ public class SaleCampaignController extends BaseController<SaleCampaign>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockExtraFieldsList");
+		childDataBean.setFrom("StockExtraFieldsList");
 		childDataBean.setName("org.demo.bean.yeni.StockExtraFields");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockExtraFieldsList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockExtraFieldsList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -175,13 +175,13 @@ public class SaleCampaignController extends BaseController<SaleCampaign>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockCategoryList");
+		childDataBean.setFrom("StockCategoryList");
 		childDataBean.setName("org.demo.bean.yeni.StockCategory");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockCategoryList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockCategoryList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

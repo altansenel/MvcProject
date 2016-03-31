@@ -132,13 +132,13 @@ public class StockTransCurrencyController extends BaseController<StockTransCurre
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockTransList");
+		childDataBean.setFrom("StockTransList");
 		childDataBean.setName("org.demo.bean.yeni.StockTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

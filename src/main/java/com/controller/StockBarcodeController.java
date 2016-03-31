@@ -132,13 +132,13 @@ public class StockBarcodeController extends BaseController<StockBarcode>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockList");
+		childDataBean.setFrom("StockList");
 		childDataBean.setName("org.demo.bean.yeni.Stock");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

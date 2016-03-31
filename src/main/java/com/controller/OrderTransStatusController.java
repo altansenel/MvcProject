@@ -138,13 +138,13 @@ public class OrderTransStatusController extends BaseController<OrderTransStatus>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("orderTransStatusList");
+		childDataBean.setFrom("OrderTransStatusList");
 		childDataBean.setName("org.demo.bean.yeni.OrderTransStatus");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "orderTransStatusList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "OrderTransStatusList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

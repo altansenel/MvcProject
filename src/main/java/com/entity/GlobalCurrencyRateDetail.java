@@ -13,7 +13,13 @@ import java.io.Serializable;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.envers.Audited;
 
@@ -24,9 +30,6 @@ import org.hibernate.envers.Audited;
  *
  */
 
-
-
-
 @Audited
 @Entity
 // Define named queries here
@@ -34,139 +37,130 @@ import org.hibernate.envers.Audited;
 @org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class GlobalCurrencyRateDetail extends BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )  
-    //----------------------------------------------------------------------
-//	@EmbeddedId
-//   private GlobalCurrencyRateDetailKey compositePrimaryKey ;
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )
+	// ----------------------------------------------------------------------
+	// @EmbeddedId
+	// private GlobalCurrencyRateDetailKey compositePrimaryKey ;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Temporal(TemporalType.DATE)
+	@Column(name = "_date", nullable = false)
+	private Date date;
+	@Column(name = "code", nullable = false, length = 3)
+	private String code;
+	@Column(name = "name", nullable = false, length = 25)
+	private String name;
+	@Column(name = "buying")
+	private Double buying;
+	@Column(name = "selling")
+	private Double selling;
+	// "currencyRateId" (column "currency_rate_id") is not defined by itself because used as FK in a link
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Temporal(TemporalType.DATE)
-    @Column(name="_date", nullable=false)
-    private Date       date         ;    @Column(name="code", nullable=false, length=3)
-    private String     code         ;    @Column(name="name", nullable=false, length=25)
-    private String     name         ;    @Column(name="buying")
-    private Double     buying       ;    @Column(name="selling")
-    private Double     selling      ;
-	// "currencyRateId" (column "currency_rate_id") is not defined by itself because used as FK in a link 
+	// ----------------------------------------------------------------------
+	// ENTITY LINKS ( RELATIONSHIP )
+	// ----------------------------------------------------------------------
+	@ManyToOne
+	@JoinColumn(name = "currency_rate_id", referencedColumnName = "id")
+	private GlobalCurrencyRate globalCurrencyRate;
 
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE COMPOSITE KEY
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // ENTITY LINKS ( RELATIONSHIP )
-    //----------------------------------------------------------------------
-    @ManyToOne
-    @JoinColumn(name="currency_rate_id", referencedColumnName="id")
-    private GlobalCurrencyRate globalCurrencyRate;
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE COMPOSITE KEY 
-    //----------------------------------------------------------------------
+	// --- DATABASE MAPPING : _date ( DATE )
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
+	public Date getDate() {
+		return this.date;
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
+	// --- DATABASE MAPPING : code ( VARCHAR )
+	public void setCode(String code) {
+		this.code = code;
+	}
 
+	public String getCode() {
+		return this.code;
+	}
 
+	// --- DATABASE MAPPING : name ( VARCHAR )
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    //--- DATABASE MAPPING : _date ( DATE ) 
-    public void setDate( Date date ) {
-        this.date = date;
-    }
-    public Date getDate() {
-        return this.date;
-    }
+	public String getName() {
+		return this.name;
+	}
 
+	// --- DATABASE MAPPING : buying ( DOUBLE )
+	public void setBuying(Double buying) {
+		this.buying = buying;
+	}
 
+	public Double getBuying() {
+		return this.buying;
+	}
 
+	// --- DATABASE MAPPING : selling ( DOUBLE )
+	public void setSelling(Double selling) {
+		this.selling = selling;
+	}
 
-    //--- DATABASE MAPPING : code ( VARCHAR ) 
-    public void setCode( String code ) {
-        this.code = code;
-    }
-    public String getCode() {
-        return this.code;
-    }
+	public Double getSelling() {
+		return this.selling;
+	}
 
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR LINKS
+	// ----------------------------------------------------------------------
+	public void setGlobalCurrencyRate(GlobalCurrencyRate globalCurrencyRate) {
+		this.globalCurrencyRate = globalCurrencyRate;
+	}
 
+	public GlobalCurrencyRate getGlobalCurrencyRate() {
+		return this.globalCurrencyRate;
+	}
 
-
-    //--- DATABASE MAPPING : name ( VARCHAR ) 
-    public void setName( String name ) {
-        this.name = name;
-    }
-    public String getName() {
-        return this.name;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : buying ( DOUBLE ) 
-    public void setBuying( Double buying ) {
-        this.buying = buying;
-    }
-    public Double getBuying() {
-        return this.buying;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : selling ( DOUBLE ) 
-    public void setSelling( Double selling ) {
-        this.selling = selling;
-    }
-    public Double getSelling() {
-        return this.selling;
-    }
-
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR LINKS
-    //----------------------------------------------------------------------
-    public void setGlobalCurrencyRate( GlobalCurrencyRate globalCurrencyRate ) {
-        this.globalCurrencyRate = globalCurrencyRate;
-    }
-    public GlobalCurrencyRate getGlobalCurrencyRate() {
-        return this.globalCurrencyRate;
-    }
-
-
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(id);
-        sb.append("]:"); 
-        sb.append(date);
-        sb.append("|");
-        sb.append(code);
-        sb.append("|");
-        sb.append(name);
-        sb.append("|");
-        sb.append(buying);
-        sb.append("|");
-        sb.append(selling);
-        return sb.toString(); 
-    } 
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(id);
+		sb.append("]:");
+		sb.append(date);
+		sb.append("|");
+		sb.append(code);
+		sb.append("|");
+		sb.append(name);
+		sb.append("|");
+		sb.append(buying);
+		sb.append("|");
+		sb.append(selling);
+		return sb.toString();
+	}
 
 }

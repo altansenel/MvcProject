@@ -134,13 +134,13 @@ public class OrderTransFactorController extends BaseController<OrderTransFactor>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockCostFactorList");
+		childDataBean.setFrom("StockCostFactorList");
 		childDataBean.setName("org.demo.bean.yeni.StockCostFactor");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockCostFactorList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockCostFactorList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -157,13 +157,13 @@ public class OrderTransFactorController extends BaseController<OrderTransFactor>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("orderTransList");
+		childDataBean.setFrom("OrderTransList");
 		childDataBean.setName("org.demo.bean.yeni.OrderTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "orderTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "OrderTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

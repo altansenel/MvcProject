@@ -132,13 +132,13 @@ public class WaybillTransRelationController extends BaseController<WaybillTransR
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("waybillTransList");
+		childDataBean.setFrom("WaybillTransList");
 		childDataBean.setName("org.demo.bean.yeni.WaybillTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "waybillTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "WaybillTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

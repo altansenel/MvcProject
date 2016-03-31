@@ -142,13 +142,13 @@ public class SafeTransController extends BaseController<SafeTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalPrivateCodeList");
+		childDataBean.setFrom("GlobalPrivateCodeList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalPrivateCode");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -165,13 +165,13 @@ public class SafeTransController extends BaseController<SafeTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("safeExpenseList");
+		childDataBean.setFrom("SafeExpenseList");
 		childDataBean.setName("org.demo.bean.yeni.SafeExpense");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "safeExpenseList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SafeExpenseList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -188,13 +188,13 @@ public class SafeTransController extends BaseController<SafeTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalTransPointList");
+		childDataBean.setFrom("GlobalTransPointList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalTransPoint");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -211,13 +211,13 @@ public class SafeTransController extends BaseController<SafeTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("safeList");
+		childDataBean.setFrom("SafeList");
 		childDataBean.setName("org.demo.bean.yeni.Safe");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "safeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SafeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -234,13 +234,13 @@ public class SafeTransController extends BaseController<SafeTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("safeTransSourceList");
+		childDataBean.setFrom("SafeTransSourceList");
 		childDataBean.setName("org.demo.bean.yeni.SafeTransSource");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "safeTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SafeTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

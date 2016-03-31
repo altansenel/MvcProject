@@ -132,13 +132,13 @@ public class InvoiceTransRelationController extends BaseController<InvoiceTransR
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("invoiceTransList");
+		childDataBean.setFrom("InvoiceTransList");
 		childDataBean.setName("org.demo.bean.yeni.InvoiceTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "invoiceTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "InvoiceTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

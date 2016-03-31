@@ -136,13 +136,13 @@ public class StockCostingInventoryController extends BaseController<StockCosting
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockList");
+		childDataBean.setFrom("StockList");
 		childDataBean.setName("org.demo.bean.yeni.Stock");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -159,13 +159,13 @@ public class StockCostingInventoryController extends BaseController<StockCosting
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockCostingList");
+		childDataBean.setFrom("StockCostingList");
 		childDataBean.setName("org.demo.bean.yeni.StockCosting");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockCostingList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockCostingList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -182,13 +182,13 @@ public class StockCostingInventoryController extends BaseController<StockCosting
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockDepotList");
+		childDataBean.setFrom("StockDepotList");
 		childDataBean.setName("org.demo.bean.yeni.StockDepot");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockDepotList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockDepotList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

@@ -155,13 +155,13 @@ public class ${entity.name}Controller extends BaseController<${entity.name}>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("${uncapitalizedLinkName}List");
+		childDataBean.setFrom("${link.formattedFieldType(0)}List");
 		childDataBean.setName("org.demo.bean.yeni.${link.formattedFieldType(0)}");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "${uncapitalizedLinkName}List?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "${link.formattedFieldType(0)}List?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 #end

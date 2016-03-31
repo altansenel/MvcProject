@@ -153,7 +153,7 @@ public abstract class BaseDaoImpl<E extends BaseEntity> implements IBaseDao<E>,
 
 		List<E> entityList = criteria.list();
 		for (E obj : entityList) {
-			logger.info("Person List::" + obj);
+			logger.info(obj.getClass().getName() + " List::" + obj);
 		}
 		return entityList;
 	}

@@ -7,7 +7,3 @@ function setValidationTrue() {
 function setValidationFalse() {
 	document.getElementById("main:name").required = false;
 }
-
-
-
-

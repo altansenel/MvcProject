@@ -152,13 +152,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalPrivateCodeList");
+		childDataBean.setFrom("GlobalPrivateCodeList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalPrivateCode");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalPrivateCodeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -175,13 +175,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockDepotList");
+		childDataBean.setFrom("StockDepotList");
 		childDataBean.setName("org.demo.bean.yeni.StockDepot");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockDepotList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockDepotList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -198,13 +198,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockTransSourceList");
+		childDataBean.setFrom("StockTransSourceList");
 		childDataBean.setName("org.demo.bean.yeni.StockTransSource");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockTransSourceList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -221,13 +221,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("globalTransPointList");
+		childDataBean.setFrom("GlobalTransPointList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalTransPoint");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "globalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "GlobalTransPointList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -244,13 +244,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("contactList");
+		childDataBean.setFrom("ContactList");
 		childDataBean.setName("org.demo.bean.yeni.Contact");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "contactList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ContactList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -267,13 +267,13 @@ public class StockTransController extends BaseController<StockTrans>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("saleSellerList");
+		childDataBean.setFrom("SaleSellerList");
 		childDataBean.setName("org.demo.bean.yeni.SaleSeller");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "saleSellerList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SaleSellerList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

@@ -14,7 +14,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.envers.Audited;
 
@@ -25,9 +30,6 @@ import org.hibernate.envers.Audited;
  *
  */
 
-
-
-
 @Audited
 @Entity
 // Define named queries here
@@ -35,158 +37,145 @@ import org.hibernate.envers.Audited;
 @org.hibernate.annotations.Cache(usage = org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class GlobalCurrencyRate extends BaseEntity implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )  
-    //----------------------------------------------------------------------
-//	@EmbeddedId
-//   private GlobalCurrencyRateKey compositePrimaryKey ;
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( EMBEDDED IN AN EXTERNAL CLASS )
+	// ----------------------------------------------------------------------
+	// @EmbeddedId
+	// private GlobalCurrencyRateKey compositePrimaryKey ;
 
-    //----------------------------------------------------------------------
-    // ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
-    //----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// ENTITY PRIMARY KEY ( BASED ON A SINGLE FIELD )
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// ENTITY DATA FIELDS
+	// ----------------------------------------------------------------------
+	@Temporal(TemporalType.DATE)
+	@Column(name = "_date", nullable = false)
+	private Date date;
+	@Column(name = "source", length = 100)
+	private String source;
+	@Column(name = "insert_by", length = 20)
+	private String insertBy;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "insert_at")
+	private Date insertAt;
+	@Column(name = "update_by", length = 20)
+	private String updateBy;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "update_at")
+	private Date updateAt;
 
-    //----------------------------------------------------------------------
-    // ENTITY DATA FIELDS 
-    //----------------------------------------------------------------------    
-    @Temporal(TemporalType.DATE)
-    @Column(name="_date", nullable=false)
-    private Date       date         ;    @Column(name="source", length=100)
-    private String     source       ;    @Column(name="insert_by", length=20)
-    private String     insertBy     ;    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="insert_at")
-    private Date       insertAt     ;    @Column(name="update_by", length=20)
-    private String     updateBy     ;    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="update_at")
-    private Date       updateAt     ;
+	// ----------------------------------------------------------------------
+	// ENTITY LINKS ( RELATIONSHIP )
+	// ----------------------------------------------------------------------
+	@OneToMany(mappedBy = "globalCurrencyRate", targetEntity = GlobalCurrencyRateDetail.class)
+	private List<GlobalCurrencyRateDetail> listOfGlobalCurrencyRateDetail;
 
+	// ----------------------------------------------------------------------
+	// CONSTRUCTOR(S)
+	// ----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE COMPOSITE KEY
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // ENTITY LINKS ( RELATIONSHIP )
-    //----------------------------------------------------------------------
-    @OneToMany(mappedBy="globalCurrencyRate", targetEntity=GlobalCurrencyRateDetail.class)
-    private List<GlobalCurrencyRateDetail> listOfGlobalCurrencyRateDetail;
+	// ----------------------------------------------------------------------
+	// GETTER & SETTER FOR THE KEY FIELD
+	// ----------------------------------------------------------------------
 
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR FIELDS
+	// ----------------------------------------------------------------------
 
-    //----------------------------------------------------------------------
-    // CONSTRUCTOR(S)
-    //----------------------------------------------------------------------
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE COMPOSITE KEY 
-    //----------------------------------------------------------------------
+	// --- DATABASE MAPPING : _date ( DATE )
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    //----------------------------------------------------------------------
-    // GETTER & SETTER FOR THE KEY FIELD
-    //----------------------------------------------------------------------
+	public Date getDate() {
+		return this.date;
+	}
 
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR FIELDS
-    //----------------------------------------------------------------------
+	// --- DATABASE MAPPING : source ( VARCHAR )
+	public void setSource(String source) {
+		this.source = source;
+	}
 
+	public String getSource() {
+		return this.source;
+	}
 
+	// --- DATABASE MAPPING : insert_by ( VARCHAR )
+	public void setInsertBy(String insertBy) {
+		this.insertBy = insertBy;
+	}
 
-    //--- DATABASE MAPPING : _date ( DATE ) 
-    public void setDate( Date date ) {
-        this.date = date;
-    }
-    public Date getDate() {
-        return this.date;
-    }
+	public String getInsertBy() {
+		return this.insertBy;
+	}
 
+	// --- DATABASE MAPPING : insert_at ( DATETIME )
+	public void setInsertAt(Date insertAt) {
+		this.insertAt = insertAt;
+	}
 
+	public Date getInsertAt() {
+		return this.insertAt;
+	}
 
+	// --- DATABASE MAPPING : update_by ( VARCHAR )
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
+	}
 
-    //--- DATABASE MAPPING : source ( VARCHAR ) 
-    public void setSource( String source ) {
-        this.source = source;
-    }
-    public String getSource() {
-        return this.source;
-    }
+	public String getUpdateBy() {
+		return this.updateBy;
+	}
 
+	// --- DATABASE MAPPING : update_at ( DATETIME )
+	public void setUpdateAt(Date updateAt) {
+		this.updateAt = updateAt;
+	}
 
+	public Date getUpdateAt() {
+		return this.updateAt;
+	}
 
+	// ----------------------------------------------------------------------
+	// GETTERS & SETTERS FOR LINKS
+	// ----------------------------------------------------------------------
+	public void setListOfGlobalCurrencyRateDetail(List<GlobalCurrencyRateDetail> listOfGlobalCurrencyRateDetail) {
+		this.listOfGlobalCurrencyRateDetail = listOfGlobalCurrencyRateDetail;
+	}
 
-    //--- DATABASE MAPPING : insert_by ( VARCHAR ) 
-    public void setInsertBy( String insertBy ) {
-        this.insertBy = insertBy;
-    }
-    public String getInsertBy() {
-        return this.insertBy;
-    }
+	public List<GlobalCurrencyRateDetail> getListOfGlobalCurrencyRateDetail() {
+		return this.listOfGlobalCurrencyRateDetail;
+	}
 
-
-
-
-    //--- DATABASE MAPPING : insert_at ( DATETIME ) 
-    public void setInsertAt( Date insertAt ) {
-        this.insertAt = insertAt;
-    }
-    public Date getInsertAt() {
-        return this.insertAt;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : update_by ( VARCHAR ) 
-    public void setUpdateBy( String updateBy ) {
-        this.updateBy = updateBy;
-    }
-    public String getUpdateBy() {
-        return this.updateBy;
-    }
-
-
-
-
-    //--- DATABASE MAPPING : update_at ( DATETIME ) 
-    public void setUpdateAt( Date updateAt ) {
-        this.updateAt = updateAt;
-    }
-    public Date getUpdateAt() {
-        return this.updateAt;
-    }
-
-
-
-
-
-    //----------------------------------------------------------------------
-    // GETTERS & SETTERS FOR LINKS
-    //----------------------------------------------------------------------
-    public void setListOfGlobalCurrencyRateDetail( List<GlobalCurrencyRateDetail> listOfGlobalCurrencyRateDetail ) {
-        this.listOfGlobalCurrencyRateDetail = listOfGlobalCurrencyRateDetail;
-    }
-    public List<GlobalCurrencyRateDetail> getListOfGlobalCurrencyRateDetail() {
-        return this.listOfGlobalCurrencyRateDetail;
-    }
-
-
-    //----------------------------------------------------------------------
-    // toString METHOD
-    //----------------------------------------------------------------------
-    public String toString() { 
-        StringBuffer sb = new StringBuffer(); 
-        sb.append("["); 
-        sb.append(id);
-        sb.append("]:"); 
-        sb.append(date);
-        sb.append("|");
-        sb.append(source);
-        sb.append("|");
-        sb.append(insertBy);
-        sb.append("|");
-        sb.append(insertAt);
-        sb.append("|");
-        sb.append(updateBy);
-        sb.append("|");
-        sb.append(updateAt);
-        sb.append("|");
-        sb.append(version);
-        return sb.toString(); 
-    } 
+	// ----------------------------------------------------------------------
+	// toString METHOD
+	// ----------------------------------------------------------------------
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("[");
+		sb.append(id);
+		sb.append("]:");
+		sb.append(date);
+		sb.append("|");
+		sb.append(source);
+		sb.append("|");
+		sb.append(insertBy);
+		sb.append("|");
+		sb.append(insertAt);
+		sb.append("|");
+		sb.append(updateBy);
+		sb.append("|");
+		sb.append(updateAt);
+		sb.append("|");
+		sb.append(version);
+		return sb.toString();
+	}
 
 }

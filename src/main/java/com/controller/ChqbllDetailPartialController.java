@@ -136,13 +136,13 @@ public class ChqbllDetailPartialController extends BaseController<ChqbllDetailPa
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("safeList");
+		childDataBean.setFrom("SafeList");
 		childDataBean.setName("org.demo.bean.yeni.Safe");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "safeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SafeList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -159,13 +159,13 @@ public class ChqbllDetailPartialController extends BaseController<ChqbllDetailPa
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("safeTransList");
+		childDataBean.setFrom("SafeTransList");
 		childDataBean.setName("org.demo.bean.yeni.SafeTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "safeTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "SafeTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -182,13 +182,13 @@ public class ChqbllDetailPartialController extends BaseController<ChqbllDetailPa
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("chqbllPayrollDetailList");
+		childDataBean.setFrom("ChqbllPayrollDetailList");
 		childDataBean.setName("org.demo.bean.yeni.ChqbllPayrollDetail");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "chqbllPayrollDetailList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "ChqbllPayrollDetailList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

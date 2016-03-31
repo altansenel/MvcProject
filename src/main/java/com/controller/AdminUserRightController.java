@@ -132,13 +132,13 @@ public class AdminUserRightController extends BaseController<AdminUserRight>
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("adminUserRoleList");
+		childDataBean.setFrom("AdminUserRoleList");
 		childDataBean.setName("org.demo.bean.yeni.AdminUserRole");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "adminUserRoleList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "AdminUserRoleList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 

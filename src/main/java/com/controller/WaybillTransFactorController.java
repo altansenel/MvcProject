@@ -134,13 +134,13 @@ public class WaybillTransFactorController extends BaseController<WaybillTransFac
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("stockCostFactorList");
+		childDataBean.setFrom("StockCostFactorList");
 		childDataBean.setName("org.demo.bean.yeni.StockCostFactor");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "stockCostFactorList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "StockCostFactorList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
@@ -157,13 +157,13 @@ public class WaybillTransFactorController extends BaseController<WaybillTransFac
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
-		childDataBean.setFrom("waybillTransList");
+		childDataBean.setFrom("WaybillTransList");
 		childDataBean.setName("org.demo.bean.yeni.WaybillTrans");
 		childDataBean.setParentDataBean(dataBean);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
-		return "waybillTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
+		return "WaybillTransList?faces-redirect=true&addSelect=" + AddSelect.ADD.ordinal();
 	}
 
 
