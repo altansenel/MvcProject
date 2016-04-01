@@ -850,12 +850,12 @@
 
 
 
-	<beans:bean scope="session" id="loginBean" class="com.controller.LoginBean">
+<!-- 	<beans:bean scope="session" id="loginBean" class="com.controller.LoginBean">
 		<aop:scoped-proxy />
-	</beans:bean>
-	<beans:bean scope="singleton" id="loginController"
+	</beans:bean> -->
+ 	<beans:bean scope="singleton" id="loginController"
 		class="com.controller.LoginController">
-		<beans:property name="loginBean" ref="loginBean" />
+		<!-- <beans:property name="loginBean" ref="loginBean" /> -->
 		<beans:property name="authenticationManager" ref="authenticationManager" />
 	</beans:bean>
 

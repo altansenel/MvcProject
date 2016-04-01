@@ -66,9 +66,9 @@
 
 	<sec:http use-expressions="true" auto-config="true">
 		<sec:csrf disabled="true" />
-		<sec:intercept-url pattern="/login" access='isAnonymous()'
+		<sec:intercept-url pattern="/Login" access='isAnonymous()'
 			requires-channel='http' />
-		<sec:intercept-url pattern="/login.xhtml" access='isAnonymous()'
+		<sec:intercept-url pattern="/Login.xhtml" access='isAnonymous()'
 			requires-channel='http' />
 		<!-- sıralamada en specificten balmaya çalış -->
 		<!-- hosRole hepsi ROLE_ ile başlar sonrasında hepsi büyük harf ve arada 
@@ -160,9 +160,9 @@
 		<!-- <sec:form-login login-page="/login" authentication-failure-url="/login" 
 			default-target-url="/" /> -->
 		<!-- <sec:logout logout-url="/logout" logout-success-url="/login" /> -->
-		<sec:form-login login-page="/login.xhtml"
-			authentication-failure-url="/login.xhtml" default-target-url="/" />
-		<sec:logout logout-url="/logout" logout-success-url="/login.xhtml" />
+		<sec:form-login login-page="/Login.xhtml"
+			authentication-failure-url="/Login.xhtml" default-target-url="/" />
+		<sec:logout logout-url="/logout" logout-success-url="/Login.xhtml" />
 		<!-- <security:form-login login-page="/faces/login.xhtml" authentication-failure-url="/faces/login.xhtml?error=1" 
 			default-target-url="/faces/index.xhtml" authentication-details-source-ref="myAuthenticationDetailsSource" 
 			username-parameter="username" password-parameter="password" /> -->

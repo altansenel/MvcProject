@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -11,34 +13,38 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 
-public class LoginController {
-	
-	private static final Logger logger = Logger.getLogger(LoginController.class);
 
-        // beans used by this controller, injected by spring
-	private LoginBean loginBean;
+//@ViewScoped
+//@ManagedBean(name = "loginController")
+//burayı kasten spring bean olarak bıraktım ve app-contexte singleton olarak tanımladım
+public class LoginController implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger
+			.getLogger(LoginController.class);
+	
+	private String message;
+	private String username;
+	private String password;
+	
+	//@ManagedProperty(value = "#{authenticationManager}")
 	private AuthenticationManager authenticationManager;
 	
-        /**
-	 * the login action called by the view
-	 * @return
-	 */
 	public String login() {
 		try{
-			logger.info("Login started for User with Name: "+getLoginBean().getUserName());
+			logger.info("Login started for User with Name: "+getUsername());
 		
 		 // check if userdata is given 
-		 if (getLoginBean().getUserName() == null || getLoginBean().getPassword() == null) {
+		 if (getUsername() == null || getPassword() == null) {
 	            FacesMessage facesMsg = new FacesMessage(
-	            FacesMessage.SEVERITY_ERROR, "Login not started because userName or Password is empty: "+getLoginBean().getUserName(), "login.failed" );
+	            FacesMessage.SEVERITY_ERROR, "Login not started because userName or Password is empty: "+getUsername(), "login.failed" );
 	            FacesContext.getCurrentInstance().addMessage(null, facesMsg);
-	            logger.info("Login not started because userName or Password is empty: "+getLoginBean().getUserName());
+	            logger.info("Login not started because userName or Password is empty: "+getUsername());
 	            return null;
 	        }
 	       
 		 // authenticate afainst spring security
 		 Authentication request = new UsernamePasswordAuthenticationToken(
-				 getLoginBean().getUserName(), getLoginBean().getPassword());            
+				 getUsername(), getPassword());            
 	            
 	        Authentication result = authenticationManager.authenticate(request);
 	        SecurityContextHolder.getContext().setAuthentication(result);
@@ -55,14 +61,6 @@ public class LoginController {
 		
 	}
 
-	public LoginBean getLoginBean() {
-		return loginBean;
-	}
-
-	public void setLoginBean(LoginBean loginBean) {
-		this.loginBean = loginBean;
-	}
-
 	public AuthenticationManager getAuthenticationManager() {
 		return authenticationManager;
 	}
@@ -70,5 +68,31 @@ public class LoginController {
 	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
 		this.authenticationManager = authenticationManager;
 	}
-	 
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+
 }

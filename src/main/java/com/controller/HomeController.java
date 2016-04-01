@@ -54,6 +54,9 @@ public class HomeController implements Serializable {
 	}
 
 	public String getMenuHtml() {
+		if (getRemoteUser()==null) {
+			return null;
+		}
 		if (menuHtml == null) {
 			StringBuilder sb = new StringBuilder();
 
