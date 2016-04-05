@@ -14,6 +14,7 @@ public class DataBean implements Serializable {
 	private DataBean parentDataBean;
 	private String from;
 	private RelationType relationType;
+	private String fieldName;
 	
 	public String getName() {
 		return name;
@@ -45,5 +46,12 @@ public class DataBean implements Serializable {
 	public void setRelationType(RelationType relationType) {
 		this.relationType = relationType;
 	}
+	public String getFieldName() {
+		return fieldName;
+	}
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+	
 
 }

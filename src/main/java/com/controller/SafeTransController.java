@@ -138,13 +138,14 @@ public class SafeTransController extends BaseController<SafeTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("GlobalPrivateCodeList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalPrivateCode");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -161,13 +162,14 @@ public class SafeTransController extends BaseController<SafeTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("SafeExpenseList");
 		childDataBean.setName("org.demo.bean.yeni.SafeExpense");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -184,13 +186,14 @@ public class SafeTransController extends BaseController<SafeTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("GlobalTransPointList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalTransPoint");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -207,13 +210,14 @@ public class SafeTransController extends BaseController<SafeTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("SafeList");
 		childDataBean.setName("org.demo.bean.yeni.Safe");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -230,13 +234,14 @@ public class SafeTransController extends BaseController<SafeTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("SafeTransSourceList");
 		childDataBean.setName("org.demo.bean.yeni.SafeTransSource");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);

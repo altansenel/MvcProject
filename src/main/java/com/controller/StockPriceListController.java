@@ -150,13 +150,14 @@ public class StockPriceListController extends BaseController<StockPriceList>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("StockExtraFieldsList");
 		childDataBean.setName("org.demo.bean.yeni.StockExtraFields");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -173,13 +174,14 @@ public class StockPriceListController extends BaseController<StockPriceList>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("StockCategoryList");
 		childDataBean.setName("org.demo.bean.yeni.StockCategory");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);

@@ -140,13 +140,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("BankList");
 		childDataBean.setName("org.demo.bean.yeni.Bank");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -163,13 +164,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("ChqbllPayrollSourceList");
 		childDataBean.setName("org.demo.bean.yeni.ChqbllPayrollSource");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -186,13 +188,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("ContactList");
 		childDataBean.setName("org.demo.bean.yeni.Contact");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -209,13 +212,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("GlobalPrivateCodeList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalPrivateCode");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -232,13 +236,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("SafeList");
 		childDataBean.setName("org.demo.bean.yeni.Safe");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -255,13 +260,14 @@ public class ChqbllTransController extends BaseController<ChqbllTrans>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("GlobalTransPointList");
 		childDataBean.setName("org.demo.bean.yeni.GlobalTransPoint");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);

@@ -45,7 +45,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,globalTransPoint" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -59,7 +59,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addSaleSeller" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,saleSeller" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -73,7 +73,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addContact" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,contact" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -87,7 +87,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,globalPrivateCode" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -101,7 +101,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addStockDepot" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,stockDepot" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -115,7 +115,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addInvoiceTransStatus" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,invoiceTransStatus" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -129,7 +129,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addInvoiceTransSource" />
 							<ui:param name="controller" value="#{invoiceTransController}" />
-							<ui:param name="controllerMethodArgument" value="InvoiceTrans" />
+							<ui:param name="controllerMethodArgument" value="InvoiceTrans,invoiceTransSource" />
 						</ui:decorate>
 
 

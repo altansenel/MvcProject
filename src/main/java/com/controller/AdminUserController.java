@@ -128,13 +128,14 @@ public class AdminUserController extends BaseController<AdminUser>
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("AdminUserGroupList");
 		childDataBean.setName("org.demo.bean.yeni.AdminUserGroup");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);

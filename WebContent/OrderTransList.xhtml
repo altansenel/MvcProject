@@ -45,7 +45,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addOrderTransStatus" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,orderTransStatus" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -59,7 +59,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addOrderTransSource" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,orderTransSource" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -73,7 +73,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,globalTransPoint" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -87,7 +87,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addSaleSeller" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,saleSeller" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -101,7 +101,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addContact" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,contact" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -115,7 +115,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,globalPrivateCode" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -129,7 +129,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addStockDepot" />
 							<ui:param name="controller" value="#{orderTransController}" />
-							<ui:param name="controllerMethodArgument" value="OrderTrans" />
+							<ui:param name="controllerMethodArgument" value="OrderTrans,stockDepot" />
 						</ui:decorate>
 
 

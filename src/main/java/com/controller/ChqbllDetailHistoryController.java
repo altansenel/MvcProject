@@ -134,13 +134,14 @@ public class ChqbllDetailHistoryController extends BaseController<ChqbllDetailHi
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("ContactList");
 		childDataBean.setName("org.demo.bean.yeni.Contact");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -157,13 +158,14 @@ public class ChqbllDetailHistoryController extends BaseController<ChqbllDetailHi
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("SafeList");
 		childDataBean.setName("org.demo.bean.yeni.Safe");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -180,13 +182,14 @@ public class ChqbllDetailHistoryController extends BaseController<ChqbllDetailHi
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("BankList");
 		childDataBean.setName("org.demo.bean.yeni.Bank");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);
@@ -203,13 +206,14 @@ public class ChqbllDetailHistoryController extends BaseController<ChqbllDetailHi
 		}
 		dataBean.setObj(getEntity());
 		dataBean.setName(getEntity().getClass().getName());
-		dataBean.setFrom(pageName);
+		dataBean.setFrom(pageName.split(",")[0]);
 		dataBean.setRelationType(RelationType.manyToOne);
 		
 		DataBean childDataBean = new DataBean();
 		childDataBean.setFrom("ChqbllPayrollDetailList");
 		childDataBean.setName("org.demo.bean.yeni.ChqbllPayrollDetail");
 		childDataBean.setParentDataBean(dataBean);
+		childDataBean.setFieldName(pageName.split(",")[1]);
 
 		FacesContext.getCurrentInstance().getExternalContext().getFlash()
 				.put("obj", childDataBean);

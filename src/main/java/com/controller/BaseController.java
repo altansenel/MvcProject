@@ -124,8 +124,10 @@ public abstract class BaseController<E> implements Serializable {
 		if (getDataBean().getParentDataBean()!=null) {
 			if (getDataBean().getParentDataBean().getRelationType().equals(RelationType.manyToOne)) {
 				set(getDataBean().getParentDataBean().getObj(),
-						getEntity().getClass().getName().split(DOT)[getEntity()
-								.getClass().getName().split(DOT).length - 1].substring(0,1).toLowerCase() + getEntity().getClass().getName().split(DOT)[getEntity().getClass().getName().split(DOT).length - 1].substring(1), getEntityList().get(row));
+						getDataBean().getFieldName(),
+//						getEntity().getClass().getName().split(DOT)[getEntity()
+//								.getClass().getName().split(DOT).length - 1].substring(0,1).toLowerCase() + getEntity().getClass().getName().split(DOT)[getEntity().getClass().getName().split(DOT).length - 1].substring(1),
+						getEntityList().get(row));
 				setDataBean(getDataBean().getParentDataBean());
 				FacesContext.getCurrentInstance().getExternalContext().getFlash()
 						.put("obj", getDataBean());

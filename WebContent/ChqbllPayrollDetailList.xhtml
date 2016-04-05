@@ -45,7 +45,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalPrivateCode" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,globalPrivateCode" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -59,7 +59,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addChqbllPayroll" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,chqbllPayroll" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -73,7 +73,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addContact" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,contact" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -87,7 +87,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addChqbllPayrollSource" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,chqbllPayrollSource" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -101,7 +101,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addGlobalTransPoint" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,globalTransPoint" />
 						</ui:decorate>
 
 						<ui:decorate template="/basic/rowManyToOne.xhtml">
@@ -115,7 +115,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="addChqbllType" />
 							<ui:param name="controller" value="#{chqbllPayrollDetailController}" />
-							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail" />
+							<ui:param name="controllerMethodArgument" value="ChqbllPayrollDetail,chqbllType" />
 						</ui:decorate>
 
 
