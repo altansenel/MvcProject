@@ -10,9 +10,11 @@ import java.io.Serializable;
 
 //import javax.validation.constraints.* ;
 //import org.hibernate.validator.constraints.* ;
-
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
