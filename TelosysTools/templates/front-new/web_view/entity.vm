@@ -67,7 +67,7 @@
 								value="Bu alanı doldurmak zorundasınız!" />
 							<ui:param name="controllerMethod" value="add${link.formattedFieldType(0)}" />
 							<ui:param name="controller" value="#{${itemVariable}Controller}" />
-							<ui:param name="controllerMethodArgument" value="${itemVariable}" />
+							<ui:param name="controllerMethodArgument" value="${entity.name}" />
 						</ui:decorate>
 
 #end
