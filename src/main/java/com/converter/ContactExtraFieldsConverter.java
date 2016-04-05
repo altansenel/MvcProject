@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IContactExtraFieldsService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class ContactExtraFieldsConverter extends BaseConverter implements Conver
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(ContactExtraFieldsConverter.class);
 
-//	@ManagedProperty(value = "#{contactExtraFieldsService}")
-//	private IContactExtraFieldsService contactExtraFieldsService;
+	@ManagedProperty(value = "#{contactExtraFieldsService}")
+	private IContactExtraFieldsService contactExtraFieldsService;
 
-//	public void setContactExtraFieldsService(IContactExtraFieldsService contactExtraFieldsService) {
-//		this.contactExtraFieldsService = contactExtraFieldsService;
-//	}
+	public void setContactExtraFieldsService(IContactExtraFieldsService contactExtraFieldsService) {
+		this.contactExtraFieldsService = contactExtraFieldsService;
+		setEntityService(contactExtraFieldsService);
+	}
 
-//	public IContactExtraFieldsService getContactExtraFieldsService() {
-//		return contactExtraFieldsService;
-//	}
+	public IContactExtraFieldsService getContactExtraFieldsService() {
+		return contactExtraFieldsService;
+	}
 }

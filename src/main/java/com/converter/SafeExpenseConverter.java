@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.ISafeExpenseService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class SafeExpenseConverter extends BaseConverter implements Converter, Se
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(SafeExpenseConverter.class);
 
-//	@ManagedProperty(value = "#{safeExpenseService}")
-//	private ISafeExpenseService safeExpenseService;
+	@ManagedProperty(value = "#{safeExpenseService}")
+	private ISafeExpenseService safeExpenseService;
 
-//	public void setSafeExpenseService(ISafeExpenseService safeExpenseService) {
-//		this.safeExpenseService = safeExpenseService;
-//	}
+	public void setSafeExpenseService(ISafeExpenseService safeExpenseService) {
+		this.safeExpenseService = safeExpenseService;
+		setEntityService(safeExpenseService);
+	}
 
-//	public ISafeExpenseService getSafeExpenseService() {
-//		return safeExpenseService;
-//	}
+	public ISafeExpenseService getSafeExpenseService() {
+		return safeExpenseService;
+	}
 }

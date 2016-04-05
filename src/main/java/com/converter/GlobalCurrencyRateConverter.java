@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IGlobalCurrencyRateService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class GlobalCurrencyRateConverter extends BaseConverter implements Conver
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(GlobalCurrencyRateConverter.class);
 
-//	@ManagedProperty(value = "#{globalCurrencyRateService}")
-//	private IGlobalCurrencyRateService globalCurrencyRateService;
+	@ManagedProperty(value = "#{globalCurrencyRateService}")
+	private IGlobalCurrencyRateService globalCurrencyRateService;
 
-//	public void setGlobalCurrencyRateService(IGlobalCurrencyRateService globalCurrencyRateService) {
-//		this.globalCurrencyRateService = globalCurrencyRateService;
-//	}
+	public void setGlobalCurrencyRateService(IGlobalCurrencyRateService globalCurrencyRateService) {
+		this.globalCurrencyRateService = globalCurrencyRateService;
+		setEntityService(globalCurrencyRateService);
+	}
 
-//	public IGlobalCurrencyRateService getGlobalCurrencyRateService() {
-//		return globalCurrencyRateService;
-//	}
+	public IGlobalCurrencyRateService getGlobalCurrencyRateService() {
+		return globalCurrencyRateService;
+	}
 }

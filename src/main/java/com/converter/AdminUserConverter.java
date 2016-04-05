@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IAdminUserService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class AdminUserConverter extends BaseConverter implements Converter, Seri
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(AdminUserConverter.class);
 
-//	@ManagedProperty(value = "#{adminUserService}")
-//	private IAdminUserService adminUserService;
+	@ManagedProperty(value = "#{adminUserService}")
+	private IAdminUserService adminUserService;
 
-//	public void setAdminUserService(IAdminUserService adminUserService) {
-//		this.adminUserService = adminUserService;
-//	}
+	public void setAdminUserService(IAdminUserService adminUserService) {
+		this.adminUserService = adminUserService;
+		setEntityService(adminUserService);
+	}
 
-//	public IAdminUserService getAdminUserService() {
-//		return adminUserService;
-//	}
+	public IAdminUserService getAdminUserService() {
+		return adminUserService;
+	}
 }

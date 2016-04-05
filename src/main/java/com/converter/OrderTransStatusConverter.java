@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IOrderTransStatusService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class OrderTransStatusConverter extends BaseConverter implements Converte
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(OrderTransStatusConverter.class);
 
-//	@ManagedProperty(value = "#{orderTransStatusService}")
-//	private IOrderTransStatusService orderTransStatusService;
+	@ManagedProperty(value = "#{orderTransStatusService}")
+	private IOrderTransStatusService orderTransStatusService;
 
-//	public void setOrderTransStatusService(IOrderTransStatusService orderTransStatusService) {
-//		this.orderTransStatusService = orderTransStatusService;
-//	}
+	public void setOrderTransStatusService(IOrderTransStatusService orderTransStatusService) {
+		this.orderTransStatusService = orderTransStatusService;
+		setEntityService(orderTransStatusService);
+	}
 
-//	public IOrderTransStatusService getOrderTransStatusService() {
-//		return orderTransStatusService;
-//	}
+	public IOrderTransStatusService getOrderTransStatusService() {
+		return orderTransStatusService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.ISaleCampaignService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class SaleCampaignConverter extends BaseConverter implements Converter, S
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(SaleCampaignConverter.class);
 
-//	@ManagedProperty(value = "#{saleCampaignService}")
-//	private ISaleCampaignService saleCampaignService;
+	@ManagedProperty(value = "#{saleCampaignService}")
+	private ISaleCampaignService saleCampaignService;
 
-//	public void setSaleCampaignService(ISaleCampaignService saleCampaignService) {
-//		this.saleCampaignService = saleCampaignService;
-//	}
+	public void setSaleCampaignService(ISaleCampaignService saleCampaignService) {
+		this.saleCampaignService = saleCampaignService;
+		setEntityService(saleCampaignService);
+	}
 
-//	public ISaleCampaignService getSaleCampaignService() {
-//		return saleCampaignService;
-//	}
+	public ISaleCampaignService getSaleCampaignService() {
+		return saleCampaignService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IInvoiceTransDetailService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class InvoiceTransDetailConverter extends BaseConverter implements Conver
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(InvoiceTransDetailConverter.class);
 
-//	@ManagedProperty(value = "#{invoiceTransDetailService}")
-//	private IInvoiceTransDetailService invoiceTransDetailService;
+	@ManagedProperty(value = "#{invoiceTransDetailService}")
+	private IInvoiceTransDetailService invoiceTransDetailService;
 
-//	public void setInvoiceTransDetailService(IInvoiceTransDetailService invoiceTransDetailService) {
-//		this.invoiceTransDetailService = invoiceTransDetailService;
-//	}
+	public void setInvoiceTransDetailService(IInvoiceTransDetailService invoiceTransDetailService) {
+		this.invoiceTransDetailService = invoiceTransDetailService;
+		setEntityService(invoiceTransDetailService);
+	}
 
-//	public IInvoiceTransDetailService getInvoiceTransDetailService() {
-//		return invoiceTransDetailService;
-//	}
+	public IInvoiceTransDetailService getInvoiceTransDetailService() {
+		return invoiceTransDetailService;
+	}
 }

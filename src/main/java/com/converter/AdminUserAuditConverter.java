@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IAdminUserAuditService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class AdminUserAuditConverter extends BaseConverter implements Converter,
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(AdminUserAuditConverter.class);
 
-//	@ManagedProperty(value = "#{adminUserAuditService}")
-//	private IAdminUserAuditService adminUserAuditService;
+	@ManagedProperty(value = "#{adminUserAuditService}")
+	private IAdminUserAuditService adminUserAuditService;
 
-//	public void setAdminUserAuditService(IAdminUserAuditService adminUserAuditService) {
-//		this.adminUserAuditService = adminUserAuditService;
-//	}
+	public void setAdminUserAuditService(IAdminUserAuditService adminUserAuditService) {
+		this.adminUserAuditService = adminUserAuditService;
+		setEntityService(adminUserAuditService);
+	}
 
-//	public IAdminUserAuditService getAdminUserAuditService() {
-//		return adminUserAuditService;
-//	}
+	public IAdminUserAuditService getAdminUserAuditService() {
+		return adminUserAuditService;
+	}
 }

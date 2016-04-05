@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IContactService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class ContactConverter extends BaseConverter implements Converter, Serial
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(ContactConverter.class);
 
-//	@ManagedProperty(value = "#{contactService}")
-//	private IContactService contactService;
+	@ManagedProperty(value = "#{contactService}")
+	private IContactService contactService;
 
-//	public void setContactService(IContactService contactService) {
-//		this.contactService = contactService;
-//	}
+	public void setContactService(IContactService contactService) {
+		this.contactService = contactService;
+		setEntityService(contactService);
+	}
 
-//	public IContactService getContactService() {
-//		return contactService;
-//	}
+	public IContactService getContactService() {
+		return contactService;
+	}
 }

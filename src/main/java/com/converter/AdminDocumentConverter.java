@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IAdminDocumentService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class AdminDocumentConverter extends BaseConverter implements Converter, 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(AdminDocumentConverter.class);
 
-//	@ManagedProperty(value = "#{adminDocumentService}")
-//	private IAdminDocumentService adminDocumentService;
+	@ManagedProperty(value = "#{adminDocumentService}")
+	private IAdminDocumentService adminDocumentService;
 
-//	public void setAdminDocumentService(IAdminDocumentService adminDocumentService) {
-//		this.adminDocumentService = adminDocumentService;
-//	}
+	public void setAdminDocumentService(IAdminDocumentService adminDocumentService) {
+		this.adminDocumentService = adminDocumentService;
+		setEntityService(adminDocumentService);
+	}
 
-//	public IAdminDocumentService getAdminDocumentService() {
-//		return adminDocumentService;
-//	}
+	public IAdminDocumentService getAdminDocumentService() {
+		return adminDocumentService;
+	}
 }

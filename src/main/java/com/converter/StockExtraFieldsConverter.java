@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IStockExtraFieldsService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class StockExtraFieldsConverter extends BaseConverter implements Converte
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(StockExtraFieldsConverter.class);
 
-//	@ManagedProperty(value = "#{stockExtraFieldsService}")
-//	private IStockExtraFieldsService stockExtraFieldsService;
+	@ManagedProperty(value = "#{stockExtraFieldsService}")
+	private IStockExtraFieldsService stockExtraFieldsService;
 
-//	public void setStockExtraFieldsService(IStockExtraFieldsService stockExtraFieldsService) {
-//		this.stockExtraFieldsService = stockExtraFieldsService;
-//	}
+	public void setStockExtraFieldsService(IStockExtraFieldsService stockExtraFieldsService) {
+		this.stockExtraFieldsService = stockExtraFieldsService;
+		setEntityService(stockExtraFieldsService);
+	}
 
-//	public IStockExtraFieldsService getStockExtraFieldsService() {
-//		return stockExtraFieldsService;
-//	}
+	public IStockExtraFieldsService getStockExtraFieldsService() {
+		return stockExtraFieldsService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IChqbllPayrollService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class ChqbllPayrollConverter extends BaseConverter implements Converter, 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(ChqbllPayrollConverter.class);
 
-//	@ManagedProperty(value = "#{chqbllPayrollService}")
-//	private IChqbllPayrollService chqbllPayrollService;
+	@ManagedProperty(value = "#{chqbllPayrollService}")
+	private IChqbllPayrollService chqbllPayrollService;
 
-//	public void setChqbllPayrollService(IChqbllPayrollService chqbllPayrollService) {
-//		this.chqbllPayrollService = chqbllPayrollService;
-//	}
+	public void setChqbllPayrollService(IChqbllPayrollService chqbllPayrollService) {
+		this.chqbllPayrollService = chqbllPayrollService;
+		setEntityService(chqbllPayrollService);
+	}
 
-//	public IChqbllPayrollService getChqbllPayrollService() {
-//		return chqbllPayrollService;
-//	}
+	public IChqbllPayrollService getChqbllPayrollService() {
+		return chqbllPayrollService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IStockCostingInventoryService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class StockCostingInventoryConverter extends BaseConverter implements Con
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(StockCostingInventoryConverter.class);
 
-//	@ManagedProperty(value = "#{stockCostingInventoryService}")
-//	private IStockCostingInventoryService stockCostingInventoryService;
+	@ManagedProperty(value = "#{stockCostingInventoryService}")
+	private IStockCostingInventoryService stockCostingInventoryService;
 
-//	public void setStockCostingInventoryService(IStockCostingInventoryService stockCostingInventoryService) {
-//		this.stockCostingInventoryService = stockCostingInventoryService;
-//	}
+	public void setStockCostingInventoryService(IStockCostingInventoryService stockCostingInventoryService) {
+		this.stockCostingInventoryService = stockCostingInventoryService;
+		setEntityService(stockCostingInventoryService);
+	}
 
-//	public IStockCostingInventoryService getStockCostingInventoryService() {
-//		return stockCostingInventoryService;
-//	}
+	public IStockCostingInventoryService getStockCostingInventoryService() {
+		return stockCostingInventoryService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IStockCategoryService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class StockCategoryConverter extends BaseConverter implements Converter, 
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(StockCategoryConverter.class);
 
-//	@ManagedProperty(value = "#{stockCategoryService}")
-//	private IStockCategoryService stockCategoryService;
+	@ManagedProperty(value = "#{stockCategoryService}")
+	private IStockCategoryService stockCategoryService;
 
-//	public void setStockCategoryService(IStockCategoryService stockCategoryService) {
-//		this.stockCategoryService = stockCategoryService;
-//	}
+	public void setStockCategoryService(IStockCategoryService stockCategoryService) {
+		this.stockCategoryService = stockCategoryService;
+		setEntityService(stockCategoryService);
+	}
 
-//	public IStockCategoryService getStockCategoryService() {
-//		return stockCategoryService;
-//	}
+	public IStockCategoryService getStockCategoryService() {
+		return stockCategoryService;
+	}
 }

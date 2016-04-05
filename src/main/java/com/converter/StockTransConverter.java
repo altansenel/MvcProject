@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IStockTransService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class StockTransConverter extends BaseConverter implements Converter, Ser
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(StockTransConverter.class);
 
-//	@ManagedProperty(value = "#{stockTransService}")
-//	private IStockTransService stockTransService;
+	@ManagedProperty(value = "#{stockTransService}")
+	private IStockTransService stockTransService;
 
-//	public void setStockTransService(IStockTransService stockTransService) {
-//		this.stockTransService = stockTransService;
-//	}
+	public void setStockTransService(IStockTransService stockTransService) {
+		this.stockTransService = stockTransService;
+		setEntityService(stockTransService);
+	}
 
-//	public IStockTransService getStockTransService() {
-//		return stockTransService;
-//	}
+	public IStockTransService getStockTransService() {
+		return stockTransService;
+	}
 }

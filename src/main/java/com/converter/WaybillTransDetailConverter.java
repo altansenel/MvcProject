@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IWaybillTransDetailService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class WaybillTransDetailConverter extends BaseConverter implements Conver
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(WaybillTransDetailConverter.class);
 
-//	@ManagedProperty(value = "#{waybillTransDetailService}")
-//	private IWaybillTransDetailService waybillTransDetailService;
+	@ManagedProperty(value = "#{waybillTransDetailService}")
+	private IWaybillTransDetailService waybillTransDetailService;
 
-//	public void setWaybillTransDetailService(IWaybillTransDetailService waybillTransDetailService) {
-//		this.waybillTransDetailService = waybillTransDetailService;
-//	}
+	public void setWaybillTransDetailService(IWaybillTransDetailService waybillTransDetailService) {
+		this.waybillTransDetailService = waybillTransDetailService;
+		setEntityService(waybillTransDetailService);
+	}
 
-//	public IWaybillTransDetailService getWaybillTransDetailService() {
-//		return waybillTransDetailService;
-//	}
+	public IWaybillTransDetailService getWaybillTransDetailService() {
+		return waybillTransDetailService;
+	}
 }

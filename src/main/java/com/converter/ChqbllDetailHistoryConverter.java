@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IChqbllDetailHistoryService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class ChqbllDetailHistoryConverter extends BaseConverter implements Conve
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(ChqbllDetailHistoryConverter.class);
 
-//	@ManagedProperty(value = "#{chqbllDetailHistoryService}")
-//	private IChqbllDetailHistoryService chqbllDetailHistoryService;
+	@ManagedProperty(value = "#{chqbllDetailHistoryService}")
+	private IChqbllDetailHistoryService chqbllDetailHistoryService;
 
-//	public void setChqbllDetailHistoryService(IChqbllDetailHistoryService chqbllDetailHistoryService) {
-//		this.chqbllDetailHistoryService = chqbllDetailHistoryService;
-//	}
+	public void setChqbllDetailHistoryService(IChqbllDetailHistoryService chqbllDetailHistoryService) {
+		this.chqbllDetailHistoryService = chqbllDetailHistoryService;
+		setEntityService(chqbllDetailHistoryService);
+	}
 
-//	public IChqbllDetailHistoryService getChqbllDetailHistoryService() {
-//		return chqbllDetailHistoryService;
-//	}
+	public IChqbllDetailHistoryService getChqbllDetailHistoryService() {
+		return chqbllDetailHistoryService;
+	}
 }

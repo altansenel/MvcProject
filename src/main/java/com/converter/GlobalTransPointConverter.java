@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IGlobalTransPointService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class GlobalTransPointConverter extends BaseConverter implements Converte
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(GlobalTransPointConverter.class);
 
-//	@ManagedProperty(value = "#{globalTransPointService}")
-//	private IGlobalTransPointService globalTransPointService;
+	@ManagedProperty(value = "#{globalTransPointService}")
+	private IGlobalTransPointService globalTransPointService;
 
-//	public void setGlobalTransPointService(IGlobalTransPointService globalTransPointService) {
-//		this.globalTransPointService = globalTransPointService;
-//	}
+	public void setGlobalTransPointService(IGlobalTransPointService globalTransPointService) {
+		this.globalTransPointService = globalTransPointService;
+		setEntityService(globalTransPointService);
+	}
 
-//	public IGlobalTransPointService getGlobalTransPointService() {
-//		return globalTransPointService;
-//	}
+	public IGlobalTransPointService getGlobalTransPointService() {
+		return globalTransPointService;
+	}
 }

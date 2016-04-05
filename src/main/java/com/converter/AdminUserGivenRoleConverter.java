@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IAdminUserGivenRoleService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class AdminUserGivenRoleConverter extends BaseConverter implements Conver
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(AdminUserGivenRoleConverter.class);
 
-//	@ManagedProperty(value = "#{adminUserGivenRoleService}")
-//	private IAdminUserGivenRoleService adminUserGivenRoleService;
+	@ManagedProperty(value = "#{adminUserGivenRoleService}")
+	private IAdminUserGivenRoleService adminUserGivenRoleService;
 
-//	public void setAdminUserGivenRoleService(IAdminUserGivenRoleService adminUserGivenRoleService) {
-//		this.adminUserGivenRoleService = adminUserGivenRoleService;
-//	}
+	public void setAdminUserGivenRoleService(IAdminUserGivenRoleService adminUserGivenRoleService) {
+		this.adminUserGivenRoleService = adminUserGivenRoleService;
+		setEntityService(adminUserGivenRoleService);
+	}
 
-//	public IAdminUserGivenRoleService getAdminUserGivenRoleService() {
-//		return adminUserGivenRoleService;
-//	}
+	public IAdminUserGivenRoleService getAdminUserGivenRoleService() {
+		return adminUserGivenRoleService;
+	}
 }

@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IBankService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class BankConverter extends BaseConverter implements Converter, Serializa
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(BankConverter.class);
 
-//	@ManagedProperty(value = "#{bankService}")
-//	private IBankService bankService;
+	@ManagedProperty(value = "#{bankService}")
+	private IBankService bankService;
 
-//	public void setBankService(IBankService bankService) {
-//		this.bankService = bankService;
-//	}
+	public void setBankService(IBankService bankService) {
+		this.bankService = bankService;
+		setEntityService(bankService);
+	}
 
-//	public IBankService getBankService() {
-//		return bankService;
-//	}
+	public IBankService getBankService() {
+		return bankService;
+	}
 }

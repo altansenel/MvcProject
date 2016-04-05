@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.IGlobalPrivateCodeService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class GlobalPrivateCodeConverter extends BaseConverter implements Convert
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(GlobalPrivateCodeConverter.class);
 
-//	@ManagedProperty(value = "#{globalPrivateCodeService}")
-//	private IGlobalPrivateCodeService globalPrivateCodeService;
+	@ManagedProperty(value = "#{globalPrivateCodeService}")
+	private IGlobalPrivateCodeService globalPrivateCodeService;
 
-//	public void setGlobalPrivateCodeService(IGlobalPrivateCodeService globalPrivateCodeService) {
-//		this.globalPrivateCodeService = globalPrivateCodeService;
-//	}
+	public void setGlobalPrivateCodeService(IGlobalPrivateCodeService globalPrivateCodeService) {
+		this.globalPrivateCodeService = globalPrivateCodeService;
+		setEntityService(globalPrivateCodeService);
+	}
 
-//	public IGlobalPrivateCodeService getGlobalPrivateCodeService() {
-//		return globalPrivateCodeService;
-//	}
+	public IGlobalPrivateCodeService getGlobalPrivateCodeService() {
+		return globalPrivateCodeService;
+	}
 }

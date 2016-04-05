@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.convert.Converter;
+import com.dao.ISafeTransService;
 
 import org.apache.log4j.Logger;
 
@@ -19,14 +20,15 @@ public class SafeTransConverter extends BaseConverter implements Converter, Seri
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(SafeTransConverter.class);
 
-//	@ManagedProperty(value = "#{safeTransService}")
-//	private ISafeTransService safeTransService;
+	@ManagedProperty(value = "#{safeTransService}")
+	private ISafeTransService safeTransService;
 
-//	public void setSafeTransService(ISafeTransService safeTransService) {
-//		this.safeTransService = safeTransService;
-//	}
+	public void setSafeTransService(ISafeTransService safeTransService) {
+		this.safeTransService = safeTransService;
+		setEntityService(safeTransService);
+	}
 
-//	public ISafeTransService getSafeTransService() {
-//		return safeTransService;
-//	}
+	public ISafeTransService getSafeTransService() {
+		return safeTransService;
+	}
 }
