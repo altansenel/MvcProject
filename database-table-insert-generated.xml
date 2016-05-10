@@ -1,0 +1,581 @@
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminDocumentList','AdminDocumentList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINDOCUMENT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTFIELD_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTFIELD_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTFIELD_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTFIELD_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminDocumentFieldList','AdminDocumentFieldList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINDOCUMENTFIELD_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTTARGET_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTTARGET_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTTARGET_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINDOCUMENTTARGET_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminDocumentTargetList','AdminDocumentTargetList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINDOCUMENTTARGET_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINEXTRAFIELDS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINEXTRAFIELDS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINEXTRAFIELDS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINEXTRAFIELDS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminExtraFieldsList','AdminExtraFieldsList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINEXTRAFIELDS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINSETTING_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINSETTING_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINSETTING_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINSETTING_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminSettingList','AdminSettingList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINSETTING_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSER_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSER_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSER_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSER_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserList','AdminUserList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSER_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERAUDIT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERAUDIT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERAUDIT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERAUDIT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserAuditList','AdminUserAuditList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSERAUDIT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGIVENROLE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGIVENROLE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGIVENROLE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGIVENROLE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserGivenRoleList','AdminUserGivenRoleList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSERGIVENROLE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGROUP_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGROUP_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGROUP_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERGROUP_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserGroupList','AdminUserGroupList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSERGROUP_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERRIGHT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERRIGHT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERRIGHT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERRIGHT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserRightList','AdminUserRightList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSERRIGHT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERROLE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERROLE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERROLE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINUSERROLE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminUserRoleList','AdminUserRoleList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINUSERROLE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ADMINWORKSPACE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ADMINWORKSPACE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ADMINWORKSPACE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ADMINWORKSPACE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('AdminWorkspaceList','AdminWorkspaceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ADMINWORKSPACE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_BANK_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_BANK_ADD');
+insert into PERMISSIONS (name) values ('ROLE_BANK_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_BANK_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('BankList','BankList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_BANK_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_BANKEXPENSE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_BANKEXPENSE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_BANKEXPENSE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_BANKEXPENSE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('BankExpenseList','BankExpenseList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_BANKEXPENSE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('BankTransList','BankTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_BANKTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_BANKTRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('BankTransSourceList','BankTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_BANKTRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILHISTORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILHISTORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILHISTORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILHISTORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllDetailHistoryList','ChqbllDetailHistoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLDETAILHISTORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILPARTIAL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILPARTIAL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILPARTIAL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLDETAILPARTIAL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllDetailPartialList','ChqbllDetailPartialList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLDETAILPARTIAL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllPayrollList','ChqbllPayrollList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLPAYROLL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllPayrollDetailList','ChqbllPayrollDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLPAYROLLDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLPAYROLLSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllPayrollSourceList','ChqbllPayrollSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLPAYROLLSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllTransList','ChqbllTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANSDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANSDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANSDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTRANSDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllTransDetailList','ChqbllTransDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLTRANSDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTYPE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTYPE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTYPE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CHQBLLTYPE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ChqbllTypeList','ChqbllTypeList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CHQBLLTYPE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CONTACT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CONTACT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CONTACT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CONTACT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ContactList','ContactList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CONTACT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CONTACTCATEGORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTCATEGORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTCATEGORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTCATEGORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ContactCategoryList','ContactCategoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CONTACTCATEGORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CONTACTEXTRAFIELDS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTEXTRAFIELDS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTEXTRAFIELDS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTEXTRAFIELDS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ContactExtraFieldsList','ContactExtraFieldsList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CONTACTEXTRAFIELDS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ContactTransList','ContactTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CONTACTTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_CONTACTTRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('ContactTransSourceList','ContactTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_CONTACTTRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalCurrencyList','GlobalCurrencyList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALCURRENCY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalCurrencyRateList','GlobalCurrencyRateList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALCURRENCYRATE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATEDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATEDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATEDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALCURRENCYRATEDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalCurrencyRateDetailList','GlobalCurrencyRateDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALCURRENCYRATEDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPRIVATECODE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPRIVATECODE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPRIVATECODE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPRIVATECODE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalPrivateCodeList','GlobalPrivateCodeList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALPRIVATECODE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPROFILE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPROFILE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPROFILE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALPROFILE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalProfileList','GlobalProfileList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALPROFILE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_GLOBALTRANSPOINT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALTRANSPOINT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALTRANSPOINT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_GLOBALTRANSPOINT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('GlobalTransPointList','GlobalTransPointList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_GLOBALTRANSPOINT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransList','InvoiceTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSCURRENCY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSCURRENCY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSCURRENCY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSCURRENCY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransCurrencyList','InvoiceTransCurrencyList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSCURRENCY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransDetailList','InvoiceTransDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSFACTOR_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSFACTOR_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSFACTOR_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSFACTOR_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransFactorList','InvoiceTransFactorList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSFACTOR_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSRELATION_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSRELATION_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSRELATION_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSRELATION_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransRelationList','InvoiceTransRelationList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSRELATION_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransSourceList','InvoiceTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransStatusList','InvoiceTransStatusList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSSTATUS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUSHISTORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUSHISTORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUSHISTORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSSTATUSHISTORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransStatusHistoryList','InvoiceTransStatusHistoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSSTATUSHISTORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSTAX_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSTAX_ADD');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSTAX_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_INVOICETRANSTAX_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('InvoiceTransTaxList','InvoiceTransTaxList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_INVOICETRANSTAX_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransList','OrderTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransDetailList','OrderTransDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANSDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSFACTOR_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSFACTOR_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSFACTOR_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSFACTOR_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransFactorList','OrderTransFactorList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANSFACTOR_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransSourceList','OrderTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransStatusList','OrderTransStatusList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANSSTATUS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUSHISTORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUSHISTORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUSHISTORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_ORDERTRANSSTATUSHISTORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('OrderTransStatusHistoryList','OrderTransStatusHistoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_ORDERTRANSSTATUSHISTORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SAFE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SAFE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SAFE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SAFE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SafeList','SafeList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SAFE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SAFEEXPENSE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SAFEEXPENSE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SAFEEXPENSE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SAFEEXPENSE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SafeExpenseList','SafeExpenseList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SAFEEXPENSE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SafeTransList','SafeTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SAFETRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SAFETRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SafeTransSourceList','SafeTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SAFETRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SALECAMPAIGN_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SALECAMPAIGN_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SALECAMPAIGN_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SALECAMPAIGN_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SaleCampaignList','SaleCampaignList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SALECAMPAIGN_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_SALESELLER_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_SALESELLER_ADD');
+insert into PERMISSIONS (name) values ('ROLE_SALESELLER_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_SALESELLER_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('SaleSellerList','SaleSellerList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_SALESELLER_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCK_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCK_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCK_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCK_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockList','StockList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCK_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKBARCODE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKBARCODE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKBARCODE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKBARCODE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockBarcodeList','StockBarcodeList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKBARCODE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKCATEGORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCATEGORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCATEGORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCATEGORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockCategoryList','StockCategoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKCATEGORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTFACTOR_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTFACTOR_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTFACTOR_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTFACTOR_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockCostFactorList','StockCostFactorList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKCOSTFACTOR_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTING_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTING_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTING_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTING_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockCostingList','StockCostingList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKCOSTING_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockCostingDetailList','StockCostingDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKCOSTINGDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGINVENTORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGINVENTORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGINVENTORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKCOSTINGINVENTORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockCostingInventoryList','StockCostingInventoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKCOSTINGINVENTORY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKDEPOT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKDEPOT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKDEPOT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKDEPOT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockDepotList','StockDepotList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKDEPOT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKEXTRAFIELDS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKEXTRAFIELDS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKEXTRAFIELDS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKEXTRAFIELDS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockExtraFieldsList','StockExtraFieldsList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKEXTRAFIELDS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICELIST_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICELIST_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICELIST_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICELIST_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockPriceListList','StockPriceListList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKPRICELIST_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockPriceUpdateList','StockPriceUpdateList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKPRICEUPDATE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATEDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATEDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATEDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKPRICEUPDATEDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockPriceUpdateDetailList','StockPriceUpdateDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKPRICEUPDATEDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransList','StockTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSCURRENCY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSCURRENCY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSCURRENCY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSCURRENCY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransCurrencyList','StockTransCurrencyList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANSCURRENCY_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransDetailList','StockTransDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANSDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSFACTOR_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSFACTOR_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSFACTOR_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSFACTOR_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransFactorList','StockTransFactorList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANSFACTOR_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransSourceList','StockTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSTAX_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSTAX_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSTAX_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKTRANSTAX_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockTransTaxList','StockTransTaxList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKTRANSTAX_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_STOCKUNIT_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_STOCKUNIT_ADD');
+insert into PERMISSIONS (name) values ('ROLE_STOCKUNIT_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_STOCKUNIT_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('StockUnitList','StockUnitList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_STOCKUNIT_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_TEMPCONTACTAGING_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_TEMPCONTACTAGING_ADD');
+insert into PERMISSIONS (name) values ('ROLE_TEMPCONTACTAGING_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_TEMPCONTACTAGING_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('TempContactAgingList','TempContactAgingList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_TEMPCONTACTAGING_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransList','WaybillTransList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSDETAIL_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSDETAIL_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSDETAIL_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSDETAIL_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransDetailList','WaybillTransDetailList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSDETAIL_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSFACTOR_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSFACTOR_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSFACTOR_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSFACTOR_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransFactorList','WaybillTransFactorList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSFACTOR_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSRELATION_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSRELATION_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSRELATION_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSRELATION_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransRelationList','WaybillTransRelationList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSRELATION_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSOURCE_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSOURCE_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSOURCE_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSOURCE_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransSourceList','WaybillTransSourceList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSSOURCE_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUS_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUS_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUS_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUS_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransStatusList','WaybillTransStatusList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSSTATUS_VIEW'),5,0);
+
+
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUSHISTORY_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUSHISTORY_ADD');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUSHISTORY_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_WAYBILLTRANSSTATUSHISTORY_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('WaybillTransStatusHistoryList','WaybillTransStatusHistoryList.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_WAYBILLTRANSSTATUSHISTORY_VIEW'),5,0);
+

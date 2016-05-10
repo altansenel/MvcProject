@@ -1,0 +1,9 @@
+#foreach($entity in $selectedEntities)
+
+insert into PERMISSIONS (name) values ('ROLE_$fn.toUpperCase($entity.name)_VIEW');
+insert into PERMISSIONS (name) values ('ROLE_$fn.toUpperCase($entity.name)_ADD');
+insert into PERMISSIONS (name) values ('ROLE_$fn.toUpperCase($entity.name)_EDIT');
+insert into PERMISSIONS (name) values ('ROLE_$fn.toUpperCase($entity.name)_REMOVE');
+insert into MENU (name,link,sira,permission_id,parent_id,version) VALUES ('${entity.name}List','${entity.name}List.xhtml',11,(select id from PERMISSIONS where name = 'ROLE_$fn.toUpperCase($entity.name)_VIEW'),5,0);
+
+#end
