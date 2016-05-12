@@ -18,7 +18,7 @@ alter table ${entity.databaseTable} drop version;
 #end
 ###if ($exists2)
 ##alter table ${entity.databaseTable} drop id;
-#end
+###end
 alter table ${entity.databaseTable} add version int(11) default 0;
 ##alter table ${entity.databaseTable} add id int(11) PRIMARY KEY;
 create table ${entity.databaseTable}_v as select * from ${entity.databaseTable} where id=0;

@@ -1,0 +1,11 @@
+#foreach($entity in $selectedEntities)
+	<sec:intercept-url pattern="/${entity.name}List**"
+		access="hasAnyRole('ROLE_$fn.toUpperCase($entity.name)_VIEW','ROLE_ADMIN')" />
+	<sec:intercept-url pattern="/${entity.name}**"
+		access="hasAnyRole('ROLE_$fn.toUpperCase($entity.name)_ADD','ROLE_$fn.toUpperCase($entity.name)_EDIT','ROLE_ADMIN')" />
+#end	
+
+
+
+
+
